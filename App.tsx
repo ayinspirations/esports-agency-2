@@ -6,7 +6,7 @@ import { SocialProof } from './components/SocialProof';
 import { ProblemSolution } from './components/ProblemSolution';
 import { ScrollTextSection } from './components/ScrollTextSection';
 import { Competencies } from './components/Competencies';
-import { FloatingServices } from './components/FloatingServices';
+import { BestCases } from './components/BestCases';
 import { StickyScrollTransition } from './components/StickyScrollTransition';
 import { ContactForm } from './components/ContactForm';
 import { BlogSection } from './components/BlogSection';
@@ -14,44 +14,52 @@ import { Footer } from './components/Footer';
 import { ServicesDetail } from './components/ServicesDetail';
 
 export default function App() {
-  const [activePage, setActivePage] = useState<'home' | 'services'>(() => {
-    const hash = window.location.hash;
-    return hash === '#services' ? 'services' : 'home';
-  });
-
-  const navigateTo = (page: 'home' | 'services') => {
-    if (activePage === page) {
-      // If already on the page, scroll to top smoothly
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else {
-      // If switching pages, jump to top instantly
-      setActivePage(page);
-      window.scrollTo(0, 0);
-      // Update hash without triggering reload
-      const newHash = page === 'home' ? '#home' : '#services';
-      window.history.pushState(null, '', newHash);
-    }
-  };
+  const [activePage, setActivePage] = useState<'home' | 'services'>('home');
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
+    setIsMounted(true);
+    
+    // Initial sync
+    const hash = window.location.hash;
+    if (hash === '#services') {
+      setActivePage('services');
+    } else {
+      setActivePage('home');
+      if (hash !== '#home' && hash !== '') {
+        window.history.replaceState(null, '', '#home');
+      }
+    }
+
     const handleHashChange = () => {
-      const hash = window.location.hash;
-      if (hash === '#services' && activePage !== 'services') {
+      const currentHash = window.location.hash;
+      if (currentHash === '#services') {
         setActivePage('services');
         window.scrollTo(0, 0);
-      } else if ((hash === '#home' || !hash || hash === '#') && activePage !== 'home') {
+      } else {
         setActivePage('home');
         window.scrollTo(0, 0);
       }
     };
 
     window.addEventListener('hashchange', handleHashChange);
-    // Ensure we start at top on first load if no hash
-    if (!window.location.hash) {
-      window.scrollTo(0, 0);
-    }
     return () => window.removeEventListener('hashchange', handleHashChange);
-  }, [activePage]);
+  }, []);
+
+  const navigateTo = (page: 'home' | 'services') => {
+    if (activePage === page) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      setActivePage(page);
+      window.scrollTo(0, 0);
+      const newHash = page === 'home' ? '#home' : '#services';
+      window.history.pushState(null, '', newHash);
+    }
+  };
+
+  if (!isMounted) {
+    return <div className="min-h-screen bg-[#d1dbd2]" />;
+  }
 
   return (
     <div className="relative min-h-screen selection:bg-emerald-500 selection:text-white bg-[#d1dbd2]">
@@ -61,16 +69,24 @@ export default function App() {
       
       <main className="relative z-10 flex flex-col gap-0 pb-10">
         {activePage === 'home' ? (
-          <div className="flex flex-col gap-12 md:gap-24 lg:gap-32">
-            <Hero onNavigate={navigateTo} />
-            <SocialProof />
-            <ProblemSolution onNavigate={navigateTo} />
-            <Competencies onNavigate={navigateTo} />
-            <StickyScrollTransition onNavigate={navigateTo} />
-            <ScrollTextSection />
-            <FloatingServices onNavigate={navigateTo} />
-            <BlogSection onNavigate={navigateTo} />
-            <ContactForm />
+          <div className="flex flex-col">
+            <div className="mb-32 md:mb-44 lg:mb-56">
+              <Hero onNavigate={navigateTo} />
+            </div>
+            
+            <div className="mb-32 md:mb-44 lg:mb-56">
+              <SocialProof />
+            </div>
+
+            <div className="flex flex-col gap-16 md:gap-20 lg:gap-24">
+              <ProblemSolution onNavigate={navigateTo} />
+              <Competencies onNavigate={navigateTo} />
+              <StickyScrollTransition onNavigate={navigateTo} />
+              <ScrollTextSection />
+              <BestCases />
+              <BlogSection onNavigate={navigateTo} />
+              <ContactForm />
+            </div>
           </div>
         ) : (
           <ServicesDetail onNavigate={navigateTo} />
