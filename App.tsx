@@ -1,0 +1,124 @@
+
+import React, { useState, useEffect } from 'react';
+import { Navbar } from './components/Navbar';
+import { Hero } from './components/Hero';
+import { SocialProof } from './components/SocialProof';
+import { ProblemSolution } from './components/ProblemSolution';
+import { ScrollTextSection } from './components/ScrollTextSection';
+import { Competencies } from './components/Competencies';
+import { BestCases } from './components/BestCases';
+import { WhyUs } from './components/WhyUs';
+import { ContactForm } from './components/ContactForm';
+import { Footer } from './components/Footer';
+import { ServicesDetail } from './components/ServicesDetail';
+import { ScrollToCasesCTA } from './components/ScrollToCasesCTA';
+import { LegalPage } from './components/LegalPage';
+
+type Page = 'home' | 'services' | 'impressum' | 'privacy';
+
+export default function App() {
+  const [activePage, setActivePage] = useState<Page>('home');
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+    
+    const handleHashChange = () => {
+      // Fix: Retain string type for currentHash to safely compare against empty string and valid pages
+      const currentHash = window.location.hash.replace('#', '');
+      const validPages: string[] = ['home', 'services', 'impressum', 'privacy'];
+      
+      if (validPages.includes(currentHash)) {
+        setActivePage(currentHash as Page);
+        window.scrollTo(0, 0);
+      } else if (currentHash === '') {
+        setActivePage('home');
+        window.scrollTo(0, 0);
+      }
+    };
+
+    handleHashChange();
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
+  const navigateTo = (page: Page) => {
+    setActivePage(page);
+    window.scrollTo(0, 0);
+    window.history.pushState(null, '', `#${page}`);
+  };
+
+  const scrollToSection = (id: string) => {
+    if (activePage !== 'home') {
+      setActivePage('home');
+      window.history.pushState(null, '', '#home');
+      
+      requestAnimationFrame(() => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    } else {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  };
+
+  if (!isMounted) {
+    return <div className="min-h-screen bg-[#d1dbd2]" />;
+  }
+
+  const baseTransition = "pt-16 md:pt-24";
+  const standardSectionPadding = "py-24 md:py-32";
+
+  return (
+    <div className="relative min-h-screen selection:bg-emerald-500 selection:text-white bg-[#d1dbd2]">
+      <div className="noise fixed inset-0 z-50 pointer-events-none" />
+      
+      <Navbar onNavigate={navigateTo} scrollToSection={scrollToSection} activePage={activePage === 'services' ? 'services' : 'home'} />
+      
+      <main className="relative z-10 flex flex-col gap-0 pb-10">
+        {activePage === 'home' && (
+          <div className="flex flex-col">
+            <Hero onNavigate={navigateTo} scrollToSection={scrollToSection} />
+            <div className={baseTransition}>
+              <SocialProof />
+            </div>
+            <div className={baseTransition}>
+              <ScrollToCasesCTA onScroll={scrollToSection} />
+            </div>
+            <div className={baseTransition}>
+              <div className={standardSectionPadding}>
+                <ProblemSolution onNavigate={navigateTo} scrollToSection={scrollToSection} />
+              </div>
+            </div>
+            <div className="py-16 md:py-24">
+              <ScrollTextSection />
+            </div>
+            <div className={standardSectionPadding}>
+              <Competencies onNavigate={navigateTo} />
+            </div>
+            <div className={`${standardSectionPadding} px-6 md:px-14`}>
+              <WhyUs />
+            </div>
+            <div className={standardSectionPadding} id="best-cases-container">
+              <BestCases onScroll={scrollToSection} />
+            </div>
+            <div className={standardSectionPadding} id="contact-section">
+              <ContactForm />
+            </div>
+          </div>
+        )}
+
+        {activePage === 'services' && <ServicesDetail onNavigate={navigateTo} />}
+        {activePage === 'impressum' && <LegalPage type="impressum" />}
+        {activePage === 'privacy' && <LegalPage type="privacy" />}
+      </main>
+
+      <Footer onNavigate={navigateTo} scrollToSection={scrollToSection} />
+    </div>
+  );
+}

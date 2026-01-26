@@ -1,0 +1,117 @@
+
+import React, { useEffect, useRef, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Loader2, CheckCircle2 } from 'lucide-react';
+
+declare global {
+  interface Window {
+    hbspt: any;
+  }
+}
+
+export const HubSpotForm: React.FC = () => {
+  const [status, setStatus] = useState<'loading' | 'ready' | 'error' | 'submitted'>('loading');
+  const initializedRef = useRef(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const loadHubSpotScript = () => {
+    return new Promise((resolve, reject) => {
+      if (window.hbspt) {
+        resolve(window.hbspt);
+        return;
+      }
+      const script = document.createElement('script');
+      script.src = 'https://js-eu1.hsforms.net/forms/v2.js';
+      script.type = 'text/javascript';
+      script.async = true;
+      script.onload = () => {
+        if (window.hbspt) resolve(window.hbspt);
+        else reject(new Error('hbspt not found'));
+      };
+      script.onerror = () => reject(new Error('Script blocked'));
+      document.head.appendChild(script);
+    });
+  };
+
+  const createForm = () => {
+    if (!window.hbspt || initializedRef.current) return;
+    
+    try {
+      initializedRef.current = true;
+      window.hbspt.forms.create({
+        region: "eu1",
+        portalId: "144588019",
+        formId: "1100960a-23d3-4104-9ba4-03dcd952f909",
+        target: '#hs_form_target',
+        css: '',
+        onFormReady: () => setStatus('ready'),
+        onFormSubmitted: () => setStatus('submitted'),
+      });
+    } catch (err) {
+      console.warn('HubSpot could not be initialized (likely AdBlock)');
+      setStatus('error');
+    }
+  };
+
+  useEffect(() => {
+    let isMounted = true;
+    const init = async () => {
+      try {
+        await loadHubSpotScript();
+        if (isMounted) setTimeout(createForm, 100);
+      } catch (err) {
+        if (isMounted) setStatus('error');
+      }
+    };
+    
+    const timeout = setTimeout(() => {
+      if (status === 'loading' && isMounted) setStatus('error');
+    }, 10000);
+
+    init();
+    return () => {
+      isMounted = false;
+      clearTimeout(timeout);
+    };
+  }, []);
+
+  return (
+    <div className="relative min-h-[400px] w-full">
+      <AnimatePresence mode="wait">
+        {status === 'loading' && (
+          <motion.div 
+            key="loading"
+            initial={{ opacity: 0 }} 
+            animate={{ opacity: 1 }} 
+            exit={{ opacity: 0 }}
+            className="absolute inset-0 flex flex-col items-center justify-center py-20"
+          >
+            <Loader2 className="w-12 h-12 text-emerald-600 animate-spin mb-4" />
+            <p className="text-slate-900 font-black uppercase tracking-widest text-xs">Lade Formular...</p>
+          </motion.div>
+        )}
+
+        {status === 'submitted' && (
+          <motion.div 
+            key="success"
+            initial={{ opacity: 0, scale: 0.9 }} 
+            animate={{ opacity: 1, scale: 1 }}
+            className="text-center py-20"
+          >
+            <div className="w-24 h-24 bg-emerald-500 rounded-full flex items-center justify-center mx-auto mb-8 shadow-2xl">
+              <CheckCircle2 className="w-12 h-12 text-white" />
+            </div>
+            <h3 className="text-4xl font-black mb-4 text-slate-900 tracking-tighter">Vielen Dank!</h3>
+            <p className="text-slate-600 font-bold text-xl">Wir melden uns in Kürze.</p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <div 
+        className={`hs-form-wrapper ${status === 'ready' || status === 'error' ? 'opacity-100 h-auto' : 'opacity-0 h-0 overflow-hidden'}`}
+      >
+        <div id="hs_form_target" ref={containerRef} className="w-full"></div>
+      </div>
+    </div>
+  );
+};

@@ -1,0 +1,138 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #d1dbd2;
+    color: #000000;
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+  .glass {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .noise {
+    background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+    opacity: 0.05;
+    pointer-events: none;
+  }
+}
+
+/* HubSpot Form - PRECISE DARK THEME INTEGRATION (Since the box is now like Hero) */
+.hs-form-wrapper {
+  @apply w-full;
+}
+
+.hs-form {
+  @apply space-y-8 !important;
+  width: 100% !important;
+}
+
+/* 2-Spalten-Layout für Desktop */
+@media (min-width: 768px) {
+  .hs-form fieldset {
+    @apply max-w-none grid grid-cols-2 gap-8 mb-0 !important;
+  }
+  .hs-form fieldset[class*="form-columns-1"],
+  .hs-form .hs-fieldtype-textarea,
+  .hs-form .hs-fieldtype-checkbox,
+  .hs-form .hs-richtext,
+  .hs-form .hs-fieldtype-captcha,
+  .hs-form .legal-consent-container {
+    @apply grid-cols-1 !important;
+  }
+}
+
+/* Labels: Weiß auf dem dunklen Hero-Hintergrund */
+.hs-form .hs-form-field label:not(.hs-error-msg) {
+  @apply block text-[11px] font-black uppercase tracking-[0.25em] text-white/60 mb-3 ml-2 !important;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Inputs: Sauberer Kontrast im Dunkel-Modus */
+.hs-form .hs-input:not([type="checkbox"]):not([type="radio"]) {
+  @apply w-full bg-white/5 border-2 border-white/10 rounded-2xl px-6 py-5 focus:outline-none focus:ring-8 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all font-bold text-white text-lg !important;
+  box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5) !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+.hs-form .hs-input::placeholder {
+  @apply text-white/20 font-medium !important;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.hs-form textarea.hs-input {
+  @apply min-h-[160px] resize-none !important;
+}
+
+/* Fehlermeldungen: Deutliches Rot */
+.hs-form .hs-error-msgs {
+  @apply list-none p-0 mt-3 !important;
+}
+.hs-form .hs-error-msgs label {
+  @apply text-rose-500 text-[11px] font-black tracking-tight ml-4 block !important;
+  -webkit-text-fill-color: #f43f5e !important;
+}
+
+/* Checkboxen & Beschreibungen (Heller Text) */
+.hs-form .hs-fieldtype-checkbox {
+  @apply mt-6 !important;
+}
+
+.hs-form .hs-fieldtype-checkbox .hs-input {
+  @apply w-7 h-7 rounded-lg border-2 border-white/10 text-emerald-500 focus:ring-emerald-500 cursor-pointer bg-white/5 !important;
+}
+
+.hs-form .hs-fieldtype-checkbox label {
+  @apply flex items-start gap-4 text-sm font-bold text-white/70 tracking-tight leading-relaxed cursor-pointer mb-2 !important;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Datenschutz & Rechtstexte (Dezentes Grau auf Dunkel) */
+.hs-form .legal-consent-container,
+.hs-form .hs-richtext,
+.hs-form .hs-main-font-element {
+  @apply text-white/40 font-medium text-[11px] leading-relaxed mt-10 bg-white/5 p-8 rounded-[2rem] border border-white/10 !important;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.hs-form .legal-consent-container strong,
+.hs-form .hs-richtext strong {
+  @apply font-black text-white !important;
+  -webkit-text-fill-color: #ffffff !important;
+}
+
+/* Pflichtfeld Sternchen */
+.hs-form .hs-form-required {
+  @apply text-emerald-500 ml-1 !important;
+}
+
+/* Submit Button: Emerald für maximale Interaktion */
+.hs-form .hs-submit {
+  @apply p-0 mt-14 !important;
+}
+
+.hs-form .hs-button {
+  @apply w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black py-7 rounded-2xl flex items-center justify-center transition-all active:scale-[0.98] shadow-[0_20px_50px_-10px_rgba(16,185,129,0.3)] tracking-tighter text-2xl cursor-pointer border-none !important;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #d1dbd2;
+}
+::-webkit-scrollbar-thumb {
+  background: #000;
+  border-radius: 4px;
+}
