@@ -19,7 +19,7 @@ const CaseCard: React.FC<CaseProps> = ({ title, client, video, image, size, cate
   const sizeClasses = {
     large: "lg:col-span-8 lg:row-span-2 aspect-[16/9] lg:aspect-auto",
     medium: "lg:col-span-4 lg:row-span-2 aspect-[4/5] lg:aspect-auto",
-    small: "lg:col-span-4 lg:row-span-1 aspect-[16/9] lg:aspect-auto"
+    small: "lg:col-span-4 lg:row-span-1 min-h-[300px] lg:min-h-0 aspect-[16/9] lg:aspect-auto"
   };
 
   if (isCTA) {
@@ -154,7 +154,7 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
           {/* Row 2 - Right: Intel (Small) - Tech Setup */}
           <motion.div 
             onClick={() => onNavigate?.('hagebau')}
-            className="lg:col-span-4 lg:row-span-1 cursor-pointer"
+            className="lg:col-span-4 lg:row-span-1 min-h-[300px] lg:min-h-0 cursor-pointer"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
