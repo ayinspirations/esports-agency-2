@@ -62,12 +62,12 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
         
         <div className="absolute bottom-12 left-6 right-6 md:left-14 md:right-14 z-20">
           <div className="flex flex-col md:flex-row items-end justify-between gap-8">
-            <div className="flex flex-col w-full md:w-auto">
+            <div className="flex flex-col w-full md:w-auto mb-1 md:mb-0">
               <motion.h1 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className="text-[clamp(32px,8vw,120px)] font-black leading-[0.85] tracking-tighter uppercase text-white drop-shadow-2xl mb-4 md:mb-0"
+                className="text-[clamp(32px,8vw,120px)] font-black leading-[0.85] tracking-tighter uppercase text-white drop-shadow-2xl"
               >
                 Hagebau <br /> <span className="text-white/40 italic">Bolay.</span>
               </motion.h1>
