@@ -162,7 +162,7 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
           >
             <div className="relative group overflow-hidden rounded-[2.5rem] bg-slate-900 h-full w-full">
               <img 
-                src="/t-systems-bg.jpg" 
+                src="/images/hagebau/slide-1.jpg" 
                 alt="Hagebau Bolay"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
               />
