@@ -20,6 +20,10 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, []);
+
   const nextSlide = useCallback(() => {
     setCurrentIndex((prev) => (prev + 1) % images.length);
   }, []);
@@ -176,7 +180,7 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
               </p>
             </section>
 
-            <div className="pt-12 flex justify-center">
+            <div className="pt-12 flex justify-center hidden md:flex">
               <a 
                 href="https://www.hagebau-bolay.de" 
                 target="_blank" 
@@ -242,6 +246,22 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
                   <p className="text-white/60 text-sm font-medium leading-relaxed">
                     31 ausgewählte Gäste erlebten einen Tag voller Action und bekamen spannende Einblicke in die Arbeitswelt von hagebau bolay.
                   </p>
+                </div>
+
+                {/* Mobile Logo positioning */}
+                <div className="mt-12 flex justify-center md:hidden">
+                  <a 
+                    href="https://www.hagebau-bolay.de" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="block hover:scale-105 transition-transform"
+                  >
+                    <img 
+                      src="/hagebau-logo.png" 
+                      alt="Hagebau Bolay Logo" 
+                      className="h-16 w-auto opacity-100"
+                    />
+                  </a>
                 </div>
               </div>
             </div>

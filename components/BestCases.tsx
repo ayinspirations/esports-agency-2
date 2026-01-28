@@ -17,9 +17,9 @@ interface CaseProps {
 
 const CaseCard: React.FC<CaseProps> = ({ title, client, video, image, size, category, delay, isCTA, onScroll }) => {
   const sizeClasses = {
-    large: "lg:col-span-8 lg:row-span-2 aspect-[16/9] lg:aspect-auto",
-    medium: "lg:col-span-4 lg:row-span-2 aspect-[4/5] lg:aspect-auto",
-    small: "lg:col-span-4 lg:row-span-1 min-h-[300px] lg:min-h-0 aspect-[16/9] lg:aspect-auto"
+    large: "col-span-1 lg:col-span-8 lg:row-span-2 aspect-[16/9] lg:aspect-auto min-h-[350px]",
+    medium: "col-span-1 lg:col-span-4 lg:row-span-2 aspect-[4/5] lg:aspect-auto min-h-[350px]",
+    small: "col-span-1 lg:col-span-4 lg:row-span-1 aspect-[16/9] lg:aspect-auto min-h-[350px]"
   };
 
   if (isCTA) {
@@ -151,10 +151,9 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
             delay={0.2}
           />
 
-          {/* Row 2 - Right: Intel (Small) - Tech Setup */}
           <motion.div 
             onClick={() => onNavigate?.('hagebau')}
-            className="lg:col-span-4 lg:row-span-1 min-h-[350px] lg:min-h-0 cursor-pointer"
+            className="col-span-1 lg:col-span-4 lg:row-span-1 min-h-[350px] cursor-pointer"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
