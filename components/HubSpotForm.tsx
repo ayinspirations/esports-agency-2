@@ -78,14 +78,14 @@ export const HubSpotForm: React.FC = () => {
         -webkit-appearance: none !important;
         width: 20px !important;
         height: 20px !important;
-        border: 2px solid #10b981 !important;
+        border: 2px solid #ffffff !important;
         border-radius: 4px !important;
         cursor: pointer !important;
         position: relative !important;
-        background: transparent !important;
+        background: white !important;
       }
       .hs-form input[type="checkbox"]:checked {
-        background-color: #10b981 !important;
+        background-color: white !important;
       }
       .hs-form input[type="checkbox"]:checked::after {
         content: '' !important;
@@ -94,7 +94,7 @@ export const HubSpotForm: React.FC = () => {
         top: 2px !important;
         width: 5px !important;
         height: 10px !important;
-        border: solid white !important;
+        border: solid #10b981 !important;
         border-width: 0 2px 2px 0 !important;
         transform: rotate(45deg) !important;
       }
@@ -165,8 +165,8 @@ export const HubSpotForm: React.FC = () => {
             <div className="w-24 h-24 bg-emerald-500 rounded-full flex items-center justify-center mx-auto mb-8 shadow-2xl">
               <CheckCircle2 className="w-12 h-12 text-white" />
             </div>
-            <h3 className="text-4xl font-black mb-4 text-slate-900 tracking-tighter">Vielen Dank!</h3>
-            <p className="text-slate-600 font-bold text-xl">Wir melden uns in Kürze.</p>
+            <h3 className="text-4xl font-black mb-4 text-white tracking-tighter">Vielen Dank!</h3>
+            <p className="text-white/80 font-bold text-xl">Wir melden uns in Kürze.</p>
           </motion.div>
         )}
       </AnimatePresence>
