@@ -153,11 +153,10 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void }> = ({ onScr
 
           {/* Row 2 - Right: Intel (Small) - Tech Setup */}
           <CaseCard 
-            client="Intel"
-            title="Extreme Masters Booth"
-            video="/videos/cases/case-3.mp4"
+            title="Hagebau Bolay"
+            image="/t-systems-bg.jpg"
             size="small"
-            category="Tech Setup"
+            category="Recruiting"
             delay={0.3}
           />
 
