@@ -5,6 +5,16 @@ import App from './App';
 
 // Global suppression and architectural fix for ResizeObserver loop errors
 if (typeof window !== 'undefined') {
+  // Force scroll to top on refresh
+  if (window.history.scrollRestoration) {
+    window.history.scrollRestoration = 'manual';
+  }
+  window.scrollTo(0, 0);
+  
+  window.addEventListener('load', () => {
+    window.scrollTo(0, 0);
+  });
+
   // 1. Monkey-patch ResizeObserver to prevent the error at the source
   // This wraps the observer callback in requestAnimationFrame to decouple layout changes from the observation turn.
   const RO = window.ResizeObserver;

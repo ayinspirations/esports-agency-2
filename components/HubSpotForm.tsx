@@ -98,6 +98,15 @@ export const HubSpotForm: React.FC = () => {
         border-width: 0 2px 2px 0 !important;
         transform: rotate(45deg) !important;
       }
+      /* Ensure error messages are visible if needed, but HubSpot usually handles validation */
+      .hs-error-msgs {
+        display: block !important;
+      }
+      .hs-form .hs-input:invalid:not(:placeholder-shown) + .hs-error-msgs,
+      .hs-form .hs-input:invalid:placeholder-shown + .hs-error-msgs {
+        display: block !important;
+      }
+    `;
       .hs-form input, 
       .hs-form textarea,
       .hs-form select {
