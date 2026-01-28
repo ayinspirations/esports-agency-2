@@ -61,13 +61,13 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-[#d1dbd2]" />
         
         <div className="absolute bottom-12 left-6 right-6 md:left-14 md:right-14 z-20">
-          <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-8">
-            <div className="flex flex-col mt-20 md:mt-0">
+          <div className="flex flex-col md:flex-row items-end justify-between gap-8">
+            <div className="flex flex-col w-full md:w-auto">
               <motion.h1 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className="text-[clamp(32px,8vw,120px)] font-black leading-[0.85] tracking-tighter uppercase text-white drop-shadow-2xl"
+                className="text-[clamp(32px,8vw,120px)] font-black leading-[0.85] tracking-tighter uppercase text-white drop-shadow-2xl mb-4 md:mb-0"
               >
                 Hagebau <br /> <span className="text-white/40 italic">Bolay.</span>
               </motion.h1>
@@ -77,7 +77,7 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2 }}
-              className="flex flex-col items-end gap-4 mt-8 md:mt-0"
+              className="flex flex-col items-end gap-3 w-full md:w-auto"
             >
               <button 
                 onClick={() => {
@@ -91,15 +91,15 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
                     }, 100);
                   }
                 }}
-                className="flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 bg-white/20 hover:bg-white/30 backdrop-blur-xl border border-white/30 rounded-full text-white text-xs md:text-base font-black uppercase tracking-[0.2em] transition-all group w-fit"
+                className="flex items-center justify-center gap-2 px-6 py-3 bg-white/20 hover:bg-white/30 backdrop-blur-xl border border-white/30 rounded-full text-white text-[10px] md:text-base font-black uppercase tracking-[0.2em] transition-all group w-fit md:w-auto min-w-[180px] md:min-w-0"
               >
                 Boost Your Idea
               </button>
               <button 
                 onClick={onBack}
-                className="flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 bg-white/20 hover:bg-white/30 backdrop-blur-xl border border-white/30 rounded-full text-white text-xs md:text-base font-black uppercase tracking-[0.2em] transition-all group w-fit"
+                className="flex items-center justify-center gap-2 px-6 py-3 bg-white/20 hover:bg-white/30 backdrop-blur-xl border border-white/30 rounded-full text-white text-[10px] md:text-base font-black uppercase tracking-[0.2em] transition-all group w-fit md:w-auto min-w-[140px] md:min-w-0"
               >
-                <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
+                <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
                 Zurück
               </button>
             </motion.div>
