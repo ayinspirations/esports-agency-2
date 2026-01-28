@@ -46,7 +46,7 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
             >
               <button 
                 onClick={onBack}
-                className="flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-xl rounded-full border border-white/20 text-white font-black uppercase tracking-[0.2em] hover:bg-white/20 transition-all group w-fit"
+                className="flex items-center gap-2 px-8 py-4 bg-emerald-500 hover:bg-emerald-600 shadow-xl shadow-emerald-500/20 rounded-full text-slate-950 font-black uppercase tracking-[0.2em] transition-all group w-fit"
               >
                 <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
                 Zurück
@@ -103,7 +103,7 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
             </div>
 
             {/* Logo at the bottom of main content */}
-            <div className="pt-24 flex justify-center lg:justify-start">
+            <div className="pt-24 flex justify-center">
               <a 
                 href="https://www.hagebau-bolay.de" 
                 target="_blank" 
@@ -113,7 +113,7 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
                 <img 
                   src="/hagebau-logo.png" 
                   alt="Hagebau Bolay Logo" 
-                  className="h-16 md:h-24 w-auto opacity-80 hover:opacity-100 transition-opacity"
+                  className="h-16 md:h-24 w-auto opacity-100 transition-opacity"
                 />
               </a>
             </div>
