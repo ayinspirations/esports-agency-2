@@ -59,16 +59,21 @@ export const HubSpotForm: React.FC = () => {
   const injectCustomStyles = () => {
     const style = document.createElement('style');
     style.innerHTML = `
+      .hs-form input, 
+      .hs-form textarea,
+      .hs-form select {
+        color: #0f172a !important;
+        background-color: rgba(255, 255, 255, 0.9) !important;
+        transition: background-color 0.2s ease-in-out !important;
+      }
       .hs-form input:focus, 
       .hs-form textarea:focus,
       .hs-form select:focus {
         background-color: white !important;
-        color: #0f172a !important;
       }
-      .hs-form input, 
-      .hs-form textarea,
-      .hs-form select {
-        transition: background-color 0.2s ease-in-out !important;
+      .hs-form label {
+        color: #0f172a !important;
+        font-weight: 700 !important;
       }
     `;
     const iframe = containerRef.current?.querySelector('iframe');

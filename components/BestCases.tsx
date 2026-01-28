@@ -150,11 +150,11 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
             category="Recruiting"
             delay={0.2}
           />
-
-          {/* Row 2 - Right: Intel (Small) - Tech Setup */}
+          
+          {/* Row 2 - Right: Hagebau (Small) */}
           <motion.div 
             onClick={() => onNavigate?.('hagebau')}
-            className="lg:col-span-4 lg:row-span-1 min-h-[300px] lg:min-h-0 cursor-pointer"
+            className="lg:col-span-4 lg:row-span-1 min-h-[400px] lg:min-h-0 cursor-pointer"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -173,11 +173,6 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
               <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-between z-10">
                 <div className="flex justify-between items-start">
                   <div className="flex flex-col gap-4">
-                    <img 
-                      src="/hagebau-logo.png" 
-                      alt="Hagebau Bolay Logo" 
-                      className="h-8 w-auto object-contain brightness-0 invert"
-                    />
                     <div className="px-4 py-1.5 bg-white/10 backdrop-blur-xl rounded-full border border-white/20 text-[10px] font-black uppercase tracking-[0.2em] text-white w-fit">
                       Recruiting
                     </div>
