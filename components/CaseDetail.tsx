@@ -91,7 +91,7 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
                     }, 100);
                   }
                 }}
-                className="flex items-center justify-center gap-2 px-6 py-3 bg-white/20 hover:bg-white/30 backdrop-blur-xl border border-white/30 rounded-full text-white text-[10px] md:text-base font-black uppercase tracking-[0.2em] transition-all group w-fit md:w-auto min-w-[180px] md:min-w-0"
+                className="flex items-center justify-center gap-2 px-6 py-3 bg-white/20 hover:bg-white/30 backdrop-blur-xl border border-white/30 rounded-full text-white text-[10px] md:text-base font-black uppercase tracking-[0.2em] transition-all group w-fit md:w-auto min-w-[140px] md:min-w-0"
               >
                 Boost Your Idea
               </button>
