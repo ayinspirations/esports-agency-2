@@ -7,6 +7,7 @@ interface CaseProps {
   title: string;
   client?: string;
   video?: string;
+  image?: string;
   size: 'large' | 'medium' | 'small';
   category?: string;
   delay: number;
@@ -14,7 +15,7 @@ interface CaseProps {
   onScroll?: (id: string) => void;
 }
 
-const CaseCard: React.FC<CaseProps> = ({ title, client, video, size, category, delay, isCTA, onScroll }) => {
+const CaseCard: React.FC<CaseProps> = ({ title, client, video, image, size, category, delay, isCTA, onScroll }) => {
   const sizeClasses = {
     large: "lg:col-span-8 lg:row-span-2 aspect-[16/9] lg:aspect-auto",
     medium: "lg:col-span-4 lg:row-span-2 aspect-[4/5] lg:aspect-auto",
@@ -61,15 +62,25 @@ const CaseCard: React.FC<CaseProps> = ({ title, client, video, size, category, d
       transition={{ duration: 1, delay, ease: [0.16, 1, 0.3, 1] }}
       className={`relative group overflow-hidden rounded-[2.5rem] bg-slate-900 cursor-pointer ${sizeClasses[size]}`}
     >
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-      >
-        <source src={video} type="video/mp4" />
-      </video>
+      {video && (
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+        >
+          <source src={video} type="video/mp4" />
+        </video>
+      )}
+      
+      {image && (
+        <img 
+          src={image} 
+          alt={title}
+          className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+        />
+      )}
       
       <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent opacity-80 transition-opacity group-hover:opacity-90" />
       <div className="absolute inset-0 bg-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
@@ -85,9 +96,11 @@ const CaseCard: React.FC<CaseProps> = ({ title, client, video, size, category, d
         </div>
 
         <div>
-          <div className="text-emerald-400 font-black text-[12px] md:text-[14px] uppercase tracking-[0.3em] mb-2 drop-shadow-lg">
-            {client}
-          </div>
+          {client && (
+            <div className="text-emerald-400 font-black text-[12px] md:text-[14px] uppercase tracking-[0.3em] mb-2 drop-shadow-lg">
+              {client}
+            </div>
+          )}
           <h3 className="text-white text-[clamp(24px,3.2vw,38px)] font-black leading-[0.9] tracking-tighter uppercase mb-4 drop-shadow-2xl">
             {title}
           </h3>
@@ -131,11 +144,10 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void }> = ({ onScr
           
           {/* Row 1 - Right: Logitech (Small) */}
           <CaseCard 
-            client="Logitech G"
-            title="Masters of Speed Night"
-            video="/videos/cases/case-2.mp4"
+            title="T-Systems"
+            image="/t-systems-bg.jpg"
             size="small"
-            category="Activation"
+            category="Recruiting"
             delay={0.2}
           />
 
