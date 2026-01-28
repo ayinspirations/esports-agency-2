@@ -19,17 +19,14 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-[#d1dbd2]" />
         
-        <div className="absolute top-8 left-6 md:left-14 z-20">
+        <div className="absolute bottom-12 left-6 md:left-14 z-20">
           <button 
             onClick={onBack}
-            className="flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-xl rounded-full border border-white/20 text-white font-black uppercase tracking-[0.2em] hover:bg-white/20 transition-all group"
+            className="flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-xl rounded-full border border-white/20 text-white font-black uppercase tracking-[0.2em] hover:bg-white/20 transition-all group mb-8 w-fit"
           >
             <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
             Zurück
           </button>
-        </div>
-
-        <div className="absolute bottom-12 left-6 md:left-14 z-20">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
