@@ -60,14 +60,14 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-[#d1dbd2]" />
         
-        <div className="absolute bottom-12 left-6 right-6 md:left-14 md:right-14 z-20">
-          <div className="flex flex-col md:flex-row items-end justify-between gap-8">
-            <div className="flex flex-col w-full md:w-auto mb-1 md:mb-0">
+        <div className="absolute bottom-16 left-6 right-6 md:left-14 md:right-14 z-20">
+          <div className="flex flex-col md:flex-row items-end justify-between gap-10 md:gap-8">
+            <div className="flex flex-col w-full md:w-auto mb-2 md:mb-0">
               <motion.h1 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className="text-[clamp(32px,8vw,120px)] font-black leading-[0.85] tracking-tighter uppercase text-white drop-shadow-2xl"
+                className="text-[clamp(36px,9vw,120px)] font-black leading-[0.85] tracking-tighter uppercase text-white drop-shadow-2xl"
               >
                 Hagebau <br /> <span className="text-white/40 italic">Bolay.</span>
               </motion.h1>
@@ -91,13 +91,13 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
                     }, 100);
                   }
                 }}
-                className="flex items-center justify-center gap-2 px-6 py-3 bg-white/20 hover:bg-white/30 backdrop-blur-xl border border-white/30 rounded-full text-white text-[10px] md:text-base font-black uppercase tracking-[0.2em] transition-all group w-fit md:w-auto min-w-[140px] md:min-w-0"
+                className="flex items-center justify-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 backdrop-blur-xl border border-white/20 rounded-full text-white text-[11px] md:text-base font-black uppercase tracking-[0.2em] transition-all group w-fit md:w-auto min-w-[150px] md:min-w-0"
               >
                 Boost Your Idea
               </button>
               <button 
                 onClick={onBack}
-                className="flex items-center justify-center gap-2 px-6 py-3 bg-white/20 hover:bg-white/30 backdrop-blur-xl border border-white/30 rounded-full text-white text-[10px] md:text-base font-black uppercase tracking-[0.2em] transition-all group w-fit md:w-auto min-w-[140px] md:min-w-0"
+                className="flex items-center justify-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 backdrop-blur-xl border border-white/20 rounded-full text-white text-[11px] md:text-base font-black uppercase tracking-[0.2em] transition-all group w-fit md:w-auto min-w-[150px] md:min-w-0"
               >
                 <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
                 Zurück
