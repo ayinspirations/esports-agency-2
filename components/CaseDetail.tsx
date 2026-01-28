@@ -165,6 +165,21 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
               </p>
             </section>
 
+            <div className="pt-12 flex justify-center">
+              <a 
+                href="https://www.hagebau-bolay.de" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block hover:scale-105 transition-transform"
+              >
+                <img 
+                  src="/hagebau-logo.png" 
+                  alt="Hagebau Bolay Logo" 
+                  className="h-16 md:h-24 w-auto opacity-100 transition-opacity"
+                />
+              </a>
+            </div>
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
               {[
                 { title: 'Challenge', icon: <Target className="w-6 h-6" />, text: 'hagebau bolay suchte nach einer innovativen Lösung, um potenzielle Auszubildende und Young Professionals für sich als attraktiven Arbeitgeber zu gewinnen.' },
@@ -178,22 +193,6 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
                   <p className="text-slate-600 font-medium leading-relaxed">{item.text}</p>
                 </div>
               ))}
-            </div>
-
-            {/* Logo at the bottom of main content */}
-            <div className="pt-24 flex justify-center">
-              <a 
-                href="https://www.hagebau-bolay.de" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="block hover:scale-105 transition-transform"
-              >
-                <img 
-                  src="/hagebau-logo.png" 
-                  alt="Hagebau Bolay Logo" 
-                  className="h-16 md:h-24 w-auto opacity-100 transition-opacity"
-                />
-              </a>
             </div>
           </div>
 
