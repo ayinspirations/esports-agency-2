@@ -28,27 +28,6 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
     setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
   }, []);
 
-  const [touchStart, setTouchStart] = useState<number | null>(null);
-  const [touchEnd, setTouchEnd] = useState<number | null>(null);
-
-  const minSwipeDistance = 50;
-
-  const onTouchStart = (e: React.TouchEvent) => {
-    setTouchEnd(null);
-    setTouchStart(e.targetTouches[0].clientX);
-  };
-
-  const onTouchMove = (e: React.TouchEvent) => setTouchEnd(e.targetTouches[0].clientX);
-
-  const onTouchEnd = () => {
-    if (!touchStart || !touchEnd) return;
-    const distance = touchStart - touchEnd;
-    const isLeftSwipe = distance > minSwipeDistance;
-    const isRightSwipe = distance < -minSwipeDistance;
-    if (isLeftSwipe) nextSlide();
-    if (isRightSwipe) prevSlide();
-  };
-
   useEffect(() => {
     if (isHovered) return;
     const interval = setInterval(nextSlide, 3000);
@@ -58,7 +37,7 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
   return (
     <div className="min-h-screen bg-[#d1dbd2] text-slate-900">
       {/* Hero Section */}
-      <div className="relative h-[50vh] md:h-[70vh] overflow-hidden">
+      <div className="relative h-[60vh] md:h-[70vh] overflow-hidden">
         <img 
           src="/images/hagebau/hero-hagebau.jpg" 
           alt="Hagebau Bolay Project" 
@@ -66,13 +45,13 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-[#d1dbd2]" />
         
-        <div className="absolute bottom-8 md:bottom-12 left-6 right-6 md:left-14 md:right-14 z-20">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 md:gap-8">
+        <div className="absolute bottom-12 left-6 right-6 md:left-14 md:right-14 z-20">
+          <div className="flex items-end justify-between gap-8">
             <div className="flex flex-col">
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="px-4 py-1.5 bg-emerald-500 rounded-full text-[10px] font-black uppercase tracking-[0.2em] text-white w-fit mb-4 md:mb-6"
+                className="px-4 py-1.5 bg-emerald-500 rounded-full text-[10px] font-black uppercase tracking-[0.2em] text-white w-fit mb-6"
               >
                 Recruiting
               </motion.div>
@@ -80,7 +59,7 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className="text-[clamp(32px,8vw,120px)] font-black leading-[0.85] tracking-tighter uppercase text-white drop-shadow-2xl"
+                className="text-[clamp(40px,8vw,120px)] font-black leading-[0.85] tracking-tighter uppercase text-white drop-shadow-2xl"
               >
                 Hagebau <br /> <span className="text-white/40 italic">Bolay.</span>
               </motion.h1>
@@ -90,19 +69,19 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2 }}
-              className="flex flex-wrap items-center gap-3 md:gap-4"
+              className="flex items-center gap-4"
             >
               <button 
                 onClick={() => onBack()}
-                className="flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 bg-white/20 hover:bg-white/30 backdrop-blur-xl border border-white/30 rounded-full text-white text-xs md:text-sm font-black uppercase tracking-[0.2em] transition-all group w-fit"
+                className="flex items-center gap-2 px-8 py-4 bg-white/20 hover:bg-white/30 backdrop-blur-xl border border-white/30 rounded-full text-white font-black uppercase tracking-[0.2em] transition-all group w-fit"
               >
                 Boost Your Idea
               </button>
               <button 
                 onClick={onBack}
-                className="flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 bg-white/20 hover:bg-white/30 backdrop-blur-xl border border-white/30 rounded-full text-white text-xs md:text-sm font-black uppercase tracking-[0.2em] transition-all group w-fit"
+                className="flex items-center gap-2 px-8 py-4 bg-white/20 hover:bg-white/30 backdrop-blur-xl border border-white/30 rounded-full text-white font-black uppercase tracking-[0.2em] transition-all group w-fit"
               >
-                <ArrowLeft className="w-4 h-4 md:w-5 md:h-5 group-hover:-translate-x-1 transition-transform" />
+                <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
                 Zurück
               </button>
             </motion.div>
@@ -128,12 +107,9 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
 
             {/* Image Slider */}
             <div 
-              className="relative group rounded-[2.5rem] overflow-hidden aspect-video bg-[#d1dbd2] shadow-2xl touch-pan-y"
+              className="relative group rounded-[2.5rem] overflow-hidden aspect-video bg-[#d1dbd2] shadow-2xl"
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
-              onTouchStart={onTouchStart}
-              onTouchMove={onTouchMove}
-              onTouchEnd={onTouchEnd}
             >
               <div className="absolute inset-0 bg-[#d1dbd2]">
                 <AnimatePresence initial={false}>
