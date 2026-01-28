@@ -13,8 +13,9 @@ import { Footer } from './components/Footer';
 import { ServicesDetail } from './components/ServicesDetail';
 import { ScrollToCasesCTA } from './components/ScrollToCasesCTA';
 import { LegalPage } from './components/LegalPage';
+import { CaseDetail } from './components/CaseDetail';
 
-type Page = 'home' | 'services' | 'impressum' | 'privacy';
+type Page = 'home' | 'services' | 'impressum' | 'privacy' | 'hagebau';
 
 export default function App() {
   const [activePage, setActivePage] = useState<Page>('home');
@@ -24,9 +25,8 @@ export default function App() {
     setIsMounted(true);
     
     const handleHashChange = () => {
-      // Fix: Retain string type for currentHash to safely compare against empty string and valid pages
       const currentHash = window.location.hash.replace('#', '');
-      const validPages: string[] = ['home', 'services', 'impressum', 'privacy'];
+      const validPages: string[] = ['home', 'services', 'impressum', 'privacy', 'hagebau'];
       
       if (validPages.includes(currentHash)) {
         setActivePage(currentHash as Page);
@@ -105,7 +105,7 @@ export default function App() {
               <WhyUs />
             </div>
             <div className={standardSectionPadding} id="best-cases-container">
-              <BestCases onScroll={scrollToSection} />
+              <BestCases onScroll={scrollToSection} onNavigate={navigateTo} />
             </div>
             <div className={standardSectionPadding} id="contact-section">
               <ContactForm />
@@ -114,6 +114,7 @@ export default function App() {
         )}
 
         {activePage === 'services' && <ServicesDetail onNavigate={navigateTo} />}
+        {activePage === 'hagebau' && <CaseDetail onBack={() => navigateTo('home')} />}
         {activePage === 'impressum' && <LegalPage type="impressum" />}
         {activePage === 'privacy' && <LegalPage type="privacy" />}
       </main>

@@ -114,7 +114,7 @@ const CaseCard: React.FC<CaseProps> = ({ title, client, video, image, size, cate
   );
 };
 
-export const BestCases: React.FC<{ onScroll?: (id: string) => void }> = ({ onScroll }) => {
+export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?: (page: any) => void }> = ({ onScroll, onNavigate }) => {
   return (
     <section id="best-cases" className="w-full bg-[#d1dbd2] px-6 md:px-14 scroll-mt-24">
       <div className="max-w-[1440px] mx-auto">
@@ -152,13 +152,15 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void }> = ({ onScr
           />
 
           {/* Row 2 - Right: Intel (Small) - Tech Setup */}
-          <CaseCard 
-            title="Hagebau Bolay"
-            image="/t-systems-bg.jpg"
-            size="small"
-            category="Recruiting"
-            delay={0.3}
-          />
+          <div onClick={() => onNavigate?.('hagebau')}>
+            <CaseCard 
+              title="Hagebau Bolay"
+              image="/t-systems-bg.jpg"
+              size="small"
+              category="Recruiting"
+              delay={0.3}
+            />
+          </div>
 
           {/* Row 3 - Left: Razer (Small) - Live Content */}
           <CaseCard 
