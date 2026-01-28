@@ -81,36 +81,94 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
 
             {/* Image Slider */}
             <div className="relative group rounded-[2.5rem] overflow-hidden aspect-video bg-slate-900 shadow-2xl">
-              <div className="flex h-full animate-scroll hover:[animation-play-state:paused] gap-4 p-4">
+              <div className="absolute inset-0 flex transition-transform duration-700 ease-[0.16, 1, 0.3, 1]" id="slider-track">
                 {[1, 2, 3, 4, 5, 6].map((num) => (
-                  <div key={num} className="h-full aspect-[4/3] shrink-0 rounded-[1.5rem] overflow-hidden">
+                  <div key={num} className="w-full h-full shrink-0">
                     <img 
                       src={`/images/hagebau/slide-${num}.jpg`} 
                       alt={`Gaming Day ${num}`} 
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                  </div>
-                ))}
-                {/* Duplicate for seamless loop */}
-                {[1, 2, 3, 4, 5, 6].map((num) => (
-                  <div key={`dup-${num}`} className="h-full aspect-[4/3] shrink-0 rounded-[1.5rem] overflow-hidden">
-                    <img 
-                      src={`/images/hagebau/slide-${num}.jpg`} 
-                      alt={`Gaming Day ${num}`} 
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="w-full h-full object-cover"
                     />
                   </div>
                 ))}
               </div>
-              <style dangerouslySetInnerHTML={{ __html: `
-                @keyframes scroll {
-                  0% { transform: translateX(0); }
-                  100% { transform: translateX(calc(-100% / 2)); }
-                }
-                .animate-scroll {
-                  animation: scroll 40s linear infinite;
-                  width: fit-content;
-                }
+
+              {/* Navigation Arrows */}
+              <button 
+                id="prev-slide"
+                className="absolute left-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all z-30"
+              >
+                <ArrowLeft className="w-6 h-6" />
+              </button>
+              <button 
+                id="next-slide"
+                className="absolute right-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all z-30"
+              >
+                <ArrowLeft className="w-6 h-6 rotate-180" />
+              </button>
+
+              {/* Dots */}
+              <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-30">
+                {[0, 1, 2, 3, 4, 5].map((i) => (
+                  <div key={i} className="slider-dot w-2 h-2 rounded-full bg-white/20 transition-all" data-index={i} />
+                ))}
+              </div>
+
+              <script dangerouslySetInnerHTML={{ __html: `
+                (function() {
+                  let currentSlide = 0;
+                  const totalSlides = 6;
+                  const track = document.getElementById('slider-track');
+                  const dots = document.querySelectorAll('.slider-dot');
+                  let interval;
+
+                  function updateSlider() {
+                    track.style.transform = \`translateX(-\${currentSlide * 100}%)\`;
+                    dots.forEach((dot, i) => {
+                      dot.style.backgroundColor = i === currentSlide ? 'white' : 'rgba(255,255,255,0.2)';
+                      dot.style.width = i === currentSlide ? '24px' : '8px';
+                    });
+                  }
+
+                  function next() {
+                    currentSlide = (currentSlide + 1) % totalSlides;
+                    updateSlider();
+                  }
+
+                  function prev() {
+                    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                    updateSlider();
+                  }
+
+                  function startAuto() {
+                    stopAuto();
+                    interval = setInterval(next, 3000);
+                  }
+
+                  function stopAuto() {
+                    if (interval) clearInterval(interval);
+                  }
+
+                  document.getElementById('next-slide').onclick = (e) => { e.stopPropagation(); next(); startAuto(); };
+                  document.getElementById('prev-slide').onclick = (e) => { e.stopPropagation(); prev(); startAuto(); };
+                  
+                  dots.forEach((dot, i) => {
+                    dot.onclick = (e) => {
+                      e.stopPropagation();
+                      currentSlide = i;
+                      updateSlider();
+                      startAuto();
+                    };
+                  });
+
+                  updateSlider();
+                  startAuto();
+                  
+                  // Cleanup on hover
+                  const container = track.parentElement;
+                  container.onmouseenter = stopAuto;
+                  container.onmouseleave = startAuto;
+                })();
               `}} />
             </div>
 
