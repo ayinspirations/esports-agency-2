@@ -43,10 +43,17 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2 }}
+              className="flex items-center gap-4"
             >
               <button 
+                onClick={() => onBack()}
+                className="flex items-center gap-2 px-8 py-4 bg-white/20 hover:bg-white/30 backdrop-blur-xl border border-white/30 rounded-full text-white font-black uppercase tracking-[0.2em] transition-all group w-fit"
+              >
+                Boost Your Idea
+              </button>
+              <button 
                 onClick={onBack}
-                className="flex items-center gap-2 px-8 py-4 bg-emerald-500 hover:bg-emerald-600 shadow-xl shadow-emerald-500/20 rounded-full text-slate-950 font-black uppercase tracking-[0.2em] transition-all group w-fit"
+                className="flex items-center gap-2 px-8 py-4 bg-white/20 hover:bg-white/30 backdrop-blur-xl border border-white/30 rounded-full text-white font-black uppercase tracking-[0.2em] transition-all group w-fit"
               >
                 <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
                 Zurück
