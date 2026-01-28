@@ -106,7 +106,6 @@ export const HubSpotForm: React.FC = () => {
       .hs-form .hs-input:invalid:placeholder-shown + .hs-error-msgs {
         display: block !important;
       }
-    `;
       .hs-form input, 
       .hs-form textarea,
       .hs-form select {
