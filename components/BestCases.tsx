@@ -145,7 +145,7 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
           {/* Row 1 - Right: Logitech (Small) */}
           <CaseCard 
             title="T-Systems"
-            image="/t-systems-bg.jpg"
+            image="/images/hagebau/slide-1.jpg"
             size="small"
             category="Recruiting"
             delay={0.2}
