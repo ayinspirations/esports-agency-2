@@ -61,9 +61,17 @@ export const HubSpotForm: React.FC = () => {
     style.innerHTML = `
       .hs-form input:focus, 
       .hs-form textarea:focus,
-      .hs-form select:focus {
+      .hs-form select:focus,
+      .hs-form input:not(:placeholder-shown),
+      .hs-form textarea:not(:placeholder-shown),
+      .hs-form select:not(:placeholder-shown),
+      .hs-form input:-webkit-autofill,
+      .hs-form input:-webkit-autofill:hover, 
+      .hs-form input:-webkit-autofill:focus {
         background-color: white !important;
         color: #0f172a !important;
+        -webkit-text-fill-color: #0f172a !important;
+        box-shadow: 0 0 0px 1000px white inset !important;
       }
       .hs-form input, 
       .hs-form textarea,
