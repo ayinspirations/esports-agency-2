@@ -43,9 +43,9 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
     const velocityThreshold = 500;
     
     if (offset.x < -swipeThreshold || velocity.x < -velocityThreshold) {
-      nextSlide();
-    } else if (offset.x > swipeThreshold || velocity.x > velocityThreshold) {
       prevSlide();
+    } else if (offset.x > swipeThreshold || velocity.x > velocityThreshold) {
+      nextSlide();
     }
   };
 
