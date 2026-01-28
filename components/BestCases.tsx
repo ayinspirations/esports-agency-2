@@ -172,23 +172,8 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
 
               <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-between z-10">
                 <div className="flex justify-between items-start">
-                  <div className="flex flex-col gap-4">
-                    <a 
-                      href="https://www.hagebau-bolay.de" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      onClick={(e) => e.stopPropagation()}
-                      className="block hover:scale-105 transition-transform origin-left"
-                    >
-                      <img 
-                        src="/hagebau-logo.png" 
-                        alt="Hagebau Bolay Logo" 
-                        className="h-8 w-auto brightness-0 invert"
-                      />
-                    </a>
-                    <div className="px-4 py-1.5 bg-white/10 backdrop-blur-xl rounded-full border border-white/20 text-[10px] font-black uppercase tracking-[0.2em] text-white w-fit">
-                      Recruiting
-                    </div>
+                  <div className="px-4 py-1.5 bg-white/10 backdrop-blur-xl rounded-full border border-white/20 text-[10px] font-black uppercase tracking-[0.2em] text-white">
+                    Recruiting
                   </div>
                   <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0 duration-500">
                     <ArrowUpRight className="w-6 h-6" />

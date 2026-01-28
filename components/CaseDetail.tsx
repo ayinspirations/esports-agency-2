@@ -19,41 +19,40 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-[#d1dbd2]" />
         
-        <div className="absolute bottom-12 left-6 md:left-14 z-20">
-          <a 
-            href="https://www.hagebau-bolay.de" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="block mb-8 hover:scale-105 transition-transform origin-left"
-          >
-            <img 
-              src="/hagebau-logo.png" 
-              alt="Hagebau Bolay Logo" 
-              className="h-12 md:h-16 w-auto brightness-0 invert"
-            />
-          </a>
-          <button 
-            onClick={onBack}
-            className="flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-xl rounded-full border border-white/20 text-white font-black uppercase tracking-[0.2em] hover:bg-white/20 transition-all group mb-8 w-fit"
-          >
-            <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
-            Zurück
-          </button>
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="px-4 py-1.5 bg-emerald-500 rounded-full text-[10px] font-black uppercase tracking-[0.2em] text-white w-fit mb-6"
-          >
-            Recruiting
-          </motion.div>
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-[clamp(40px,8vw,120px)] font-black leading-[0.85] tracking-tighter uppercase text-white drop-shadow-2xl"
-          >
-            Hagebau <br /> <span className="text-white/40 italic">Bolay.</span>
-          </motion.h1>
+        <div className="absolute bottom-12 left-6 right-6 md:left-14 md:right-14 z-20">
+          <div className="flex items-end justify-between gap-8">
+            <div className="flex flex-col">
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="px-4 py-1.5 bg-emerald-500 rounded-full text-[10px] font-black uppercase tracking-[0.2em] text-white w-fit mb-6"
+              >
+                Recruiting
+              </motion.div>
+              <motion.h1 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 }}
+                className="text-[clamp(40px,8vw,120px)] font-black leading-[0.85] tracking-tighter uppercase text-white drop-shadow-2xl"
+              >
+                Hagebau <br /> <span className="text-white/40 italic">Bolay.</span>
+              </motion.h1>
+            </div>
+            
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2 }}
+            >
+              <button 
+                onClick={onBack}
+                className="flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-xl rounded-full border border-white/20 text-white font-black uppercase tracking-[0.2em] hover:bg-white/20 transition-all group w-fit"
+              >
+                <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
+                Zurück
+              </button>
+            </motion.div>
+          </div>
         </div>
       </div>
 
@@ -101,6 +100,22 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
                   <p className="text-slate-600 font-medium leading-relaxed">{item.text}</p>
                 </div>
               ))}
+            </div>
+
+            {/* Logo at the bottom of main content */}
+            <div className="pt-24 flex justify-center lg:justify-start">
+              <a 
+                href="https://www.hagebau-bolay.de" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block hover:scale-105 transition-transform"
+              >
+                <img 
+                  src="/hagebau-logo.png" 
+                  alt="Hagebau Bolay Logo" 
+                  className="h-16 md:h-24 w-auto opacity-80 hover:opacity-100 transition-opacity"
+                />
+              </a>
             </div>
           </div>
 
