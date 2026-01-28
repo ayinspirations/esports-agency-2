@@ -44,12 +44,43 @@ export const HubSpotForm: React.FC = () => {
         formId: "1100960a-23d3-4104-9ba4-03dcd952f909",
         target: '#hs_form_target',
         css: '',
-        onFormReady: () => setStatus('ready'),
+        onFormReady: () => {
+          setStatus('ready');
+          injectCustomStyles();
+        },
         onFormSubmitted: () => setStatus('submitted'),
       });
     } catch (err) {
       console.warn('HubSpot could not be initialized (likely AdBlock)');
       setStatus('error');
+    }
+  };
+
+  const injectCustomStyles = () => {
+    const style = document.createElement('style');
+    style.innerHTML = `
+      .hs-form input:focus, 
+      .hs-form textarea:focus,
+      .hs-form select:focus {
+        background-color: white !important;
+        color: #0f172a !important;
+      }
+      .hs-form input, 
+      .hs-form textarea,
+      .hs-form select {
+        transition: background-color 0.2s ease-in-out !important;
+      }
+    `;
+    const iframe = containerRef.current?.querySelector('iframe');
+    if (iframe) {
+      try {
+        iframe.contentDocument?.head.appendChild(style);
+      } catch (e) {
+        // If cross-origin, append to main document as fallback (HubSpot embeds often allow this)
+        document.head.appendChild(style);
+      }
+    } else {
+      document.head.appendChild(style);
     }
   };
 
