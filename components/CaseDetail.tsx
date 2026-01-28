@@ -39,10 +39,13 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
   }, [nextSlide, isHovered]);
 
   const handleDragEnd = (e: any, { offset, velocity }: any) => {
-    const swipe = Math.abs(offset.x) > 50 && Math.abs(velocity.x) > 500;
-    if (swipe) {
-      if (offset.x > 0) prevSlide();
-      else nextSlide();
+    const swipeThreshold = 50;
+    const velocityThreshold = 500;
+    
+    if (offset.x < -swipeThreshold || velocity.x < -velocityThreshold) {
+      nextSlide();
+    } else if (offset.x > swipeThreshold || velocity.x > velocityThreshold) {
+      prevSlide();
     }
   };
 
