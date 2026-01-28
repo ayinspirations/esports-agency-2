@@ -79,13 +79,39 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
               </p>
             </section>
 
-            {/* Placeholder for Image Slider */}
-            <div className="aspect-video bg-slate-900/5 rounded-[2.5rem] border-2 border-dashed border-slate-900/10 flex flex-col items-center justify-center text-slate-400 p-12 text-center">
-              <div className="w-20 h-20 rounded-full bg-slate-900/5 flex items-center justify-center mb-6">
-                <Users className="w-10 h-10" />
+            {/* Image Slider */}
+            <div className="relative group rounded-[2.5rem] overflow-hidden aspect-video bg-slate-900 shadow-2xl">
+              <div className="flex h-full animate-scroll hover:[animation-play-state:paused] gap-4 p-4">
+                {[1, 2, 3, 4, 5, 6].map((num) => (
+                  <div key={num} className="h-full aspect-[4/3] shrink-0 rounded-[1.5rem] overflow-hidden">
+                    <img 
+                      src={`/images/hagebau/slide-${num}.jpg`} 
+                      alt={`Gaming Day ${num}`} 
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  </div>
+                ))}
+                {/* Duplicate for seamless loop */}
+                {[1, 2, 3, 4, 5, 6].map((num) => (
+                  <div key={`dup-${num}`} className="h-full aspect-[4/3] shrink-0 rounded-[1.5rem] overflow-hidden">
+                    <img 
+                      src={`/images/hagebau/slide-${num}.jpg`} 
+                      alt={`Gaming Day ${num}`} 
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  </div>
+                ))}
               </div>
-              <h3 className="text-2xl font-black uppercase tracking-tighter mb-2 text-slate-900/20">Bilderslide Platzhalter</h3>
-              <p className="font-bold uppercase tracking-widest text-sm text-slate-900/10">Coming Soon</p>
+              <style dangerouslySetInnerHTML={{ __html: `
+                @keyframes scroll {
+                  0% { transform: translateX(0); }
+                  100% { transform: translateX(calc(-100% / 2)); }
+                }
+                .animate-scroll {
+                  animation: scroll 40s linear infinite;
+                  width: fit-content;
+                }
+              `}} />
             </div>
 
             <section className="space-y-8">
