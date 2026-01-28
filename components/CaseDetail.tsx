@@ -1,13 +1,39 @@
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ArrowLeft, CheckCircle2, Trophy, Target, Lightbulb, Users } from 'lucide-react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowLeft, CheckCircle2, Trophy, Target, Lightbulb, Users, ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface CaseDetailProps {
   onBack: () => void;
 }
 
+const images = [
+  '/images/hagebau/slide-1.jpg',
+  '/images/hagebau/slide-2.jpg',
+  '/images/hagebau/slide-3.jpg',
+  '/images/hagebau/slide-4.jpg',
+  '/images/hagebau/slide-5.jpg',
+  '/images/hagebau/slide-6.jpg',
+];
+
 export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+
+  const nextSlide = useCallback(() => {
+    setCurrentIndex((prev) => (prev + 1) % images.length);
+  }, []);
+
+  const prevSlide = useCallback(() => {
+    setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
+  }, []);
+
+  useEffect(() => {
+    if (isHovered) return;
+    const interval = setInterval(nextSlide, 3000);
+    return () => clearInterval(interval);
+  }, [nextSlide, isHovered]);
+
   return (
     <div className="min-h-screen bg-[#d1dbd2] text-slate-900">
       {/* Hero Section */}
@@ -80,118 +106,51 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
             </section>
 
             {/* Image Slider */}
-            <div className="relative group rounded-[2.5rem] overflow-hidden aspect-video bg-slate-900 shadow-2xl">
-              <div className="absolute inset-0 flex transition-transform duration-700 ease-[0.16, 1, 0.3, 1]" id="slider-track">
-                {[1, 2, 3, 4, 5, 6].map((num) => (
-                  <div key={num} className="w-full h-full shrink-0">
-                    <img 
-                      src={`/images/hagebau/slide-${num}.jpg`} 
-                      alt={`Gaming Day ${num}`} 
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                ))}
+            <div 
+              className="relative group rounded-[2.5rem] overflow-hidden aspect-video bg-slate-900 shadow-2xl"
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+            >
+              <div className="absolute inset-0">
+                <AnimatePresence initial={false} mode="wait">
+                  <motion.img
+                    key={currentIndex}
+                    src={images[currentIndex]}
+                    initial={{ opacity: 0, x: 300 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -300 }}
+                    transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                </AnimatePresence>
               </div>
 
               {/* Navigation Arrows */}
               <button 
-                id="prev-slide"
-                type="button"
-                className="absolute left-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all z-30"
+                onClick={(e) => { e.stopPropagation(); prevSlide(); }}
+                className="absolute left-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all z-30 opacity-0 group-hover:opacity-100"
               >
-                <ArrowLeft className="w-6 h-6" />
+                <ChevronLeft className="w-6 h-6" />
               </button>
               <button 
-                id="next-slide"
-                type="button"
-                className="absolute right-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all z-30"
+                onClick={(e) => { e.stopPropagation(); nextSlide(); }}
+                className="absolute right-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all z-30 opacity-0 group-hover:opacity-100"
               >
-                <ArrowLeft className="w-6 h-6 rotate-180" />
+                <ChevronRight className="w-6 h-6" />
               </button>
 
               {/* Dots */}
               <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-30">
-                {[0, 1, 2, 3, 4, 5].map((i) => (
+                {images.map((_, i) => (
                   <button 
                     key={i} 
-                    type="button"
-                    className="slider-dot w-2 h-2 rounded-full bg-white/20 transition-all" 
-                    data-index={i} 
+                    onClick={(e) => { e.stopPropagation(); setCurrentIndex(i); }}
+                    className={`h-2 rounded-full transition-all duration-300 ${
+                      i === currentIndex ? 'w-8 bg-white' : 'w-2 bg-white/20'
+                    }`}
                   />
                 ))}
               </div>
-
-              <script dangerouslySetInnerHTML={{ __html: `
-                (function() {
-                  const setupSlider = () => {
-                    let currentSlide = 0;
-                    const totalSlides = 6;
-                    const track = document.getElementById('slider-track');
-                    const dots = document.querySelectorAll('.slider-dot');
-                    const nextBtn = document.getElementById('next-slide');
-                    const prevBtn = document.getElementById('prev-slide');
-                    let interval;
-
-                    if (!track || !nextBtn || !prevBtn) {
-                      setTimeout(setupSlider, 100);
-                      return;
-                    }
-
-                    function updateSlider() {
-                      track.style.transform = \`translateX(-\${currentSlide * 100}%)\`;
-                      dots.forEach((dot, i) => {
-                        dot.style.backgroundColor = i === currentSlide ? 'white' : 'rgba(255,255,255,0.2)';
-                        dot.style.width = i === currentSlide ? '24px' : '8px';
-                      });
-                    }
-
-                    function next() {
-                      currentSlide = (currentSlide + 1) % totalSlides;
-                      updateSlider();
-                    }
-
-                    function prev() {
-                      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-                      updateSlider();
-                    }
-
-                    function startAuto() {
-                      stopAuto();
-                      interval = setInterval(next, 3000);
-                    }
-
-                    function stopAuto() {
-                      if (interval) clearInterval(interval);
-                    }
-
-                    nextBtn.onclick = (e) => { e.preventDefault(); e.stopPropagation(); next(); startAuto(); };
-                    prevBtn.onclick = (e) => { e.preventDefault(); e.stopPropagation(); prev(); startAuto(); };
-                    
-                    dots.forEach((dot, i) => {
-                      dot.onclick = (e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        currentSlide = i;
-                        updateSlider();
-                        startAuto();
-                      };
-                    });
-
-                    updateSlider();
-                    startAuto();
-                    
-                    const container = track.parentElement;
-                    container.onmouseenter = stopAuto;
-                    container.onmouseleave = startAuto;
-                  };
-
-                  if (document.readyState === 'complete') {
-                    setupSlider();
-                  } else {
-                    window.addEventListener('load', setupSlider);
-                  }
-                })();
-              `}} />
             </div>
 
             <section className="space-y-8">
