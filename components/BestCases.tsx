@@ -152,7 +152,10 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
           />
 
           {/* Row 2 - Right: Intel (Small) - Tech Setup */}
-          <div onClick={() => onNavigate?.('hagebau')}>
+          <div 
+            onClick={() => onNavigate?.('hagebau')}
+            className="lg:col-span-4 lg:row-span-1"
+          >
             <CaseCard 
               title="Hagebau Bolay"
               image="/t-systems-bg.jpg"
