@@ -112,17 +112,23 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
               onMouseLeave={() => setIsHovered(false)}
             >
               <div className="absolute inset-0">
-                <AnimatePresence initial={false} mode="wait">
+                <AnimatePresence initial={false}>
                   <motion.img
                     key={currentIndex}
                     src={images[currentIndex]}
-                    initial={{ opacity: 0, x: 300 }}
+                    initial={{ opacity: 0, x: '100%' }}
                     animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -300 }}
-                    transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                    exit={{ opacity: 0, x: '-100%' }}
+                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                     className="absolute inset-0 w-full h-full object-cover"
                   />
                 </AnimatePresence>
+              </div>
+
+              {/* Preload next and previous images */}
+              <div className="hidden">
+                <img src={images[(currentIndex + 1) % images.length]} alt="" />
+                <img src={images[(currentIndex - 1 + images.length) % images.length]} alt="" />
               </div>
 
               {/* Navigation Arrows */}
