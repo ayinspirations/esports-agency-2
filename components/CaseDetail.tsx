@@ -39,7 +39,7 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
       {/* Hero Section */}
       <div className="relative h-[60vh] md:h-[70vh] overflow-hidden">
         <img 
-          src="/images/hagebau/slide-1.jpg" 
+          src="/images/hagebau/hero-hagebau.jpg" 
           alt="Hagebau Bolay Project" 
           className="absolute inset-0 w-full h-full object-cover"
         />
