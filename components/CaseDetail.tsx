@@ -107,18 +107,18 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
 
             {/* Image Slider */}
             <div 
-              className="relative group rounded-[2.5rem] overflow-hidden aspect-video bg-slate-900 shadow-2xl"
+              className="relative group rounded-[2.5rem] overflow-hidden aspect-video bg-[#d1dbd2] shadow-2xl"
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
             >
-              <div className="absolute inset-0">
+              <div className="absolute inset-0 bg-[#d1dbd2]">
                 <AnimatePresence initial={false}>
                   <motion.img
                     key={currentIndex}
                     src={images[currentIndex]}
-                    initial={{ opacity: 0, x: '100%' }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: '-100%' }}
+                    initial={{ x: '100%' }}
+                    animate={{ x: 0 }}
+                    exit={{ x: '-100%' }}
                     transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                     className="absolute inset-0 w-full h-full object-cover"
                   />
