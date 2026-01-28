@@ -73,6 +73,31 @@ export const HubSpotForm: React.FC = () => {
         -webkit-text-fill-color: #0f172a !important;
         box-shadow: 0 0 0px 1000px white inset !important;
       }
+      .hs-form input[type="checkbox"] {
+        appearance: none !important;
+        -webkit-appearance: none !important;
+        width: 20px !important;
+        height: 20px !important;
+        border: 2px solid #10b981 !important;
+        border-radius: 4px !important;
+        cursor: pointer !important;
+        position: relative !important;
+        background: transparent !important;
+      }
+      .hs-form input[type="checkbox"]:checked {
+        background-color: #10b981 !important;
+      }
+      .hs-form input[type="checkbox"]:checked::after {
+        content: '' !important;
+        position: absolute !important;
+        left: 6px !important;
+        top: 2px !important;
+        width: 5px !important;
+        height: 10px !important;
+        border: solid white !important;
+        border-width: 0 2px 2px 0 !important;
+        transform: rotate(45deg) !important;
+      }
       .hs-form input, 
       .hs-form textarea,
       .hs-form select {

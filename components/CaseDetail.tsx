@@ -34,10 +34,18 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
     return () => clearInterval(interval);
   }, [nextSlide, isHovered]);
 
+  const handleDragEnd = (e: any, { offset, velocity }: any) => {
+    const swipe = Math.abs(offset.x) > 50 && Math.abs(velocity.x) > 500;
+    if (swipe) {
+      if (offset.x > 0) prevSlide();
+      else nextSlide();
+    }
+  };
+
   return (
     <div className="min-h-screen bg-[#d1dbd2] text-slate-900">
       {/* Hero Section */}
-      <div className="relative h-[60vh] md:h-[70vh] overflow-hidden">
+      <div className="relative h-[50vh] md:h-[70vh] overflow-hidden">
         <img 
           src="/images/hagebau/hero-hagebau.jpg" 
           alt="Hagebau Bolay Project" 
@@ -46,7 +54,7 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-[#d1dbd2]" />
         
         <div className="absolute bottom-12 left-6 right-6 md:left-14 md:right-14 z-20">
-          <div className="flex items-end justify-between gap-8">
+          <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-8">
             <div className="flex flex-col">
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
@@ -59,7 +67,7 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className="text-[clamp(40px,8vw,120px)] font-black leading-[0.85] tracking-tighter uppercase text-white drop-shadow-2xl"
+                className="text-[clamp(32px,8vw,120px)] font-black leading-[0.85] tracking-tighter uppercase text-white drop-shadow-2xl"
               >
                 Hagebau <br /> <span className="text-white/40 italic">Bolay.</span>
               </motion.h1>
@@ -69,17 +77,17 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2 }}
-              className="flex items-center gap-4"
+              className="flex flex-wrap items-center gap-4"
             >
               <button 
                 onClick={() => onBack()}
-                className="flex items-center gap-2 px-8 py-4 bg-white/20 hover:bg-white/30 backdrop-blur-xl border border-white/30 rounded-full text-white font-black uppercase tracking-[0.2em] transition-all group w-fit"
+                className="flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 bg-white/20 hover:bg-white/30 backdrop-blur-xl border border-white/30 rounded-full text-white text-xs md:text-base font-black uppercase tracking-[0.2em] transition-all group w-fit"
               >
                 Boost Your Idea
               </button>
               <button 
                 onClick={onBack}
-                className="flex items-center gap-2 px-8 py-4 bg-white/20 hover:bg-white/30 backdrop-blur-xl border border-white/30 rounded-full text-white font-black uppercase tracking-[0.2em] transition-all group w-fit"
+                className="flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 bg-white/20 hover:bg-white/30 backdrop-blur-xl border border-white/30 rounded-full text-white text-xs md:text-base font-black uppercase tracking-[0.2em] transition-all group w-fit"
               >
                 <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
                 Zurück
@@ -89,25 +97,25 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
         </div>
       </div>
 
-      <div className="max-w-[1440px] mx-auto px-6 md:px-14 py-24 md:py-32">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 md:gap-24">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-14 py-16 md:py-32">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-24">
           {/* Main Content */}
-          <div className="lg:col-span-8 space-y-16">
+          <div className="lg:col-span-8 space-y-12 md:space-y-16">
             <section>
-              <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-8 italic text-slate-900/40">
+              <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter mb-6 md:mb-8 italic text-slate-900/40">
                 Über das Projekt
               </h2>
-              <p className="text-xl md:text-2xl font-medium leading-relaxed text-slate-700">
+              <p className="text-lg md:text-2xl font-medium leading-relaxed text-slate-700">
                 Für unseren Kunden haben wir mit dem Gaming Day 1.0 und Gaming Day 2.0 ein einzigartiges Eventformat geschaffen, das Gaming, Esport und interaktives Entertainment zu einem unvergesslichen Erlebnis verschmelzen ließ.
               </p>
-              <p className="text-xl md:text-2xl font-medium leading-relaxed text-slate-700 mt-6">
+              <p className="text-lg md:text-2xl font-medium leading-relaxed text-slate-700 mt-6">
                 Ziel war es, eine Gaming-Welt zu erschaffen, in der Spaß, Teamgeist und Wettkampf sowohl für Neulinge als auch fortgeschrittene Spielende aufeinandertrafen.
               </p>
             </section>
 
             {/* Image Slider */}
             <div 
-              className="relative group rounded-[2.5rem] overflow-hidden aspect-video bg-[#d1dbd2] shadow-2xl"
+              className="relative group rounded-[2.5rem] overflow-hidden aspect-video bg-[#d1dbd2] shadow-2xl touch-pan-y"
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
             >
@@ -119,8 +127,11 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
                     initial={{ x: '100%' }}
                     animate={{ x: 0 }}
                     exit={{ x: '-100%' }}
+                    drag="x"
+                    dragConstraints={{ left: 0, right: 0 }}
+                    onDragEnd={handleDragEnd}
                     transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                    className="absolute inset-0 w-full h-full object-cover"
+                    className="absolute inset-0 w-full h-full object-cover cursor-grab active:cursor-grabbing"
                   />
                 </AnimatePresence>
               </div>
