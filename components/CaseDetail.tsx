@@ -122,24 +122,30 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
 
             {/* Image Slider */}
             <div 
-              className="relative group rounded-[2.5rem] overflow-hidden aspect-video bg-[#d1dbd2] shadow-2xl touch-pan-y"
+              className="relative group rounded-[2.5rem] overflow-hidden aspect-video bg-[#d1dbd2] shadow-2xl touch-none"
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
             >
               <div className="absolute inset-0 bg-[#d1dbd2]">
                 <AnimatePresence initial={false}>
-                  <motion.img
+                  <motion.div
                     key={currentIndex}
-                    src={images[currentIndex]}
                     initial={{ x: '100%' }}
                     animate={{ x: 0 }}
                     exit={{ x: '-100%' }}
+                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                     drag="x"
                     dragConstraints={{ left: 0, right: 0 }}
+                    dragElastic={0.2}
                     onDragEnd={handleDragEnd}
-                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                    className="absolute inset-0 w-full h-full object-cover cursor-grab active:cursor-grabbing"
-                  />
+                    className="absolute inset-0 w-full h-full cursor-grab active:cursor-grabbing"
+                  >
+                    <img
+                      src={images[currentIndex]}
+                      alt={`Slide ${currentIndex + 1}`}
+                      className="w-full h-full object-cover pointer-events-none"
+                    />
+                  </motion.div>
                 </AnimatePresence>
               </div>
 
