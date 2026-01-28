@@ -96,12 +96,14 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
               {/* Navigation Arrows */}
               <button 
                 id="prev-slide"
+                type="button"
                 className="absolute left-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all z-30"
               >
                 <ArrowLeft className="w-6 h-6" />
               </button>
               <button 
                 id="next-slide"
+                type="button"
                 className="absolute right-6 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all z-30"
               >
                 <ArrowLeft className="w-6 h-6 rotate-180" />
@@ -110,64 +112,84 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
               {/* Dots */}
               <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-30">
                 {[0, 1, 2, 3, 4, 5].map((i) => (
-                  <div key={i} className="slider-dot w-2 h-2 rounded-full bg-white/20 transition-all" data-index={i} />
+                  <button 
+                    key={i} 
+                    type="button"
+                    className="slider-dot w-2 h-2 rounded-full bg-white/20 transition-all" 
+                    data-index={i} 
+                  />
                 ))}
               </div>
 
               <script dangerouslySetInnerHTML={{ __html: `
                 (function() {
-                  let currentSlide = 0;
-                  const totalSlides = 6;
-                  const track = document.getElementById('slider-track');
-                  const dots = document.querySelectorAll('.slider-dot');
-                  let interval;
+                  const setupSlider = () => {
+                    let currentSlide = 0;
+                    const totalSlides = 6;
+                    const track = document.getElementById('slider-track');
+                    const dots = document.querySelectorAll('.slider-dot');
+                    const nextBtn = document.getElementById('next-slide');
+                    const prevBtn = document.getElementById('prev-slide');
+                    let interval;
 
-                  function updateSlider() {
-                    track.style.transform = \`translateX(-\${currentSlide * 100}%)\`;
-                    dots.forEach((dot, i) => {
-                      dot.style.backgroundColor = i === currentSlide ? 'white' : 'rgba(255,255,255,0.2)';
-                      dot.style.width = i === currentSlide ? '24px' : '8px';
-                    });
-                  }
+                    if (!track || !nextBtn || !prevBtn) {
+                      setTimeout(setupSlider, 100);
+                      return;
+                    }
 
-                  function next() {
-                    currentSlide = (currentSlide + 1) % totalSlides;
-                    updateSlider();
-                  }
+                    function updateSlider() {
+                      track.style.transform = \`translateX(-\${currentSlide * 100}%)\`;
+                      dots.forEach((dot, i) => {
+                        dot.style.backgroundColor = i === currentSlide ? 'white' : 'rgba(255,255,255,0.2)';
+                        dot.style.width = i === currentSlide ? '24px' : '8px';
+                      });
+                    }
 
-                  function prev() {
-                    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-                    updateSlider();
-                  }
-
-                  function startAuto() {
-                    stopAuto();
-                    interval = setInterval(next, 3000);
-                  }
-
-                  function stopAuto() {
-                    if (interval) clearInterval(interval);
-                  }
-
-                  document.getElementById('next-slide').onclick = (e) => { e.stopPropagation(); next(); startAuto(); };
-                  document.getElementById('prev-slide').onclick = (e) => { e.stopPropagation(); prev(); startAuto(); };
-                  
-                  dots.forEach((dot, i) => {
-                    dot.onclick = (e) => {
-                      e.stopPropagation();
-                      currentSlide = i;
+                    function next() {
+                      currentSlide = (currentSlide + 1) % totalSlides;
                       updateSlider();
-                      startAuto();
-                    };
-                  });
+                    }
 
-                  updateSlider();
-                  startAuto();
-                  
-                  // Cleanup on hover
-                  const container = track.parentElement;
-                  container.onmouseenter = stopAuto;
-                  container.onmouseleave = startAuto;
+                    function prev() {
+                      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                      updateSlider();
+                    }
+
+                    function startAuto() {
+                      stopAuto();
+                      interval = setInterval(next, 3000);
+                    }
+
+                    function stopAuto() {
+                      if (interval) clearInterval(interval);
+                    }
+
+                    nextBtn.onclick = (e) => { e.preventDefault(); e.stopPropagation(); next(); startAuto(); };
+                    prevBtn.onclick = (e) => { e.preventDefault(); e.stopPropagation(); prev(); startAuto(); };
+                    
+                    dots.forEach((dot, i) => {
+                      dot.onclick = (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        currentSlide = i;
+                        updateSlider();
+                        startAuto();
+                      };
+                    });
+
+                    updateSlider();
+                    startAuto();
+                    
+                    const container = track.parentElement;
+                    container.onmouseenter = stopAuto;
+                    container.onmouseleave = startAuto;
+                  };
+
+                  if (document.readyState === 'complete') {
+                    setupSlider();
+                  } else {
+                    window.addEventListener('load', setupSlider);
+                  }
                 })();
               `}} />
             </div>
