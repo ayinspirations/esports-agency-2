@@ -49,7 +49,7 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
   return (
     <div className="min-h-screen bg-[#d1dbd2] text-slate-900">
       {/* Hero Section */}
-      <div className="relative h-[50vh] md:h-[70vh] overflow-hidden">
+      <div className="relative h-[60vh] md:h-[70vh] overflow-hidden">
         <img 
           src="/images/hagebau/hero-hagebau.jpg" 
           alt="Hagebau Bolay Project" 
@@ -59,14 +59,7 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
         
         <div className="absolute bottom-12 left-6 right-6 md:left-14 md:right-14 z-20">
           <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-8">
-            <div className="flex flex-col">
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="px-4 py-1.5 bg-emerald-500 rounded-full text-[10px] font-black uppercase tracking-[0.2em] text-white w-fit mb-6"
-              >
-                Recruiting
-              </motion.div>
+            <div className="flex flex-col mt-20 md:mt-0">
               <motion.h1 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -81,10 +74,20 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2 }}
-              className="flex flex-wrap items-center gap-4"
+              className="flex flex-wrap items-center gap-4 mt-8 md:mt-0"
             >
               <button 
-                onClick={() => onBack()}
+                onClick={() => {
+                  const contactSection = document.getElementById('contact');
+                  if (contactSection) {
+                    contactSection.scrollIntoView({ behavior: 'smooth' });
+                  } else {
+                    onBack();
+                    setTimeout(() => {
+                      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                    }, 100);
+                  }
+                }}
                 className="flex items-center gap-2 px-6 md:px-8 py-3 md:py-4 bg-white/20 hover:bg-white/30 backdrop-blur-xl border border-white/30 rounded-full text-white text-xs md:text-base font-black uppercase tracking-[0.2em] transition-all group w-fit"
               >
                 Boost Your Idea
