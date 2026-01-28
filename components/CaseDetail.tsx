@@ -74,7 +74,7 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2 }}
-              className="flex flex-wrap items-center gap-4 mt-8 md:mt-0"
+              className="flex flex-col items-end gap-4 mt-8 md:mt-0"
             >
               <button 
                 onClick={() => {
@@ -256,22 +256,22 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
                     31 ausgewählte Gäste erlebten einen Tag voller Action und bekamen spannende Einblicke in die Arbeitswelt von hagebau bolay.
                   </p>
                 </div>
+              </div>
 
-                {/* Mobile Logo positioning */}
-                <div className="mt-12 flex justify-center md:hidden">
-                  <a 
-                    href="https://www.hagebau-bolay.de" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="block hover:scale-105 transition-transform"
-                  >
-                    <img 
-                      src="/hagebau-logo.png" 
-                      alt="Hagebau Bolay Logo" 
-                      className="h-16 w-auto opacity-100"
-                    />
-                  </a>
-                </div>
+              {/* Mobile Logo positioning - outside the black box */}
+              <div className="mt-8 flex justify-center md:hidden">
+                <a 
+                  href="https://www.hagebau-bolay.de" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="block hover:scale-105 transition-transform"
+                >
+                  <img 
+                    src="/hagebau-logo.png" 
+                    alt="Hagebau Bolay Logo" 
+                    className="h-16 w-auto opacity-100"
+                  />
+                </a>
               </div>
             </div>
           </div>
