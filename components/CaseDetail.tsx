@@ -211,7 +211,7 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
             <div className="pt-12 flex justify-center hidden md:flex">
               <a 
                 href="https://www.hagebau-bolay.de" 
-                target="_blank" 
+                target="_blank"
                 rel="noopener noreferrer"
                 className="block hover:scale-105 transition-transform"
               >
@@ -266,7 +266,7 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
               <div className="mt-8 flex justify-center md:hidden">
                 <a 
                   href="https://www.hagebau-bolay.de" 
-                  target="_blank" 
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="block hover:scale-105 transition-transform"
                 >
