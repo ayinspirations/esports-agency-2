@@ -27,41 +27,48 @@ export const CookiePopup: React.FC = () => {
     <AnimatePresence>
       {isVisible && (
         <motion.div
-          initial={{ opacity: 0, y: 50, scale: 0.95 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: 20, scale: 0.95 }}
-          className="fixed bottom-6 left-6 right-6 md:left-auto md:right-10 md:w-[400px] z-[9999]"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.9 }}
+          className="fixed inset-0 flex items-center justify-center z-[9999] px-6"
         >
-          <div className="relative overflow-hidden bg-black/80 backdrop-blur-2xl border border-white/10 rounded-[2rem] p-8 shadow-2xl">
+          {/* Backdrop */}
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="absolute inset-0 bg-black/20 backdrop-blur-sm"
+            onClick={() => setIsVisible(false)}
+          />
+
+          <div className="relative overflow-hidden bg-white/90 backdrop-blur-2xl border border-white/40 rounded-[2.5rem] p-10 md:p-12 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] max-w-[500px] w-full">
             {/* Background Glow */}
-            <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-32 h-32 bg-[#00ff00]/10 blur-[60px] rounded-full" />
+            <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-48 h-48 bg-[#00ff00]/10 blur-[80px] rounded-full" />
             
-            <div className="relative z-10">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-12 rounded-2xl bg-[#00ff00]/10 flex items-center justify-center border border-[#00ff00]/20">
-                  <Cookie className="w-6 h-6 text-[#00ff00]" />
+            <div className="relative z-10 text-center">
+              <div className="flex flex-col items-center mb-8">
+                <div className="w-16 h-16 rounded-[1.5rem] bg-[#00ff00]/10 flex items-center justify-center border border-[#00ff00]/20 mb-6">
+                  <Cookie className="w-8 h-8 text-[#00ff00]" />
                 </div>
-                <div>
-                  <h3 className="text-white font-black uppercase tracking-wider text-sm">Cookie Einstellungen</h3>
-                  <p className="text-white/40 text-[10px] uppercase tracking-widest font-bold">Privatsphäre & Sicherheit</p>
-                </div>
+                <h3 className="text-slate-900 font-black uppercase tracking-wider text-xl mb-2">Cookie-Einstellungen</h3>
+                <p className="text-slate-500 text-[11px] uppercase tracking-[0.3em] font-bold">Privatsphäre & Sicherheit</p>
               </div>
 
-              <p className="text-white/70 text-sm leading-relaxed mb-8">
+              <p className="text-slate-600 text-base md:text-lg leading-relaxed mb-10 font-medium">
                 Wir nutzen Cookies, um dein Erlebnis zu optimieren und unsere Services zu verbessern. Mit einem Klick auf "Akzeptieren" stimmst du der Nutzung zu.
               </p>
 
-              <div className="flex flex-col gap-3">
+              <div className="flex flex-col gap-4">
                 <button
                   onClick={handleAccept}
-                  className="w-full py-4 bg-[#00ff00] hover:bg-[#00dd00] text-black text-xs font-black uppercase tracking-[0.2em] rounded-full transition-all flex items-center justify-center gap-2 group"
+                  className="w-full py-5 bg-[#00ff00] hover:bg-[#00dd00] text-black text-[13px] font-black uppercase tracking-[0.25em] rounded-full transition-all flex items-center justify-center gap-3 group shadow-lg shadow-[#00ff00]/20"
                 >
-                  <Check className="w-4 h-4" />
+                  <Check className="w-5 h-5" />
                   Alle Akzeptieren
                 </button>
                 <button
                   onClick={handleDecline}
-                  className="w-full py-4 bg-white/5 hover:bg-white/10 text-white/70 text-xs font-black uppercase tracking-[0.2em] rounded-full transition-all border border-white/10"
+                  className="w-full py-5 bg-slate-900/5 hover:bg-slate-900/10 text-slate-700 text-[13px] font-black uppercase tracking-[0.25em] rounded-full transition-all border border-slate-900/10"
                 >
                   Ablehnen
                 </button>
@@ -70,9 +77,9 @@ export const CookiePopup: React.FC = () => {
             
             <button 
               onClick={() => setIsVisible(false)}
-              className="absolute top-6 right-6 text-white/20 hover:text-white transition-colors"
+              className="absolute top-8 right-8 text-slate-300 hover:text-slate-900 transition-colors"
             >
-              <X className="w-4 h-4" />
+              <X className="w-5 h-5" />
             </button>
           </div>
         </motion.div>
