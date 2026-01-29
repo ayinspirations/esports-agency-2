@@ -55,7 +55,7 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
       <div className="relative h-[60vh] md:h-[70vh] overflow-hidden">
         <img 
           src="/images/hagebau/hero-hagebau.jpg" 
-          alt="Hagebau Bolay Project" 
+          alt="Hagebau Bolay Gaming Day Recruiting Event" 
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-[#d1dbd2]" />
@@ -113,10 +113,10 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
           <div className="lg:col-span-8 space-y-12 md:space-y-16">
             <section>
               <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter mb-6 md:mb-8 italic text-slate-900/40">
-                Über das Projekt
+                Hagebau Bolay Case Study: Gaming Day 1.0 & 2.0
               </h2>
               <p className="text-lg md:text-2xl font-medium leading-relaxed text-slate-700">
-                Für unseren Kunden haben wir mit dem Gaming Day 1.0 und Gaming Day 2.0 ein einzigartiges Eventformat geschaffen, das Gaming, Esport und interaktives Entertainment zu einem unvergesslichen Erlebnis verschmelzen ließ.
+                Für Hagebau Bolay haben wir mit dem Gaming Day 1.0 und Gaming Day 2.0 ein einzigartiges Eventformat geschaffen, das Gaming, Esport und interaktives Entertainment zu einem unvergesslichen Erlebnis verschmelzen ließ.
               </p>
               <p className="text-lg md:text-2xl font-medium leading-relaxed text-slate-700 mt-6">
                 Ziel war es, eine Gaming-Welt zu erschaffen, in der Spaß, Teamgeist und Wettkampf sowohl für Neulinge als auch fortgeschrittene Spielende aufeinandertrafen.
