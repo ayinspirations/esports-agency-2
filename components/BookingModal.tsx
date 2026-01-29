@@ -13,6 +13,9 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
+      document.body.style.touchAction = 'none';
+      document.body.style.position = 'fixed';
+      document.body.style.width = '100%';
       // Listen for message from HubSpot iframe to detect successful booking
       const handleMessage = (event: MessageEvent) => {
         if (event.data.meetingBooked) {
@@ -29,6 +32,9 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
 
       return () => {
         document.body.style.overflow = 'unset';
+        document.body.style.touchAction = 'unset';
+        document.body.style.position = 'unset';
+        document.body.style.width = 'unset';
         window.removeEventListener('message', handleMessage);
         if (script.parentNode) {
           document.body.removeChild(script);
@@ -37,6 +43,9 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
     } else {
       setIsSuccess(false);
       document.body.style.overflow = 'unset';
+      document.body.style.touchAction = 'unset';
+      document.body.style.position = 'unset';
+      document.body.style.width = 'unset';
     }
   }, [isOpen]);
 
