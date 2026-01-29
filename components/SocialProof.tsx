@@ -3,9 +3,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const logos = [
-  { name: 'DAZN', url: '/logos/DAZN_Logo_Master.svg.png' },
   { name: 'Porsche', url: '/logos/818338.png' },
   { name: 'Rewe', url: '/logos/a2dec73e456eae1312e702710b3cb5c5.jpg' },
+  { name: 'DAZN', url: '/logos/DAZN_Logo_Master.svg.png' },
   { name: 'Nivea', url: '/logos/nivea-men-logo-png_seeklogo-323961.png', blend: true },
   { name: 'T-Systems', url: '/logos/T-Systems_Logo_2024.svg.png' },
   { name: 'Sparkasse', url: '/logos/Sparkasse.svg.png' },
@@ -80,7 +80,7 @@ export const SocialProof: React.FC = () => {
               <img 
                 src={logo.url} 
                 alt={logo.name} 
-                className={`h-6 md:h-10 lg:h-12 w-auto object-contain max-w-[100px] md:max-w-[180px] ${logo.blend ? 'mix-blend-multiply' : ''}`}
+                className={`h-12 md:h-16 lg:h-20 w-auto object-contain max-w-[140px] md:max-w-[220px] ${logo.blend ? 'mix-blend-multiply' : ''}`}
                 loading="lazy"
               />
             </div>
