@@ -198,7 +198,6 @@ export const BayernZocktDetail: React.FC<BayernZocktDetailProps> = ({ onBack }) 
                 </div>
               ))}
             </div>
-          </div>
 
             {/* Desktop Logo positioning - outside the black box and below challenge/solution cards */}
             <div className="pt-12 flex justify-center">
