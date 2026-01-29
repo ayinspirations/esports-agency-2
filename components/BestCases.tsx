@@ -13,13 +13,14 @@ interface CaseProps {
   delay: number;
   isCTA?: boolean;
   onScroll?: (id: string) => void;
+  className?: string;
 }
 
-const CaseCard: React.FC<CaseProps> = ({ title, client, video, image, size, category, delay, isCTA, onScroll }) => {
+const CaseCard: React.FC<CaseProps> = ({ title, client, video, image, size, category, delay, isCTA, onScroll, className }) => {
   const sizeClasses = {
-    large: "col-span-1 lg:col-span-8 lg:row-span-2 aspect-[16/9] lg:aspect-auto min-h-[350px] mx-0",
-    medium: "col-span-1 lg:col-span-4 lg:row-span-2 aspect-[4/5] lg:aspect-auto min-h-[350px] mx-0",
-    small: "col-span-1 lg:col-span-4 lg:row-span-1 aspect-[16/9] lg:aspect-auto min-h-[350px] mx-0"
+    large: "col-span-1 lg:col-span-8 lg:row-span-2 aspect-[16/9] lg:aspect-auto min-h-[350px] w-full",
+    medium: "col-span-1 lg:col-span-4 lg:row-span-2 aspect-[4/5] lg:aspect-auto min-h-[350px] w-full",
+    small: "col-span-1 lg:col-span-4 lg:row-span-1 aspect-[16/9] lg:aspect-auto min-h-[350px] w-full"
   };
 
   if (isCTA) {
@@ -30,7 +31,7 @@ const CaseCard: React.FC<CaseProps> = ({ title, client, video, image, size, cate
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 1, delay, ease: [0.16, 1, 0.3, 1] }}
-        className={`relative group overflow-hidden rounded-[2.5rem] bg-emerald-500 cursor-pointer flex flex-col justify-between p-8 md:p-12 shadow-2xl shadow-emerald-500/20 text-left ${sizeClasses[size]}`}
+        className={`relative group overflow-hidden rounded-[2.5rem] bg-emerald-500 cursor-pointer flex flex-col justify-between p-8 md:p-12 shadow-2xl shadow-emerald-500/20 text-left ${sizeClasses[size]} ${className || ''}`}
       >
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-400 to-emerald-600 group-hover:scale-105 transition-transform duration-700" />
         <div className="absolute top-0 right-0 p-12 opacity-10 group-hover:opacity-20 transition-opacity">
@@ -60,7 +61,7 @@ const CaseCard: React.FC<CaseProps> = ({ title, client, video, image, size, cate
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 1, delay, ease: [0.16, 1, 0.3, 1] }}
-      className={`relative group overflow-hidden rounded-[2.5rem] bg-slate-900 cursor-pointer ${sizeClasses[size]}`}
+      className={`relative group overflow-hidden rounded-[2.5rem] bg-slate-900 cursor-pointer ${sizeClasses[size]} ${className || ''}`}
     >
       {video && (
         <video
@@ -140,6 +141,7 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
             size="large"
             category="Event Production"
             delay={0.1}
+            className="max-w-[calc(100vw-3rem)] md:max-w-none"
           />
           
           {/* Row 1 - Right: Logitech (Small) */}
@@ -149,11 +151,12 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
             size="small"
             category="Recruiting"
             delay={0.2}
+            className="max-w-[calc(100vw-3rem)] md:max-w-none"
           />
 
           <motion.div 
             onClick={() => onNavigate?.('hagebau')}
-            className="col-span-1 lg:col-span-4 lg:row-span-1 min-h-[350px] cursor-pointer mx-0"
+            className="col-span-1 lg:col-span-4 lg:row-span-1 min-h-[350px] cursor-pointer mx-0 max-w-[calc(100vw-3rem)] md:max-w-none w-full"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -200,6 +203,7 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
             size="small"
             category="Live Content"
             delay={0.4}
+            className="max-w-[calc(100vw-3rem)] md:max-w-none"
           />
 
           {/* Row 3 - Middle: New Case (Small) */}
@@ -210,6 +214,7 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
             size="small"
             category="Pop-up Event"
             delay={0.5}
+            className="max-w-[calc(100vw-3rem)] md:max-w-none"
           />
 
           {/* Row 3 - Right: CTA (Small) - Directly under Tech Setup */}
@@ -219,6 +224,7 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
             delay={0.6}
             isCTA={true}
             onScroll={onScroll}
+            className="max-w-[calc(100vw-3rem)] md:max-w-none"
           />
         </div>
       </div>
