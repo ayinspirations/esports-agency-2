@@ -200,6 +200,24 @@ export const BayernZocktDetail: React.FC<BayernZocktDetailProps> = ({ onBack }) 
             </div>
           </div>
 
+            {/* Desktop Logo positioning - outside the black box and below challenge/solution cards */}
+            <div className="pt-12 flex justify-center">
+              <a 
+                href="https://www.bfv.de" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block hover:scale-105 transition-transform"
+              >
+                <img 
+                  src="/logos/Bayerischer_Fussballverband.svg.png" 
+                  alt="BFV Logo" 
+                  className="h-16 md:h-24 w-auto opacity-100 transition-opacity"
+                />
+              </a>
+            </div>
+          </div>
+
+          {/* Sidebar */}
           <div className="lg:col-span-4 space-y-12 order-last lg:order-none">
             <div className="sticky top-32">
               <div className="bg-slate-900 text-white p-10 rounded-[2.5rem] shadow-2xl">
@@ -275,13 +293,6 @@ export const BayernZocktDetail: React.FC<BayernZocktDetailProps> = ({ onBack }) 
                     </p>
                   </div>
                 </div>
-              </div>
-              <div className="mt-8 flex justify-center lg:justify-start">
-                <img 
-                  src="/logos/Bayerischer_Fussballverband.svg.png" 
-                  alt="BFV Logo" 
-                  className="h-16 w-auto object-contain opacity-80 grayscale hover:grayscale-0 transition-all duration-300"
-                />
               </div>
             </div>
           </div>
