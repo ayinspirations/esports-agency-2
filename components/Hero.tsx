@@ -33,9 +33,10 @@ const notifications = [
 interface HeroProps {
   onNavigate: (page: 'home' | 'services') => void;
   scrollToSection?: (id: string) => void;
+  onOpenBooking?: () => void;
 }
 
-export const Hero: React.FC<HeroProps> = ({ onNavigate, scrollToSection }) => {
+export const Hero: React.FC<HeroProps> = ({ onNavigate, scrollToSection, onOpenBooking }) => {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -193,7 +194,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, scrollToSection }) => {
                 className="flex items-center justify-center lg:justify-end gap-6 sm:gap-8 w-full"
               >
                 <button 
-                  onClick={() => scrollToSection?.('contact')}
+                  onClick={() => onOpenBooking?.()}
                   className="bg-emerald-400 hover:bg-emerald-300 text-slate-900 px-6 py-3.5 sm:px-10 sm:py-5 rounded-full font-black text-base sm:text-xl transition-all shadow-[0_0_50px_rgba(52,211,153,0.3)] hover:scale-105 active:scale-95 tracking-tighter"
                 >
                   Termin vereinbaren
