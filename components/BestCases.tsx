@@ -313,22 +313,27 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
             </div>
 
             <div className="relative z-10 h-full flex flex-col justify-between">
-              <div className="flex-1 flex items-center justify-center">
+              <div className="flex-1 relative">
                 <motion.div 
-                  animate={{ 
-                    x: [-100, 150, -100],
-                    y: [100, -150, 100],
-                    rotate: [45, 45, 45],
-                    opacity: [0, 1, 0]
+                  initial={{ 
+                    x: '150%', 
+                    y: '150%',
+                    opacity: 0 
                   }}
+                  whileInView={{ 
+                    x: '150%', 
+                    y: '-20%',
+                    opacity: 1 
+                  }}
+                  viewport={{ once: true }}
                   transition={{ 
-                    duration: 3, 
-                    repeat: Infinity,
-                    ease: "easeInOut"
+                    duration: 1.5, 
+                    ease: [0.16, 1, 0.3, 1],
+                    delay: 0.8
                   }}
-                  className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-xl border border-white/30 flex items-center justify-center text-white shadow-2xl"
+                  className="absolute right-0 top-0 w-16 h-16 rounded-full bg-white/20 backdrop-blur-xl border border-white/30 flex items-center justify-center text-white shadow-2xl"
                 >
-                  <ArrowUpRight className="w-10 h-10" />
+                  <ArrowUpRight className="w-8 h-8" />
                 </motion.div>
               </div>
 
