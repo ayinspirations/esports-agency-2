@@ -3,11 +3,11 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const logos = [
-  { name: 'Porsche', url: '/logos/818338.png' },
-  { name: 'Rewe', url: '/logos/a2dec73e456eae1312e702710b3cb5c5.jpg' },
   { name: 'DAZN', url: '/logos/DAZN_Logo_Master.svg.png' },
   { name: 'Nivea', url: '/logos/nivea-men-logo-png_seeklogo-323961.png', blend: true },
   { name: 'T-Systems', url: '/logos/T-Systems_Logo_2024.svg.png' },
+  { name: 'Porsche', url: '/logos/818338.png' },
+  { name: 'Rewe', url: '/logos/a2dec73e456eae1312e702710b3cb5c5.jpg' },
   { name: 'Sparkasse', url: '/logos/Sparkasse.svg.png' },
   { name: 'Mercedes Benz', url: '/logos/mercedes-benz-logo-png_seeklogo-91081.png' },
   { name: 'Bayerischer Fussballverband', url: '/logos/Bayerischer_Fussballverband.svg.png' },
