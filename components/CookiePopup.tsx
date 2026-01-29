@@ -13,6 +13,17 @@ export const CookiePopup: React.FC = () => {
     }
   }, []);
 
+  useEffect(() => {
+    if (isVisible) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isVisible]);
+
   const handleAccept = () => {
     localStorage.setItem('cookies-accepted', 'true');
     setIsVisible(false);
