@@ -33,19 +33,20 @@ const logos = [
 ];
 
 export const SocialProof: React.FC = () => {
-  const marqueeLogos = [...logos, ...logos, ...logos, ...logos, ...logos];
+  const marqueeLogos = [...logos, ...logos, ...logos, ...logos, ...logos, ...logos, ...logos, ...logos];
 
   return (
     <div className="w-full overflow-hidden select-none">
       <style>{`
         @keyframes marquee-scroll {
           0% { transform: translateX(0); }
-          100% { transform: translateX(-20%); }
+          100% { transform: translateX(-12.5%); }
         }
         .animate-marquee-scroll {
-          animation: marquee-scroll 60s linear infinite;
+          animation: marquee-scroll 80s linear infinite;
           display: flex;
           width: fit-content;
+          will-change: transform;
         }
         .animate-marquee-scroll:hover {
           animation-play-state: paused;
