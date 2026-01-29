@@ -312,35 +312,42 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(16,185,129,0.4)_100%)]" />
             </div>
 
-            <div className="relative z-10">
-              <motion.div 
-                animate={{ 
-                  y: [0, -10, 0],
-                  rotate: [0, 5, 0]
-                }}
-                transition={{ 
-                  duration: 1.5, 
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-                className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-xl border border-white/30 flex items-center justify-center text-white mb-6 shadow-xl"
-              >
-                <ArrowUpRight className="w-6 h-6" />
-              </motion.div>
-              <h3 className="text-slate-950 text-[clamp(24px,2.2vw,32px)] font-black leading-[0.9] tracking-tighter uppercase max-w-[240px] drop-shadow-sm">
-                Euer Event auf das <br /> 
-                <span className="text-white italic">nächste Level</span> <br /> 
-                heben
-              </h3>
-            </div>
+            <div className="relative z-10 h-full flex flex-col justify-between">
+              <div className="flex-1 flex items-center justify-center">
+                <motion.div 
+                  animate={{ 
+                    x: [-100, 150, -100],
+                    y: [100, -150, 100],
+                    rotate: [45, 45, 45],
+                    opacity: [0, 1, 0]
+                  }}
+                  transition={{ 
+                    duration: 3, 
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                  className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-xl border border-white/30 flex items-center justify-center text-white shadow-2xl"
+                >
+                  <ArrowUpRight className="w-10 h-10" />
+                </motion.div>
+              </div>
 
-            <div className="relative z-10 flex items-center gap-3 text-slate-900/60 text-[10px] font-black uppercase tracking-[0.2em]">
-              <span>Jetzt anfragen</span>
-              <motion.div 
-                animate={{ width: [32, 64, 32] }}
-                transition={{ duration: 2, repeat: Infinity }}
-                className="h-[2px] bg-slate-900/40 rounded-full" 
-              />
+              <div>
+                <h3 className="text-slate-950 text-[clamp(24px,2.2vw,32px)] font-black leading-[0.9] tracking-tighter uppercase max-w-[240px] drop-shadow-sm mb-6">
+                  Euer Event auf das <br /> 
+                  <span className="text-white italic">nächste Level</span> <br /> 
+                  heben
+                </h3>
+
+                <div className="flex items-center gap-3 text-slate-900/60 text-[10px] font-black uppercase tracking-[0.2em]">
+                  <span>Jetzt anfragen</span>
+                  <motion.div 
+                    animate={{ width: [32, 64, 32] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                    className="h-[2px] bg-slate-900/40 rounded-full" 
+                  />
+                </div>
+              </div>
             </div>
           </motion.button>
         </div>
