@@ -95,19 +95,6 @@ export const SocialProof: React.FC = () => {
             </a>
           ))}
         </div>
-              <img 
-                src={logo.url} 
-                alt={logo.name} 
-                className={`w-auto object-contain transition-all duration-700 ${logo.blend ? 'mix-blend-multiply' : ''} ${
-                  logo.name === 'Indeed' || logo.name === 'Mercedes Benz' 
-                    ? 'h-16 md:h-20 lg:h-24 max-w-[180px] md:max-w-[260px]' 
-                    : 'h-12 md:h-16 lg:h-20 max-w-[140px] md:max-w-[220px]'
-                }`}
-                loading="lazy"
-              />
-            </div>
-          ))}
-        </div>
 
         {/* Linear-inspired Gradient Fades */}
         <div className="absolute inset-y-0 left-0 w-24 md:w-[200px] lg:w-[400px] bg-gradient-to-r from-[#d1dbd2] via-[#d1dbd2]/80 to-transparent z-10 pointer-events-none" />
