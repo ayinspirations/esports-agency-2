@@ -3,16 +3,33 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const logos = [
-  { name: 'AMD', url: 'https://upload.wikimedia.org/wikipedia/commons/7/7c/AMD_Logo.svg' },
-  { name: 'Intel', url: 'https://upload.wikimedia.org/wikipedia/commons/7/7d/Intel_logo_%282006-2020%29.svg' },
-  { name: 'Steam', url: 'https://upload.wikimedia.org/wikipedia/commons/8/83/Steam_icon_logo.svg' },
-  { name: 'NVIDIA', url: 'https://upload.wikimedia.org/wikipedia/commons/2/21/Nvidia_logo.svg' },
-  { name: 'ASUS', url: 'https://upload.wikimedia.org/wikipedia/commons/2/2e/ASUS_Logo.svg' },
-  { name: 'Razer', url: 'https://upload.wikimedia.org/wikipedia/commons/4/40/Razer_snake_logo.svg' },
-  { name: 'Twitch', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d3/Twitch_logo.svg' },
-  { name: 'Corsair', url: 'https://upload.wikimedia.org/wikipedia/commons/c/c2/Corsair_Logo.svg' },
-  { name: 'Logitech', url: 'https://upload.wikimedia.org/wikipedia/commons/0/07/Logitech_logo.svg' },
-  { name: 'MSI', url: 'https://upload.wikimedia.org/wikipedia/commons/a/ae/MSI_Logo.svg' }
+  { name: 'Porsche', url: '/logos/818338.png' },
+  { name: 'Rewe', url: '/logos/a2dec73e456eae1312e702710b3cb5c5.jpg' },
+  { name: 'Nivea', url: '/logos/nivea-men-logo-png_seeklogo-323961.png' },
+  { name: 'T-Systems', url: '/logos/T-Systems_Logo_2024.svg.png' },
+  { name: 'Sparkasse', url: '/logos/Sparkasse.svg.png' },
+  { name: 'Mercedes Benz', url: '/logos/mercedes-benz-logo-png_seeklogo-91081.png' },
+  { name: 'Bayerischer Fussballverband', url: '/logos/Bayerischer_Fussballverband.svg.png' },
+  { name: 'Indeed', url: '/logos/indeed-logo.png' },
+  { name: 'Schalke 04', url: '/logos/sc3377fe86-schalke-04-logo-fc-schalke-04-liblogo.png' },
+  { name: 'RB Leipzig', url: '/logos/RB-Leipzig-Logo-500x281.png' },
+  { name: 'Eintracht Frankfurt', url: '/logos/Eintracht-Frankfurt-logo-500x325.png' },
+  { name: 'Techniker Krankenkasse', url: '/logos/Techniker_Krankenkasse_2016_logo.svg.png' },
+  { name: '1. FC Köln', url: '/logos/1-fc-koln-logo-png_seeklogo-505047.png' },
+  { name: 'Holstein Kiel', url: '/logos/kieler-sv-holstein-logo-png_seeklogo-295846.png' },
+  { name: 'Hamburger SV', url: '/logos/Hamburger_SV_logo.svg.png' },
+  { name: 'VfB Stuttgart', url: '/logos/VfB-Stuttgart-logo-2014-500x281.png' },
+  { name: 'VfL Bochum', url: '/logos/VfL_Bochum_logo.svg.png' },
+  { name: 'DAZN', url: '/logos/DAZN_Logo_Master.svg.png' },
+  { name: 'OneFootball', url: '/logos/onefootball-logo-png_seeklogo-458889.png' },
+  { name: 'Betano', url: '/logos/Betano-Symbol-500x281.png' },
+  { name: 'Effect Energy', url: '/logos/effect-energy-drink-logo-png-transparent.png' },
+  { name: 'Tailormade', url: '/logos/Tailormade.png' },
+  { name: 'B2Sports', url: '/logos/B2Sports_Logo_digital_hor_green-e1607446064766.webp' },
+  { name: 'Naspa', url: '/logos/naspa-logo-apriori.png' },
+  { name: 'Mingle', url: '/logos/mingle.png' },
+  { name: 'ITCS', url: '/logos/ITCS_MESSE_LOGO_SCHWARZ-WEISS-RGBR.png' },
+  { name: 'Logo HHN', url: '/logos/Logo_HHN.png' }
 ];
 
 export const SocialProof: React.FC = () => {
