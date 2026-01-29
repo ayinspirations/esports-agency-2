@@ -32,20 +32,21 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
     setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
   }, []);
 
-  useEffect(() => {
+  /* Removed auto-slide effect */
+  /* useEffect(() => {
     if (isHovered) return;
     const interval = setInterval(nextSlide, 3000);
     return () => clearInterval(interval);
-  }, [nextSlide, isHovered]);
+  }, [nextSlide, isHovered]); */
 
   const handleDragEnd = (e: any, { offset, velocity }: any) => {
     const swipeThreshold = 50;
     const velocityThreshold = 500;
     
     if (offset.x < -swipeThreshold || velocity.x < -velocityThreshold) {
-      prevSlide();
-    } else if (offset.x > swipeThreshold || velocity.x > velocityThreshold) {
       nextSlide();
+    } else if (offset.x > swipeThreshold || velocity.x > velocityThreshold) {
+      prevSlide();
     }
   };
 
@@ -130,16 +131,16 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
               onMouseLeave={() => setIsHovered(false)}
             >
               <div className="absolute inset-0 bg-[#d1dbd2]">
-                <AnimatePresence initial={false}>
+                <AnimatePresence initial={false} mode="wait">
                   <motion.div
                     key={currentIndex}
-                    initial={{ x: '100%' }}
-                    animate={{ x: 0 }}
-                    exit={{ x: '-100%' }}
-                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{ duration: 0.5, ease: "easeInOut" }}
                     drag="x"
                     dragConstraints={{ left: 0, right: 0 }}
-                    dragElastic={0.2}
+                    dragElastic={1}
                     onDragEnd={handleDragEnd}
                     className="absolute inset-0 w-full h-full cursor-grab active:cursor-grabbing"
                   >
