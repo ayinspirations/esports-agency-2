@@ -216,7 +216,7 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
                 className="block hover:scale-105 transition-transform"
               >
                 <img 
-                  src="/hagebau-logo.png" 
+                  src="/logos/hagebau-logo.png" 
                   alt="Hagebau Bolay Logo" 
                   className="h-16 md:h-24 w-auto opacity-100 transition-opacity"
                 />
@@ -271,7 +271,7 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
                   className="block hover:scale-105 transition-transform"
                 >
                   <img 
-                    src="/hagebau-logo.png" 
+                    src="/logos/hagebau-logo.png" 
                     alt="Hagebau Bolay Logo" 
                     className="h-16 w-auto opacity-100"
                   />
