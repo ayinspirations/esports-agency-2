@@ -63,7 +63,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate, scrollToSection, act
         <div className="hidden md:flex items-center gap-14 px-8">
           <button 
             onClick={(e) => handleLinkClick(e, 'home')}
-            className={`text-sm font-bold tracking-tighter transition-all duration-300 ${activePage === 'home' ? 'text-white underline underline-offset-8 decoration-emerald-400 decoration-2' : 'text-white/90 hover:text-emerald-400'}`}
+            className={`text-sm font-bold tracking-tighter transition-all duration-300 ${activePage === 'home' ? 'text-white' : 'text-white/90 hover:text-emerald-400'}`}
           >
             Startseite
           </button>
@@ -120,7 +120,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate, scrollToSection, act
               <div className="flex flex-col gap-8 text-lg font-bold text-white text-center">
                 <button 
                   onClick={(e) => handleLinkClick(e, 'home')} 
-                  className={`transition-all tracking-tighter text-white ${activePage === 'home' ? 'underline underline-offset-8 decoration-emerald-400 decoration-2' : 'hover:text-emerald-400'}`}
+                  className={`transition-all tracking-tighter text-white ${activePage === 'home' ? '' : 'hover:text-emerald-400'}`}
                 >
                   Startseite
                 </button>
