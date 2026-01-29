@@ -16,12 +16,14 @@ import { LegalPage } from './components/LegalPage';
 import { CaseDetail } from './components/CaseDetail';
 import { TSystemsDetail } from './components/TSystemsDetail';
 import { CookiePopup } from './components/CookiePopup';
+import { BookingModal } from './components/BookingModal';
 
 type Page = 'home' | 'services' | 'impressum' | 'privacy' | 'hagebau' | 'tsystems';
 
 export default function App() {
   const [activePage, setActivePage] = useState<Page>('home');
   const [isMounted, setIsMounted] = useState(false);
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
@@ -85,7 +87,7 @@ export default function App() {
       <main className="relative z-10 flex flex-col gap-0 pb-10">
         {activePage === 'home' && (
           <div className="flex flex-col">
-            <Hero onNavigate={navigateTo} scrollToSection={scrollToSection} />
+            <Hero onNavigate={navigateTo} scrollToSection={scrollToSection} onOpenBooking={() => setIsBookingOpen(true)} />
             <div className={baseTransition}>
               <SocialProof />
             </div>
@@ -124,6 +126,7 @@ export default function App() {
 
       <Footer onNavigate={navigateTo} scrollToSection={scrollToSection} />
       <CookiePopup />
+      <BookingModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
     </div>
   );
 }
