@@ -15,7 +15,7 @@ const images = [
 ];
 
 export const BayernZocktDetail: React.FC<BayernZocktDetailProps> = ({ onBack }) => {
-  const [currentIndex, setCurrentIndex] = useState(3);
+  const [currentIndex, setCurrentIndex] = useState(2);
   const [direction, setDirection] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -275,6 +275,13 @@ export const BayernZocktDetail: React.FC<BayernZocktDetailProps> = ({ onBack }) 
                     </p>
                   </div>
                 </div>
+              </div>
+              <div className="mt-8 flex justify-center lg:justify-start">
+                <img 
+                  src="/logos/Bayerischer_Fussballverband.svg.png" 
+                  alt="BFV Logo" 
+                  className="h-16 w-auto object-contain opacity-80 grayscale hover:grayscale-0 transition-all duration-300"
+                />
               </div>
             </div>
           </div>
