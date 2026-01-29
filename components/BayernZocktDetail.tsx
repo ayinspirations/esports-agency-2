@@ -7,7 +7,6 @@ interface BayernZocktDetailProps {
 }
 
 const images = [
-  '/images/bayern-zockt/hero.jpg',
   '/images/bayern-zockt/Bayern-zockt-Finale-FOKUS-Robi-080823.jpg',
   '/images/bayern-zockt/Bayern-zockt-Mehring-Kern-150724 - Copy.jpg',
   '/images/bayern-zockt/1721048106661.jpeg',
@@ -16,7 +15,7 @@ const images = [
 ];
 
 export const BayernZocktDetail: React.FC<BayernZocktDetailProps> = ({ onBack }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(3);
   const [direction, setDirection] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -142,7 +141,7 @@ export const BayernZocktDetail: React.FC<BayernZocktDetailProps> = ({ onBack }) 
                     <img
                       src={images[currentIndex]}
                       alt={`Slide ${currentIndex + 1}`}
-                      className="w-full h-full object-cover pointer-events-none"
+                      className="w-full h-full object-cover object-[center_20%] pointer-events-none"
                       onError={(e) => {
                         e.currentTarget.src = 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=1200';
                       }}
