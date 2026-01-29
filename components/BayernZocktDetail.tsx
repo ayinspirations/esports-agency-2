@@ -15,7 +15,7 @@ const images = [
 ];
 
 export const BayernZocktDetail: React.FC<BayernZocktDetailProps> = ({ onBack }) => {
-  const [currentIndex, setCurrentIndex] = useState(2);
+  const [currentIndex, setCurrentIndex] = useState(1);
   const [direction, setDirection] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
 
