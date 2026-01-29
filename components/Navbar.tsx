@@ -120,19 +120,19 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate, scrollToSection, act
               <div className="flex flex-col gap-8 text-lg font-bold text-white text-center">
                 <button 
                   onClick={(e) => handleLinkClick(e, 'home')} 
-                  className={`transition-all tracking-tighter ${activePage === 'home' ? 'text-emerald-400' : 'hover:text-emerald-400'}`}
+                  className={`transition-all tracking-tighter text-white ${activePage === 'home' ? 'text-emerald-400' : 'hover:text-emerald-400'}`}
                 >
                   Startseite
                 </button>
                 <button 
                   onClick={(e) => handleLinkClick(e, 'competencies')} 
-                  className="transition-all tracking-tighter hover:text-emerald-400"
+                  className="transition-all tracking-tighter text-white hover:text-emerald-400"
                 >
                   Services
                 </button>
                 <button 
                   onClick={(e) => handleLinkClick(e, 'best-cases')} 
-                  className="transition-all tracking-tighter hover:text-emerald-400"
+                  className="transition-all tracking-tighter text-white hover:text-emerald-400"
                 >
                   Best Cases
                 </button>
