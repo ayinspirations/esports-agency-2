@@ -3,15 +3,16 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const logos = [
+  { name: 'DAZN', url: '/logos/DAZN_Logo_Master.svg.png' },
   { name: 'Porsche', url: '/logos/818338.png' },
   { name: 'Rewe', url: '/logos/a2dec73e456eae1312e702710b3cb5c5.jpg' },
-  { name: 'Nivea', url: '/logos/nivea-men-logo-png_seeklogo-323961.png' },
+  { name: 'Nivea', url: '/logos/nivea-men-logo-png_seeklogo-323961.png', blend: true },
   { name: 'T-Systems', url: '/logos/T-Systems_Logo_2024.svg.png' },
   { name: 'Sparkasse', url: '/logos/Sparkasse.svg.png' },
   { name: 'Mercedes Benz', url: '/logos/mercedes-benz-logo-png_seeklogo-91081.png' },
   { name: 'Bayerischer Fussballverband', url: '/logos/Bayerischer_Fussballverband.svg.png' },
   { name: 'Indeed', url: '/logos/indeed-logo.png' },
-  { name: 'Schalke 04', url: '/logos/sc3377fe86-schalke-04-logo-fc-schalke-04-liblogo.png' },
+  { name: 'Schalke 04', url: '/logos/sc3377fe86-schalke-04-logo-fc-schalke-04-liblogo.png', blend: true },
   { name: 'RB Leipzig', url: '/logos/RB-Leipzig-Logo-500x281.png' },
   { name: 'Eintracht Frankfurt', url: '/logos/Eintracht-Frankfurt-logo-500x325.png' },
   { name: 'Techniker Krankenkasse', url: '/logos/Techniker_Krankenkasse_2016_logo.svg.png' },
@@ -20,7 +21,6 @@ const logos = [
   { name: 'Hamburger SV', url: '/logos/Hamburger_SV_logo.svg.png' },
   { name: 'VfB Stuttgart', url: '/logos/VfB-Stuttgart-logo-2014-500x281.png' },
   { name: 'VfL Bochum', url: '/logos/VfL_Bochum_logo.svg.png' },
-  { name: 'DAZN', url: '/logos/DAZN_Logo_Master.svg.png' },
   { name: 'OneFootball', url: '/logos/onefootball-logo-png_seeklogo-458889.png' },
   { name: 'Betano', url: '/logos/Betano-Symbol-500x281.png' },
   { name: 'Effect Energy', url: '/logos/effect-energy-drink-logo-png-transparent.png' },
@@ -33,17 +33,19 @@ const logos = [
 ];
 
 export const SocialProof: React.FC = () => {
-  const marqueeLogos = [...logos, ...logos, ...logos];
+  const marqueeLogos = [...logos, ...logos, ...logos, ...logos, ...logos];
 
   return (
     <div className="w-full overflow-hidden select-none">
       <style>{`
         @keyframes marquee-scroll {
           0% { transform: translateX(0); }
-          100% { transform: translateX(-33.3333%); }
+          100% { transform: translateX(-20%); }
         }
         .animate-marquee-scroll {
-          animation: marquee-scroll 50s linear infinite;
+          animation: marquee-scroll 60s linear infinite;
+          display: flex;
+          width: fit-content;
         }
         .animate-marquee-scroll:hover {
           animation-play-state: paused;
@@ -69,16 +71,16 @@ export const SocialProof: React.FC = () => {
 
       {/* Infinite Logo Band */}
       <div className="relative flex overflow-hidden group py-0">
-        <div className="animate-marquee-scroll flex items-center gap-16 md:gap-32 lg:gap-40 whitespace-nowrap min-w-max px-20 py-4">
-          {marqueeLogos.map((logo, i) => (
+        <div className="animate-marquee-scroll flex items-center gap-16 md:gap-32 lg:gap-40 whitespace-nowrap px-10 md:px-20 py-4">
+          {marqueeLogos.map((logo: any, i) => (
             <div 
               key={`${logo.name}-${i}`} 
-              className="flex items-center justify-center grayscale opacity-20 hover:grayscale-0 hover:opacity-100 transition-all duration-700 cursor-pointer"
+              className="flex items-center justify-center grayscale opacity-20 hover:grayscale-0 hover:opacity-100 transition-all duration-700 cursor-pointer shrink-0"
             >
               <img 
                 src={logo.url} 
                 alt={logo.name} 
-                className="h-6 md:h-10 lg:h-12 w-auto object-contain max-w-[100px] md:max-w-[180px]"
+                className={`h-6 md:h-10 lg:h-12 w-auto object-contain max-w-[100px] md:max-w-[180px] ${logo.blend ? 'mix-blend-multiply' : ''}`}
                 loading="lazy"
               />
             </div>
