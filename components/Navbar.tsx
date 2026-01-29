@@ -67,6 +67,18 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate, scrollToSection, act
           >
             Startseite
           </button>
+          <button 
+            onClick={(e) => handleLinkClick(e, 'competencies')}
+            className="text-sm font-bold tracking-tighter transition-all duration-300 text-white/90 hover:text-emerald-400"
+          >
+            Services
+          </button>
+          <button 
+            onClick={(e) => handleLinkClick(e, 'best-cases')}
+            className="text-sm font-bold tracking-tighter transition-all duration-300 text-white/90 hover:text-emerald-400"
+          >
+            Best Case
+          </button>
         </div>
 
         <div className="hidden md:flex items-center shrink-0">
@@ -111,6 +123,18 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate, scrollToSection, act
                   className={`transition-all tracking-tighter ${activePage === 'home' ? 'text-emerald-400' : 'hover:text-emerald-400'}`}
                 >
                   Startseite
+                </button>
+                <button 
+                  onClick={(e) => handleLinkClick(e, 'competencies')} 
+                  className="transition-all tracking-tighter hover:text-emerald-400"
+                >
+                  Services
+                </button>
+                <button 
+                  onClick={(e) => handleLinkClick(e, 'best-cases')} 
+                  className="transition-all tracking-tighter hover:text-emerald-400"
+                >
+                  Best Case
                 </button>
                 <div className="h-px bg-white/10 w-1/3 mx-auto" />
                 <button 
