@@ -8,9 +8,9 @@ interface CaseDetailProps {
 }
 
 const images = [
+  '/images/hagebau/slide-3.jpg',
   '/images/hagebau/slide-1.jpg',
   '/images/hagebau/slide-2.jpg',
-  '/images/hagebau/slide-3.jpg',
   '/images/hagebau/slide-4.jpg',
   '/images/hagebau/slide-5.jpg',
   '/images/hagebau/slide-6.jpg',
