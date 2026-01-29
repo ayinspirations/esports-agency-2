@@ -18,6 +18,7 @@ const images = [
 
 export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
@@ -25,10 +26,12 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
   }, []);
 
   const nextSlide = useCallback(() => {
+    setDirection(1);
     setCurrentIndex((prev) => (prev + 1) % images.length);
   }, []);
 
   const prevSlide = useCallback(() => {
+    setDirection(-1);
     setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
   }, []);
 
@@ -48,6 +51,20 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
     } else if (offset.x > swipeThreshold || velocity.x > velocityThreshold) {
       prevSlide();
     }
+  };
+
+  const variants = {
+    enter: (direction: number) => ({
+      x: direction > 0 ? '100%' : '-100%',
+    }),
+    center: {
+      zIndex: 1,
+      x: 0,
+    },
+    exit: (direction: number) => ({
+      zIndex: 0,
+      x: direction < 0 ? '100%' : '-100%',
+    })
   };
 
   return (
@@ -131,17 +148,16 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
               onMouseLeave={() => setIsHovered(false)}
             >
               <div className="absolute inset-0 bg-[#d1dbd2]">
-                <AnimatePresence initial={false} mode="popLayout">
+                <AnimatePresence initial={false} custom={direction}>
                   <motion.div
                     key={currentIndex}
-                    initial={{ x: '100%' }}
-                    animate={{ x: 0 }}
-                    exit={{ x: '-100%' }}
+                    custom={direction}
+                    variants={variants}
+                    initial="enter"
+                    animate="center"
+                    exit="exit"
                     transition={{ 
-                      type: "spring",
-                      stiffness: 300,
-                      damping: 30,
-                      mass: 1
+                      x: { type: "spring", stiffness: 300, damping: 30 },
                     }}
                     drag="x"
                     dragConstraints={{ left: 0, right: 0 }}
