@@ -174,11 +174,8 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
                 </div>
 
                 <div>
-                  <div className="text-emerald-400 font-black text-[12px] md:text-[14px] uppercase tracking-[0.3em] mb-2 drop-shadow-lg">
-                    T-Systems
-                  </div>
                   <h3 className="text-white text-[clamp(24px,3.2vw,38px)] font-black leading-[0.9] tracking-tighter uppercase mb-4 drop-shadow-2xl">
-                    Gaming-Plattform
+                    T-Systems
                   </h3>
                   <div className="flex items-center gap-3 text-white/60 text-[10px] font-black uppercase tracking-[0.2em] opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100 transform translate-y-2 group-hover:translate-y-0">
                     <span>Case Study ansehen</span>
