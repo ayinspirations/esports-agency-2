@@ -14,6 +14,7 @@ import { ServicesDetail } from './components/ServicesDetail';
 import { ScrollToCasesCTA } from './components/ScrollToCasesCTA';
 import { LegalPage } from './components/LegalPage';
 import { CaseDetail } from './components/CaseDetail';
+import { CookiePopup } from './components/CookiePopup';
 
 type Page = 'home' | 'services' | 'impressum' | 'privacy' | 'hagebau';
 
@@ -120,6 +121,7 @@ export default function App() {
       </main>
 
       <Footer onNavigate={navigateTo} scrollToSection={scrollToSection} />
+      <CookiePopup />
     </div>
   );
 }
