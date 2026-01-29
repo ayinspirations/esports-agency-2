@@ -14,9 +14,10 @@ import { ServicesDetail } from './components/ServicesDetail';
 import { ScrollToCasesCTA } from './components/ScrollToCasesCTA';
 import { LegalPage } from './components/LegalPage';
 import { CaseDetail } from './components/CaseDetail';
+import { TSystemsDetail } from './components/TSystemsDetail';
 import { CookiePopup } from './components/CookiePopup';
 
-type Page = 'home' | 'services' | 'impressum' | 'privacy' | 'hagebau';
+type Page = 'home' | 'services' | 'impressum' | 'privacy' | 'hagebau' | 'tsystems';
 
 export default function App() {
   const [activePage, setActivePage] = useState<Page>('home');
@@ -27,7 +28,7 @@ export default function App() {
     
     const handleHashChange = () => {
       const currentHash = window.location.hash.replace('#', '');
-      const validPages: string[] = ['home', 'services', 'impressum', 'privacy', 'hagebau'];
+      const validPages: string[] = ['home', 'services', 'impressum', 'privacy', 'hagebau', 'tsystems'];
       
       if (validPages.includes(currentHash)) {
         setActivePage(currentHash as Page);
@@ -116,6 +117,7 @@ export default function App() {
 
         {activePage === 'services' && <ServicesDetail onNavigate={navigateTo} />}
         {activePage === 'hagebau' && <CaseDetail onBack={() => navigateTo('home')} />}
+        {activePage === 'tsystems' && <TSystemsDetail onBack={() => navigateTo('home')} />}
         {activePage === 'impressum' && <LegalPage type="impressum" />}
         {activePage === 'privacy' && <LegalPage type="privacy" />}
       </main>
