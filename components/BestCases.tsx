@@ -316,13 +316,16 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
               <div className="flex-1 relative">
                 <motion.div 
                   initial={{ 
-                    x: '150%', 
-                    y: '150%',
+                    right: '2rem',
+                    bottom: '2rem',
+                    y: '100%',
                     opacity: 0 
                   }}
                   whileInView={{ 
-                    x: '150%', 
-                    y: '-20%',
+                    right: '2rem',
+                    bottom: 'auto',
+                    top: '2rem',
+                    y: '0%',
                     opacity: 1 
                   }}
                   viewport={{ once: true }}
@@ -331,7 +334,7 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
                     ease: [0.16, 1, 0.3, 1],
                     delay: 0.8
                   }}
-                  className="absolute right-0 top-0 w-16 h-16 rounded-full bg-white/20 backdrop-blur-xl border border-white/30 flex items-center justify-center text-white shadow-2xl"
+                  className="absolute w-16 h-16 rounded-full bg-white/20 backdrop-blur-xl border border-white/30 flex items-center justify-center text-white shadow-2xl"
                 >
                   <ArrowUpRight className="w-8 h-8" />
                 </motion.div>
