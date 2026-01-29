@@ -250,37 +250,80 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
           <div className="lg:col-span-4 space-y-12 order-last lg:order-none">
             <div className="sticky top-32">
               <div className="bg-slate-900 text-white p-10 rounded-[2.5rem] shadow-2xl">
-                <h3 className="text-2xl font-black uppercase tracking-tighter mb-8 flex items-center gap-3">
-                  <CheckCircle2 className="w-8 h-8 text-emerald-400" />
-                  Kernleistungen
-                </h3>
-                <ul className="space-y-8">
-                  {[
-                    { title: 'Konzeptentwicklung', desc: 'Strategische Zielgruppenausrichtung.' },
-                    { title: 'Infrastruktur', desc: 'Modernste Gaming-Technik.' },
-                    { title: 'Management', desc: 'Professionelles Turniersystem.' },
-                    { title: 'Kommunikation', desc: 'Live-Interaktion & Vernetzung.' }
-                  ].map((item, i) => (
-                    <li key={i} className="group">
-                      <h4 className="font-black uppercase tracking-widest text-xs text-emerald-400 mb-1">{item.title}</h4>
-                      <p className="text-white/70 font-bold">{item.desc}</p>
-                    </li>
-                  ))}
-                </ul>
+                <div className="space-y-10">
+                  {/* Format Section */}
+                  <section>
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-1.5 h-6 bg-emerald-500 rounded-full" />
+                      <h3 className="text-xl font-black uppercase tracking-tighter">Format</h3>
+                    </div>
+                    <div className="space-y-2">
+                      <h4 className="text-lg font-black text-emerald-400 leading-tight">Employer Branding Gaming Event</h4>
+                      <p className="text-white/70 font-bold uppercase tracking-widest text-[10px]">On-Site · Interaktiv · Zielgruppenfokussiert</p>
+                    </div>
+                  </section>
 
-                <div className="mt-12 pt-12 border-t border-white/10">
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="w-14 h-14 rounded-2xl bg-emerald-500 flex items-center justify-center text-slate-900">
-                      <Trophy className="w-8 h-8" />
+                  {/* Kernleistungen Section */}
+                  <section>
+                    <div className="flex items-center gap-3 mb-6">
+                      <div className="w-1.5 h-6 bg-emerald-500 rounded-full" />
+                      <h3 className="text-xl font-black uppercase tracking-tighter">Kernleistungen</h3>
                     </div>
-                    <div>
-                      <div className="text-[10px] font-black uppercase tracking-[0.2em] text-white/40">Ergebnis</div>
-                      <div className="text-2xl font-black text-white">+450 Spieler</div>
+                    <ul className="space-y-6">
+                      {[
+                        { title: 'Strategie & Konzept', desc: 'Zielgruppengerechtes Eventformat für Nachwuchs & Young Professionals' },
+                        { title: 'Event & Infrastruktur', desc: 'Gaming-Setups, Turnierbühnen, Großbildtechnik' },
+                        { title: 'Turnier- & Ablaufmanagement', desc: 'Professionelles Matchmaking & Spielsysteme' },
+                        { title: 'Experience & Kommunikation', desc: 'Live-Interaktion, Moderation & Community-Erlebnis' }
+                      ].map((item, i) => (
+                        <li key={i}>
+                          <h5 className="font-black uppercase tracking-widest text-[10px] text-emerald-400 mb-1">{item.title}</h5>
+                          <p className="text-white/80 font-bold leading-snug">{item.desc}</p>
+                        </li>
+                      ))}
+                    </ul>
+                  </section>
+
+                  {/* Ergebnis Section */}
+                  <section>
+                    <div className="flex items-center gap-3 mb-6">
+                      <div className="w-1.5 h-6 bg-emerald-500 rounded-full" />
+                      <h3 className="text-xl font-black uppercase tracking-tighter">Ergebnis</h3>
                     </div>
+                    <ul className="space-y-4">
+                      <li className="flex items-start gap-3">
+                        <Trophy className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
+                        <span className="text-white font-black">+450 aktive Spieler:innen</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <Users className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
+                        <span className="text-white font-black">Hohe Verweildauer & Interaktion</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <Target className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
+                        <span className="text-white font-black">Starke Positionierung als moderner Arbeitgeber</span>
+                      </li>
+                    </ul>
+                    <p className="mt-6 text-white/40 text-[10px] font-black uppercase tracking-widest italic">
+                      2 Editionen erfolgreich umgesetzt
+                    </p>
+                  </section>
+
+                  {/* Status Section */}
+                  <div className="pt-10 border-t border-white/10">
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 rounded-2xl bg-emerald-500/20 flex items-center justify-center text-emerald-400 border border-emerald-500/30">
+                        <CheckCircle2 className="w-6 h-6" />
+                      </div>
+                      <div>
+                        <div className="text-[10px] font-black uppercase tracking-[0.2em] text-white/40">Status</div>
+                        <div className="text-lg font-black text-white leading-tight uppercase tracking-tighter">Erfolgreich umgesetzt</div>
+                      </div>
+                    </div>
+                    <p className="mt-4 text-emerald-400 text-sm font-bold italic">
+                      Skalierbares Format
+                    </p>
                   </div>
-                  <p className="text-white/60 text-sm font-medium leading-relaxed">
-                    31 ausgewählte Gäste erlebten einen Tag voller Action und bekamen spannende Einblicke in die Arbeitswelt von hagebau bolay.
-                  </p>
                 </div>
               </div>
 
