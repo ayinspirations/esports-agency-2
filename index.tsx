@@ -15,6 +15,11 @@ if (typeof window !== 'undefined') {
     window.scrollTo(0, 0);
   });
 
+  // Handle refresh at #home to force top scroll
+  if (window.location.hash === '#home' || window.location.hash === '') {
+    window.scrollTo(0, 0);
+  }
+
   // 1. Monkey-patch ResizeObserver to prevent the error at the source
   // This wraps the observer callback in requestAnimationFrame to decouple layout changes from the observation turn.
   const RO = window.ResizeObserver;
