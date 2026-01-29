@@ -6,12 +6,12 @@ const logos = [
   { name: 'DAZN', url: '/logos/DAZN_Logo_Master.svg.png' },
   { name: 'Nivea', url: '/logos/nivea-men-logo-png_seeklogo-323961.png', blend: true },
   { name: 'T-Systems', url: '/logos/T-Systems_Logo_2024.svg.png' },
-  { name: 'Porsche', url: '/logos/818338.png' },
-  { name: 'Rewe', url: '/logos/a2dec73e456eae1312e702710b3cb5c5.jpg' },
   { name: 'Sparkasse', url: '/logos/Sparkasse.svg.png' },
+  { name: 'Indeed', url: '/logos/indeed-logo.png' },
   { name: 'Mercedes Benz', url: '/logos/mercedes-benz-logo-png_seeklogo-91081.png' },
   { name: 'Bayerischer Fussballverband', url: '/logos/Bayerischer_Fussballverband.svg.png' },
-  { name: 'Indeed', url: '/logos/indeed-logo.png' },
+  { name: 'Porsche', url: '/logos/818338.png' },
+  { name: 'Rewe', url: '/logos/a2dec73e456eae1312e702710b3cb5c5.jpg' },
   { name: 'Schalke 04', url: '/logos/sc3377fe86-schalke-04-logo-fc-schalke-04-liblogo.png', blend: true },
   { name: 'RB Leipzig', url: '/logos/RB-Leipzig-Logo-500x281.png' },
   { name: 'Eintracht Frankfurt', url: '/logos/Eintracht-Frankfurt-logo-500x325.png' },
@@ -33,20 +33,23 @@ const logos = [
 ];
 
 export const SocialProof: React.FC = () => {
-  const marqueeLogos = [...logos, ...logos, ...logos, ...logos, ...logos, ...logos, ...logos, ...logos];
+  const marqueeLogos = [...logos, ...logos, ...logos, ...logos];
 
   return (
     <div className="w-full overflow-hidden select-none">
       <style>{`
         @keyframes marquee-scroll {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-12.5%); }
+          0% { transform: translate3d(0, 0, 0); }
+          100% { transform: translate3d(-25%, 0, 0); }
         }
         .animate-marquee-scroll {
-          animation: marquee-scroll 80s linear infinite;
+          animation: marquee-scroll 60s linear infinite;
           display: flex;
           width: fit-content;
           will-change: transform;
+          backface-visibility: hidden;
+          perspective: 1000;
+          transform: translate3d(0, 0, 0);
         }
         .animate-marquee-scroll:hover {
           animation-play-state: paused;
