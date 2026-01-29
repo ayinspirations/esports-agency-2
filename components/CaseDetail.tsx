@@ -230,7 +230,7 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
             </div>
 
             {/* Desktop Logo positioning - outside the black box and below challenge/solution cards */}
-            <div className="pt-12 flex justify-center hidden md:flex">
+            <div className="pt-12 flex justify-center">
               <a 
                 href="https://www.hagebau-bolay.de" 
                 target="_blank"
@@ -247,7 +247,7 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
           </div>
 
           {/* Sidebar */}
-          <div className="lg:col-span-4 space-y-12">
+          <div className="lg:col-span-4 space-y-12 order-last lg:order-none">
             <div className="sticky top-32">
               <div className="bg-slate-900 text-white p-10 rounded-[2.5rem] shadow-2xl">
                 <h3 className="text-2xl font-black uppercase tracking-tighter mb-8 flex items-center gap-3">
@@ -284,21 +284,7 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
                 </div>
               </div>
 
-              {/* Mobile Logo positioning - outside the black box */}
-              <div className="mt-8 flex justify-center md:hidden">
-                <a 
-                  href="https://www.hagebau-bolay.de" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block hover:scale-105 transition-transform"
-                >
-                  <img 
-                    src="/logos/hagebau-logo.png" 
-                    alt="Hagebau Bolay Logo" 
-                    className="h-16 w-auto opacity-100"
-                  />
-                </a>
-              </div>
+              {/* Removed Mobile Logo positioning - now handled by unified logo placement below sidebar */}
             </div>
           </div>
         </div>

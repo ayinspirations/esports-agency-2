@@ -93,15 +93,25 @@ export const TSystemsDetail: React.FC<TSystemsDetailProps> = ({ onBack }) => {
               ))}
             </div>
             
+            {/* Desktop Logo positioning - outside the black box and below challenge/solution cards */}
             <div className="pt-12 flex justify-center">
-              <a href="https://www.t-systems.com/" target="_blank" rel="noopener noreferrer">
-                <img src="/logos/T-Systems_Logo_2024.svg.png" alt="T-Systems Logo" className="h-16 md:h-24 w-auto opacity-100 hover:scale-105 transition-transform" />
+              <a 
+                href="https://www.t-systems.com/" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block hover:scale-105 transition-transform"
+              >
+                <img 
+                  src="/logos/T-Systems_Logo_2024.svg.png" 
+                  alt="T-Systems Logo" 
+                  className="h-16 md:h-24 w-auto opacity-100 transition-opacity"
+                />
               </a>
             </div>
           </div>
 
           {/* Sidebar */}
-          <div className="lg:col-span-4 space-y-12">
+          <div className="lg:col-span-4 space-y-12 order-last lg:order-none">
             <div className="sticky top-32">
               <div className="bg-slate-900 text-white p-10 rounded-[2.5rem] shadow-2xl">
                 <div className="space-y-10">
