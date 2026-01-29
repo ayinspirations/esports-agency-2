@@ -199,7 +199,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, scrollToSection }) => {
                   Termin vereinbaren
                 </button>
                 <button 
-                  onClick={() => onNavigate('services')}
+                  onClick={() => scrollToSection?.('competencies')}
                   className="group inline-flex items-center gap-2 text-white/90 hover:text-white font-bold text-sm sm:text-lg transition-all hover:translate-x-1 tracking-tighter"
                 >
                   Mehr erfahren
