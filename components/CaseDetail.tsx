@@ -8,7 +8,6 @@ interface CaseDetailProps {
 }
 
 const images = [
-  '/images/hagebau/slide-winner.png',
   '/images/hagebau/slide-1.jpg',
   '/images/hagebau/slide-2.jpg',
   '/images/hagebau/slide-3.jpg',
@@ -73,7 +72,7 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
       {/* Hero Section */}
       <div className="relative h-[60vh] md:h-[70vh] overflow-hidden">
         <img 
-          src="/images/hagebau/hero-group.png" 
+          src="/images/hagebau/hero-hagebau.jpg" 
           alt="Hagebau Bolay Gaming Day Recruiting Event" 
           className="absolute inset-0 w-full h-full object-cover"
         />
