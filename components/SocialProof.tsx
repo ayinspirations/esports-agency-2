@@ -3,13 +3,13 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const logos = [
-  { name: 'DAZN', url: '/logos/DAZN_Logo_Master.svg.png' },
-  { name: 'Nivea', url: '/logos/nivea-men-logo-png_seeklogo-323961.png', blend: true },
-  { name: 'T-Systems', url: '/logos/T-Systems_Logo_2024.svg.png' },
-  { name: 'Sparkasse', url: '/logos/Sparkasse.svg.png' },
-  { name: 'Indeed', url: '/logos/indeed-logo.png' },
+  { name: 'DAZN', url: '/logos/DAZN_Logo_Master.svg.png', link: 'https://www.dazn.com/de-DE/welcome' },
+  { name: 'Nivea', url: '/logos/nivea-men-logo-png_seeklogo-323961.png', blend: true, link: 'https://www.nivea.de' },
+  { name: 'T-Systems', url: '/logos/T-Systems_Logo_2024.svg.png', link: 'https://www.t-systems.com/' },
+  { name: 'Sparkasse', url: '/logos/Sparkasse.svg.png', link: 'https://www.sparkasse.de' },
+  { name: 'Indeed', url: '/logos/indeed-logo.png', link: 'https://www.indeed.com' },
   { name: 'Mercedes Benz', url: '/logos/mercedes-benz-logo-png_seeklogo-91081.png' },
-  { name: 'Bayerischer Fussballverband', url: '/logos/Bayerischer_Fussballverband.svg.png' },
+  { name: 'Bayerischer Fussballverband', url: '/logos/Bayerischer_Fussballverband.svg.png', link: 'https://www.bfv.de' },
   { name: 'Porsche', url: '/logos/818338.png' },
   { name: 'Rewe', url: '/logos/a2dec73e456eae1312e702710b3cb5c5.jpg' },
   { name: 'Schalke 04', url: '/logos/sc3377fe86-schalke-04-logo-fc-schalke-04-liblogo.png', blend: true },
@@ -43,13 +43,10 @@ export const SocialProof: React.FC = () => {
           100% { transform: translate3d(-25%, 0, 0); }
         }
         .animate-marquee-scroll {
-          animation: marquee-scroll 60s linear infinite;
+          animation: marquee-scroll 40s linear infinite;
           display: flex;
           width: fit-content;
           will-change: transform;
-          backface-visibility: hidden;
-          perspective: 1000;
-          transform: translate3d(0, 0, 0);
         }
         .animate-marquee-scroll:hover {
           animation-play-state: paused;
@@ -62,7 +59,7 @@ export const SocialProof: React.FC = () => {
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
           >
             <h2 className="text-[clamp(44px,7.5vw,110px)] font-black leading-[0.85] tracking-tighter uppercase flex flex-col items-center">
@@ -77,10 +74,27 @@ export const SocialProof: React.FC = () => {
       <div className="relative flex overflow-hidden group py-0">
         <div className="animate-marquee-scroll flex items-center gap-16 md:gap-32 lg:gap-40 whitespace-nowrap px-10 md:px-20 py-4">
           {marqueeLogos.map((logo: any, i) => (
-            <div 
+            <a 
               key={`${logo.name}-${i}`} 
-              className="flex items-center justify-center grayscale opacity-20 hover:grayscale-0 hover:opacity-100 transition-all duration-700 cursor-pointer shrink-0"
+              href={logo.link || '#'}
+              target={logo.link ? "_blank" : undefined}
+              rel={logo.link ? "noopener noreferrer" : undefined}
+              className={`flex items-center justify-center grayscale opacity-20 hover:grayscale-0 hover:opacity-100 transition-all duration-500 shrink-0 ${logo.link ? 'cursor-pointer' : 'cursor-default'}`}
+              onClick={(e) => !logo.link && e.preventDefault()}
             >
+              <img 
+                src={logo.url} 
+                alt={logo.name} 
+                className={`w-auto object-contain transition-all duration-700 ${logo.blend ? 'mix-blend-multiply' : ''} ${
+                  logo.name === 'Indeed' || logo.name === 'Mercedes Benz' 
+                    ? 'h-16 md:h-20 lg:h-24 max-w-[180px] md:max-w-[260px]' 
+                    : 'h-12 md:h-16 lg:h-20 max-w-[140px] md:max-w-[220px]'
+                }`}
+                loading="lazy"
+              />
+            </a>
+          ))}
+        </div>
               <img 
                 src={logo.url} 
                 alt={logo.name} 
