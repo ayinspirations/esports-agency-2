@@ -84,7 +84,11 @@ export const SocialProof: React.FC = () => {
               <img 
                 src={logo.url} 
                 alt={logo.name} 
-                className={`h-12 md:h-16 lg:h-20 w-auto object-contain max-w-[140px] md:max-w-[220px] ${logo.blend ? 'mix-blend-multiply' : ''}`}
+                className={`w-auto object-contain transition-all duration-700 ${logo.blend ? 'mix-blend-multiply' : ''} ${
+                  logo.name === 'Indeed' || logo.name === 'Mercedes Benz' 
+                    ? 'h-16 md:h-20 lg:h-24 max-w-[180px] md:max-w-[260px]' 
+                    : 'h-12 md:h-16 lg:h-20 max-w-[140px] md:max-w-[220px]'
+                }`}
                 loading="lazy"
               />
             </div>
