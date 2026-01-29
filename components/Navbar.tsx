@@ -77,7 +77,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate, scrollToSection, act
             onClick={(e) => handleLinkClick(e, 'best-cases')}
             className="text-sm font-bold tracking-tighter transition-all duration-300 text-white/90 hover:text-emerald-400"
           >
-            Best Case
+            Best Cases
           </button>
         </div>
 
@@ -134,7 +134,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate, scrollToSection, act
                   onClick={(e) => handleLinkClick(e, 'best-cases')} 
                   className="transition-all tracking-tighter hover:text-emerald-400"
                 >
-                  Best Case
+                  Best Cases
                 </button>
                 <div className="h-px bg-white/10 w-1/3 mx-auto" />
                 <button 
