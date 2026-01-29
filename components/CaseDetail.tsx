@@ -131,13 +131,18 @@ export const CaseDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
               onMouseLeave={() => setIsHovered(false)}
             >
               <div className="absolute inset-0 bg-[#d1dbd2]">
-                <AnimatePresence initial={false} mode="wait">
+                <AnimatePresence initial={false} mode="popLayout">
                   <motion.div
                     key={currentIndex}
-                    initial={{ opacity: 1 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 1 }}
-                    transition={{ duration: 0 }}
+                    initial={{ x: '100%' }}
+                    animate={{ x: 0 }}
+                    exit={{ x: '-100%' }}
+                    transition={{ 
+                      type: "spring",
+                      stiffness: 300,
+                      damping: 30,
+                      mass: 1
+                    }}
                     drag="x"
                     dragConstraints={{ left: 0, right: 0 }}
                     dragElastic={1}
