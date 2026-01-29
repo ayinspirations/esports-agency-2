@@ -144,14 +144,55 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
             className="max-w-[calc(100vw-3rem)] md:max-w-none"
           />
           
-          {/* Row 1 - Right: T-Systems (Small) */}
+          {/* Row 1 - Right: Bayern Zockt (Small) */}
+          <motion.div 
+            onClick={() => onNavigate?.('bayern-zockt')}
+            className="col-span-1 lg:col-span-4 lg:row-span-1 min-h-[350px] cursor-pointer mx-0 max-w-[calc(100vw-3rem)] md:max-w-none w-full"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <div className="relative group overflow-hidden rounded-[2.5rem] bg-slate-900 h-full w-full">
+              <img 
+                src="/images/bayern-zockt/hero.jpg" 
+                alt="Bayern Zockt"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+              />
+              
+              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent opacity-80 transition-opacity group-hover:opacity-90" />
+              <div className="absolute inset-0 bg-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+
+              <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-between z-10">
+                <div className="flex justify-between items-start">
+                  <div className="px-4 py-1.5 bg-white/10 backdrop-blur-xl rounded-full border border-white/20 text-[10px] font-black uppercase tracking-[0.2em] text-white">
+                    eSport Projekt
+                  </div>
+                  <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0 duration-500">
+                    <ArrowUpRight className="w-6 h-6" />
+                  </div>
+                </div>
+
+                <div>
+                  <h3 className="text-white text-[clamp(24px,3.2vw,38px)] font-black leading-[0.9] tracking-tighter uppercase mb-4 drop-shadow-2xl">
+                    Bayern Zockt
+                  </h3>
+                  <div className="flex items-center gap-3 text-white/60 text-[10px] font-black uppercase tracking-[0.2em] opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100 transform translate-y-2 group-hover:translate-y-0">
+                    <span>Case Study ansehen</span>
+                    <div className="h-[2px] w-8 bg-emerald-500 rounded-full" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
           <motion.div 
             onClick={() => onNavigate?.('tsystems')}
             className="col-span-1 lg:col-span-4 lg:row-span-1 min-h-[350px] cursor-pointer mx-0 max-w-[calc(100vw-3rem)] md:max-w-none w-full"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
           >
             <div className="relative group overflow-hidden rounded-[2.5rem] bg-slate-900 h-full w-full">
               <img 
@@ -192,7 +233,7 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
           >
             <div className="relative group overflow-hidden rounded-[2.5rem] bg-slate-900 h-full w-full">
               <img 
@@ -238,57 +279,70 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
             className="max-w-[calc(100vw-3rem)] md:max-w-none"
           />
 
-          {/* Row 3 - Middle: Bayern Zockt (Small) */}
-          <motion.div 
-            onClick={() => onNavigate?.('bayern-zockt')}
-            className="col-span-1 lg:col-span-4 lg:row-span-1 min-h-[350px] cursor-pointer mx-0 max-w-[calc(100vw-3rem)] md:max-w-none w-full"
+          {/* Row 3 - Middle: Deleted previous Bayern Zockt location */}
+
+          {/* Row 3 - Right: CTA (Small) */}
+          <motion.button
+            onClick={() => onScroll?.('contact')}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="col-span-1 lg:col-span-4 lg:row-span-1 min-h-[350px] relative group overflow-hidden rounded-[2.5rem] bg-emerald-500 cursor-pointer flex flex-col justify-between p-8 md:p-12 shadow-2xl shadow-emerald-500/20 text-left max-w-[calc(100vw-3rem)] md:max-w-none w-full"
           >
-            <div className="relative group overflow-hidden rounded-[2.5rem] bg-slate-900 h-full w-full">
-              <img 
-                src="/images/bayern-zockt/hero.jpg" 
-                alt="Bayern Zockt"
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-              />
-              
-              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent opacity-80 transition-opacity group-hover:opacity-90" />
-              <div className="absolute inset-0 bg-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-
-              <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-between z-10">
-                <div className="flex justify-between items-start">
-                  <div className="px-4 py-1.5 bg-white/10 backdrop-blur-xl rounded-full border border-white/20 text-[10px] font-black uppercase tracking-[0.2em] text-white">
-                    eSport Projekt
-                  </div>
-                  <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0 duration-500">
-                    <ArrowUpRight className="w-6 h-6" />
-                  </div>
-                </div>
-
-                <div>
-                  <h3 className="text-white text-[clamp(24px,3.2vw,38px)] font-black leading-[0.9] tracking-tighter uppercase mb-4 drop-shadow-2xl">
-                    Bayern Zockt
-                  </h3>
-                  <div className="flex items-center gap-3 text-white/60 text-[10px] font-black uppercase tracking-[0.2em] opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100 transform translate-y-2 group-hover:translate-y-0">
-                    <span>Case Study ansehen</span>
-                    <div className="h-[2px] w-8 bg-emerald-500 rounded-full" />
-                  </div>
-                </div>
-              </div>
+            <div className="absolute inset-0 bg-gradient-to-br from-emerald-400 to-emerald-600 group-hover:scale-105 transition-transform duration-700" />
+            
+            {/* Level Up Animation */}
+            <div className="absolute inset-0 flex items-center justify-center opacity-20 pointer-events-none overflow-hidden">
+              <motion.div
+                animate={{ 
+                  y: [-100, 100],
+                  opacity: [0, 1, 0],
+                  scale: [0.8, 1.2, 0.8]
+                }}
+                transition={{ 
+                  duration: 2, 
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+                className="text-white font-black text-8xl italic"
+              >
+                LEVEL UP
+              </motion.div>
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(16,185,129,0.4)_100%)]" />
             </div>
-          </motion.div>
 
-          {/* Row 3 - Right: CTA (Small) - Directly under Tech Setup */}
-          <CaseCard 
-            title="Euer Event auf das nächste Level heben"
-            size="small"
-            delay={0.6}
-            isCTA={true}
-            onScroll={onScroll}
-            className="max-w-[calc(100vw-3rem)] md:max-w-none"
-          />
+            <div className="relative z-10">
+              <motion.div 
+                animate={{ 
+                  y: [0, -10, 0],
+                  rotate: [0, 5, 0]
+                }}
+                transition={{ 
+                  duration: 1.5, 
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+                className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-xl border border-white/30 flex items-center justify-center text-white mb-6 shadow-xl"
+              >
+                <ArrowUpRight className="w-6 h-6" />
+              </motion.div>
+              <h3 className="text-slate-950 text-[clamp(24px,2.2vw,32px)] font-black leading-[0.9] tracking-tighter uppercase max-w-[240px] drop-shadow-sm">
+                Euer Event auf das <br /> 
+                <span className="text-white italic">nächste Level</span> <br /> 
+                heben
+              </h3>
+            </div>
+
+            <div className="relative z-10 flex items-center gap-3 text-slate-900/60 text-[10px] font-black uppercase tracking-[0.2em]">
+              <span>Jetzt anfragen</span>
+              <motion.div 
+                animate={{ width: [32, 64, 32] }}
+                transition={{ duration: 2, repeat: Infinity }}
+                className="h-[2px] bg-slate-900/40 rounded-full" 
+              />
+            </div>
+          </motion.button>
         </div>
       </div>
     </section>
