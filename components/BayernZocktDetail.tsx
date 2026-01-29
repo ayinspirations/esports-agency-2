@@ -205,17 +205,30 @@ export const BayernZocktDetail: React.FC<BayernZocktDetailProps> = ({ onBack }) 
             <div className="sticky top-32">
               <div className="bg-slate-900 text-white p-10 rounded-[2.5rem] shadow-2xl">
                 <div className="space-y-10">
+                  {/* Format Section */}
                   <section>
                     <div className="flex items-center gap-3 mb-4">
+                      <div className="w-1.5 h-6 bg-emerald-500 rounded-full" />
+                      <h3 className="text-xl font-black uppercase tracking-tighter">Format</h3>
+                    </div>
+                    <div className="space-y-2">
+                      <h4 className="text-lg font-black text-emerald-400 leading-tight">Digitale Turnierplattform + Live-Finale</h4>
+                      <p className="text-white/70 font-bold uppercase tracking-widest text-[10px]">Regional · Community-driven · Hybrid</p>
+                    </div>
+                  </section>
+
+                  {/* Kernleistungen Section */}
+                  <section>
+                    <div className="flex items-center gap-3 mb-6">
                       <div className="w-1.5 h-6 bg-emerald-500 rounded-full" />
                       <h3 className="text-xl font-black uppercase tracking-tighter">Kernleistungen</h3>
                     </div>
                     <ul className="space-y-6">
                       {[
-                        { title: 'Konzept', desc: 'Detaillierter Eventplan & Zielgruppen-Strategie' },
-                        { title: 'Plattform', desc: 'EM-Modus EA FC25 Custom Build' },
-                        { title: 'Management', desc: 'Turnierleitung & Support' },
-                        { title: 'Content', desc: 'Short-Form News Formate' }
+                        { title: 'Konzeptentwicklung', desc: 'Strategische Zielgruppenansprache & Eventdramaturgie' },
+                        { title: 'Individuelle Turnierplattform', desc: 'Eigene Gaming-Plattform mit EM-Modus (EA FC25)' },
+                        { title: 'Turniermanagement', desc: 'Mehrstufige Wettbewerbe & faire Bewertungssysteme' },
+                        { title: 'Content Creation', desc: 'Gaming- & Event-Content im Short-Form-Format' }
                       ].map((item, i) => (
                         <li key={i}>
                           <h5 className="font-black uppercase tracking-widest text-[10px] text-emerald-400 mb-1">{item.title}</h5>
@@ -224,6 +237,30 @@ export const BayernZocktDetail: React.FC<BayernZocktDetailProps> = ({ onBack }) 
                       ))}
                     </ul>
                   </section>
+
+                  {/* Impact Section */}
+                  <section>
+                    <div className="flex items-center gap-3 mb-6">
+                      <div className="w-1.5 h-6 bg-emerald-500 rounded-full" />
+                      <h3 className="text-xl font-black uppercase tracking-tighter">Impact</h3>
+                    </div>
+                    <ul className="space-y-4">
+                      <li className="flex items-start gap-3">
+                        <Users className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
+                        <span className="text-white font-black">Bayernweite Community-Aktivierung</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <Target className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
+                        <span className="text-white font-black">Neue Zielgruppen digital erreicht</span>
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <Trophy className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
+                        <span className="text-white font-black">Starke Markenpositionierung im Gaming-Umfeld</span>
+                      </li>
+                    </ul>
+                  </section>
+
+                  {/* Status Section */}
                   <div className="pt-10 border-t border-white/10">
                     <div className="flex items-center gap-4">
                       <div className="w-12 h-12 rounded-2xl bg-emerald-500/20 flex items-center justify-center text-emerald-400 border border-emerald-500/30">
@@ -231,9 +268,12 @@ export const BayernZocktDetail: React.FC<BayernZocktDetailProps> = ({ onBack }) 
                       </div>
                       <div>
                         <div className="text-[10px] font-black uppercase tracking-[0.2em] text-white/40">Status</div>
-                        <div className="text-lg font-black text-white leading-tight uppercase tracking-tighter">Live umgesetzt</div>
+                        <div className="text-lg font-black text-white leading-tight uppercase tracking-tighter">Erfolgreich umgesetzt</div>
                       </div>
                     </div>
+                    <p className="mt-4 text-emerald-400 text-sm font-bold italic">
+                      Hybrid-Event
+                    </p>
                   </div>
                 </div>
               </div>
