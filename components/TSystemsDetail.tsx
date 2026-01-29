@@ -104,37 +104,89 @@ export const TSystemsDetail: React.FC<TSystemsDetailProps> = ({ onBack }) => {
           <div className="lg:col-span-4 space-y-12">
             <div className="sticky top-32">
               <div className="bg-slate-900 text-white p-10 rounded-[2.5rem] shadow-2xl">
-                <h3 className="text-2xl font-black uppercase tracking-tighter mb-8 flex items-center gap-3">
-                  <CheckCircle2 className="w-8 h-8 text-emerald-400" />
-                  Kernleistungen
-                </h3>
-                <ul className="space-y-8">
-                  {[
-                    { title: 'Qualifikationsturniere', desc: 'Digitale Turniere zur Steigerung des Engagements.' },
-                    { title: 'Employer Branding', desc: 'Modernes Eventformat als innovative Arbeitgebermarke.' },
-                    { title: 'Zielgruppe', desc: 'Speziell auf Tech-Talente zugeschnitten.' },
-                    { title: 'Full Service', desc: 'Von Konzeption bis technischer Betreuung.' }
-                  ].map((item, i) => (
-                    <li key={i} className="group">
-                      <h4 className="font-black uppercase tracking-widest text-xs text-emerald-400 mb-1">{item.title}</h4>
-                      <p className="text-white/70 font-bold">{item.desc}</p>
-                    </li>
-                  ))}
-                </ul>
+                <div className="space-y-10">
+                  {/* Format Section */}
+                  <section>
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-1.5 h-6 bg-emerald-500 rounded-full" />
+                      <h3 className="text-xl font-black uppercase tracking-tighter">Format</h3>
+                    </div>
+                    <div className="space-y-2">
+                      <h4 className="text-lg font-black text-emerald-400 leading-tight">Gaming- & Tech-Activation Plattform</h4>
+                      <p className="text-white/70 font-bold uppercase tracking-widest text-[10px]">Digital + Live | skalierbar | employer-ready</p>
+                    </div>
+                  </section>
 
-                <div className="mt-12 pt-12 border-t border-white/10">
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="w-14 h-14 rounded-2xl bg-emerald-500 flex items-center justify-center text-slate-900">
-                      <Trophy className="w-8 h-8" />
+                  {/* Leistungen Section */}
+                  <section>
+                    <div className="flex items-center gap-3 mb-6">
+                      <div className="w-1.5 h-6 bg-emerald-500 rounded-full" />
+                      <h3 className="text-xl font-black uppercase tracking-tighter">Leistungen</h3>
                     </div>
-                    <div>
-                      <div className="text-[10px] font-black uppercase tracking-[0.2em] text-white/40">Status</div>
-                      <div className="text-2xl font-black text-white">Live-Event</div>
+                    <ul className="space-y-6">
+                      {[
+                        { title: 'Konzeption & Strategie', desc: 'Employer-Branding-Format speziell für Tech-Talente' },
+                        { title: 'Plattform & Tech', desc: 'Eigene Gaming- & Turnierplattform inkl. Registrierung, Challenges & Tracking' },
+                        { title: 'Content & Experience', desc: 'Gamifizierte Qualifikation, interaktive Touchpoints, Event-Inszenierung' },
+                        { title: 'Live-Event Umsetzung', desc: 'Setup, Technik, Screens, Spielstationen, Betreuung vor Ort' }
+                      ].map((item, i) => (
+                        <li key={i}>
+                          <h5 className="font-black uppercase tracking-widest text-[10px] text-emerald-400 mb-1">{item.title}</h5>
+                          <p className="text-white/80 font-bold leading-snug">{item.desc}</p>
+                        </li>
+                      ))}
+                    </ul>
+                  </section>
+
+                  {/* Impact Section */}
+                  <section>
+                    <div className="flex items-center gap-3 mb-6">
+                      <div className="w-1.5 h-6 bg-emerald-500 rounded-full" />
+                      <h3 className="text-xl font-black uppercase tracking-tighter">Impact</h3>
                     </div>
+                    <ul className="space-y-4">
+                      <li>
+                        <div className="text-[10px] font-black uppercase tracking-widest text-white/40 mb-1">Zielgruppe erreicht:</div>
+                        <div className="text-white font-black">Schüler:innen & Young Tech Talents</div>
+                      </li>
+                      <li>
+                        <div className="text-[10px] font-black uppercase tracking-widest text-white/40 mb-1">Engagement:</div>
+                        <div className="text-white font-black">Aktive Teilnahme statt passiver Werbung</div>
+                      </li>
+                      <li>
+                        <div className="text-[10px] font-black uppercase tracking-widest text-white/40 mb-1">Markenwahrnehmung:</div>
+                        <div className="text-white font-black">Innovativ · technologisch · nahbar</div>
+                      </li>
+                    </ul>
+                  </section>
+
+                  {/* Ergebnis Section */}
+                  <section>
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-1.5 h-6 bg-emerald-500 rounded-full" />
+                      <h3 className="text-xl font-black uppercase tracking-tighter">Ergebnis</h3>
+                    </div>
+                    <div className="space-y-2">
+                      <h4 className="text-white font-black">Digitale Aktivierung + Live-Finale</h4>
+                      <p className="text-white/60 text-sm font-medium leading-relaxed">Ein konsistentes Erlebnis von Online bis On-Site</p>
+                    </div>
+                  </section>
+
+                  {/* Status Section */}
+                  <div className="pt-10 border-t border-white/10">
+                    <div className="flex items-center gap-4 mb-6">
+                      <div className="w-14 h-14 rounded-2xl bg-emerald-500 flex items-center justify-center text-slate-900 shadow-lg shadow-emerald-500/20">
+                        <Trophy className="w-8 h-8" />
+                      </div>
+                      <div>
+                        <div className="text-[10px] font-black uppercase tracking-[0.2em] text-white/40">Status</div>
+                        <div className="text-lg font-black text-white leading-tight">Erfolgreich umgesetzt – Live-Event</div>
+                      </div>
+                    </div>
+                    <p className="text-emerald-400 text-sm font-black leading-relaxed italic">
+                      "Marke, Technologie & Community nachhaltig verbunden"
+                    </p>
                   </div>
-                  <p className="text-white/60 text-sm font-medium leading-relaxed">
-                    Ein echtes Erlebnis, das Marke, Technologie und Community nachhaltig verbindet.
-                  </p>
                 </div>
               </div>
             </div>
