@@ -132,232 +132,241 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 lg:grid-rows-3 gap-6 md:gap-8 h-auto lg:min-h-[120vh]">
-          {/* Row 1 & 2 - Left: AMD (Large) */}
-          <CaseCard 
-            client="AMD"
-            title="Gaming Arena @Gamescom"
-            video="/videos/copy_C23D97A5-2B74-44A6-A5E0-66CEB8290725.mov"
-            size="large"
-            category="Event Production"
-            delay={0.1}
-            className="max-w-[calc(100vw-3rem)] md:max-w-none"
-          />
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8">
+          {/* Row 1 - Gaming Arena (Full Width) */}
+          <div className="col-span-1 lg:col-span-12">
+            <CaseCard 
+              client="AMD"
+              title="Gaming Arena @Gamescom"
+              video="/videos/copy_C23D97A5-2B74-44A6-A5E0-66CEB8290725.mov"
+              size="large"
+              category="Event Production"
+              delay={0.1}
+              className="aspect-video lg:aspect-[21/9] min-h-[400px] md:min-h-[600px]"
+            />
+          </div>
           
-          {/* Row 1 - Right: Bayern Zockt (Small) */}
-          <motion.div 
-            onClick={() => onNavigate?.('bayern-zockt')}
-            className="col-span-1 lg:col-span-4 lg:row-span-1 min-h-[350px] cursor-pointer mx-0 max-w-[calc(100vw-3rem)] md:max-w-none w-full"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <div className="relative group overflow-hidden rounded-[2.5rem] bg-slate-900 h-full w-full">
-              <img 
-                src="/images/bayern-zockt/hero.jpg" 
-                alt="Bayern Zockt"
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-              />
-              
-              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent opacity-80 transition-opacity group-hover:opacity-90" />
-              <div className="absolute inset-0 bg-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+          {/* Row 2 - Small Cards */}
+          <div className="col-span-1 lg:col-span-4 h-[400px] lg:h-[500px]">
+            <motion.div 
+              onClick={() => onNavigate?.('bayern-zockt')}
+              className="h-full w-full cursor-pointer"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <div className="relative group overflow-hidden rounded-[2.5rem] bg-slate-900 h-full w-full">
+                <img 
+                  src="/images/bayern-zockt/hero.jpg" 
+                  alt="Bayern Zockt"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                />
+                
+                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent opacity-80 transition-opacity group-hover:opacity-90" />
+                <div className="absolute inset-0 bg-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
-              <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-between z-10">
-                <div className="flex justify-between items-start">
-                  <div className="px-4 py-1.5 bg-white/10 backdrop-blur-xl rounded-full border border-white/20 text-[10px] font-black uppercase tracking-[0.2em] text-white">
-                    eSport Projekt
+                <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-between z-10">
+                  <div className="flex justify-between items-start">
+                    <div className="px-4 py-1.5 bg-white/10 backdrop-blur-xl rounded-full border border-white/20 text-[10px] font-black uppercase tracking-[0.2em] text-white">
+                      eSport Projekt
+                    </div>
+                    <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0 duration-500">
+                      <ArrowUpRight className="w-6 h-6" />
+                    </div>
                   </div>
-                  <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0 duration-500">
-                    <ArrowUpRight className="w-6 h-6" />
-                  </div>
-                </div>
 
-                <div>
-                  <h3 className="text-white text-[clamp(24px,3.2vw,38px)] font-black leading-[0.9] tracking-tighter uppercase mb-4 drop-shadow-2xl">
-                    Bayern Zockt
-                  </h3>
-                  <div className="flex items-center gap-3 text-white/60 text-[10px] font-black uppercase tracking-[0.2em] opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100 transform translate-y-2 group-hover:translate-y-0">
-                    <span>Case Study ansehen</span>
-                    <div className="h-[2px] w-8 bg-emerald-500 rounded-full" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          <motion.div 
-            onClick={() => onNavigate?.('tsystems')}
-            className="col-span-1 lg:col-span-4 lg:row-span-1 min-h-[350px] cursor-pointer mx-0 max-w-[calc(100vw-3rem)] md:max-w-none w-full"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <div className="relative group overflow-hidden rounded-[2.5rem] bg-slate-900 h-full w-full">
-              <img 
-                src="/images/t-systems/hero.jpg" 
-                alt="T-Systems"
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-              />
-              
-              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent opacity-80 transition-opacity group-hover:opacity-90" />
-              <div className="absolute inset-0 bg-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-
-              <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-between z-10">
-                <div className="flex justify-between items-start">
-                  <div className="px-4 py-1.5 bg-white/10 backdrop-blur-xl rounded-full border border-white/20 text-[10px] font-black uppercase tracking-[0.2em] text-white">
-                    Employer Branding
-                  </div>
-                  <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0 duration-500">
-                    <ArrowUpRight className="w-6 h-6" />
-                  </div>
-                </div>
-
-                <div>
-                  <h3 className="text-white text-[clamp(24px,3.2vw,38px)] font-black leading-[0.9] tracking-tighter uppercase mb-4 drop-shadow-2xl">
-                    T-Systems
-                  </h3>
-                  <div className="flex items-center gap-3 text-white/60 text-[10px] font-black uppercase tracking-[0.2em] opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100 transform translate-y-2 group-hover:translate-y-0">
-                    <span>Case Study ansehen</span>
-                    <div className="h-[2px] w-8 bg-emerald-500 rounded-full" />
+                  <div>
+                    <h3 className="text-white text-[clamp(24px,3.2vw,38px)] font-black leading-[0.9] tracking-tighter uppercase mb-4 drop-shadow-2xl">
+                      Bayern Zockt
+                    </h3>
+                    <div className="flex items-center gap-3 text-white/60 text-[10px] font-black uppercase tracking-[0.2em] opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100 transform translate-y-2 group-hover:translate-y-0">
+                      <span>Case Study ansehen</span>
+                      <div className="h-[2px] w-8 bg-emerald-500 rounded-full" />
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
 
-          <motion.div 
-            onClick={() => onNavigate?.('hagebau')}
-            className="col-span-1 lg:col-span-4 lg:row-span-1 min-h-[350px] cursor-pointer mx-0 max-w-[calc(100vw-3rem)] md:max-w-none w-full"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <div className="relative group overflow-hidden rounded-[2.5rem] bg-slate-900 h-full w-full">
-              <img 
-                src="/images/hagebau/hero-hagebau.jpg" 
-                alt="Hagebau Bolay"
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-              />
-              
-              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent opacity-80 transition-opacity group-hover:opacity-90" />
-              <div className="absolute inset-0 bg-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+          <div className="col-span-1 lg:col-span-4 h-[400px] lg:h-[500px]">
+            <motion.div 
+              onClick={() => onNavigate?.('tsystems')}
+              className="h-full w-full cursor-pointer"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <div className="relative group overflow-hidden rounded-[2.5rem] bg-slate-900 h-full w-full">
+                <img 
+                  src="/images/t-systems/hero.jpg" 
+                  alt="T-Systems"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                />
+                
+                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent opacity-80 transition-opacity group-hover:opacity-90" />
+                <div className="absolute inset-0 bg-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
-              <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-between z-10">
-                <div className="flex justify-between items-start">
-                  <div className="px-4 py-1.5 bg-white/10 backdrop-blur-xl rounded-full border border-white/20 text-[10px] font-black uppercase tracking-[0.2em] text-white">
-                    Recruiting
+                <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-between z-10">
+                  <div className="flex justify-between items-start">
+                    <div className="px-4 py-1.5 bg-white/10 backdrop-blur-xl rounded-full border border-white/20 text-[10px] font-black uppercase tracking-[0.2em] text-white">
+                      Employer Branding
+                    </div>
+                    <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0 duration-500">
+                      <ArrowUpRight className="w-6 h-6" />
+                    </div>
                   </div>
-                  <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0 duration-500">
-                    <ArrowUpRight className="w-6 h-6" />
-                  </div>
-                </div>
 
-                <div>
-                  <h3 className="text-white text-[clamp(24px,3.2vw,38px)] font-black leading-[0.9] tracking-tighter uppercase mb-4 drop-shadow-2xl">
-                    Hagebau Bolay
-                  </h3>
-                  <div className="flex items-center gap-3 text-white/60 text-[10px] font-black uppercase tracking-[0.2em] opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100 transform translate-y-2 group-hover:translate-y-0">
-                    <span>Case Study ansehen</span>
-                    <div className="h-[2px] w-8 bg-emerald-500 rounded-full" />
+                  <div>
+                    <h3 className="text-white text-[clamp(24px,3.2vw,38px)] font-black leading-[0.9] tracking-tighter uppercase mb-4 drop-shadow-2xl">
+                      T-Systems
+                    </h3>
+                    <div className="flex items-center gap-3 text-white/60 text-[10px] font-black uppercase tracking-[0.2em] opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100 transform translate-y-2 group-hover:translate-y-0">
+                      <span>Case Study ansehen</span>
+                      <div className="h-[2px] w-8 bg-emerald-500 rounded-full" />
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
 
-          {/* Row 3 - Left: Razer (Small) - Live Content */}
-          <CaseCard 
-            client="Razer"
-            title="Live Broadcast Studio"
-            video="/videos/cases/case-4.mp4"
-            size="small"
-            category="Live Content"
-            delay={0.4}
-            className="max-w-[calc(100vw-3rem)] md:max-w-none"
-          />
+          <div className="col-span-1 lg:col-span-4 h-[400px] lg:h-[500px]">
+            <motion.div 
+              onClick={() => onNavigate?.('hagebau')}
+              className="h-full w-full cursor-pointer"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <div className="relative group overflow-hidden rounded-[2.5rem] bg-slate-900 h-full w-full">
+                <img 
+                  src="/images/hagebau/hero-hagebau.jpg" 
+                  alt="Hagebau Bolay"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                />
+                
+                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent opacity-80 transition-opacity group-hover:opacity-90" />
+                <div className="absolute inset-0 bg-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
-          {/* Row 3 - Middle: Deleted previous Bayern Zockt location */}
+                <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-between z-10">
+                  <div className="flex justify-between items-start">
+                    <div className="px-4 py-1.5 bg-white/10 backdrop-blur-xl rounded-full border border-white/20 text-[10px] font-black uppercase tracking-[0.2em] text-white">
+                      Recruiting
+                    </div>
+                    <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0 duration-500">
+                      <ArrowUpRight className="w-6 h-6" />
+                    </div>
+                  </div>
 
-          {/* Row 3 - Right: CTA (Small) */}
-          <motion.button
-            onClick={() => onScroll?.('contact')}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="col-span-1 lg:col-span-4 lg:row-span-1 min-h-[350px] relative group overflow-hidden rounded-[2.5rem] bg-emerald-500 cursor-pointer flex flex-col justify-between p-8 md:p-12 shadow-2xl shadow-emerald-500/20 text-left max-w-[calc(100vw-3rem)] md:max-w-none w-full"
-          >
-            <div className="absolute inset-0 bg-gradient-to-br from-emerald-400 to-emerald-600 group-hover:scale-105 transition-transform duration-700" />
-            
-            {/* Level Up Animation */}
-            <div className="absolute inset-0 flex items-center justify-center opacity-20 pointer-events-none overflow-hidden">
-              <motion.div
-                animate={{ 
-                  y: [-100, 100],
-                  opacity: [0, 1, 0],
-                  scale: [0.8, 1.2, 0.8]
-                }}
-                transition={{ 
-                  duration: 2, 
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-                className="text-white font-black text-8xl italic"
-              >
-                LEVEL UP
-              </motion.div>
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(16,185,129,0.4)_100%)]" />
-            </div>
+                  <div>
+                    <h3 className="text-white text-[clamp(24px,3.2vw,38px)] font-black leading-[0.9] tracking-tighter uppercase mb-4 drop-shadow-2xl">
+                      Hagebau Bolay
+                    </h3>
+                    <div className="flex items-center gap-3 text-white/60 text-[10px] font-black uppercase tracking-[0.2em] opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100 transform translate-y-2 group-hover:translate-y-0">
+                      <span>Case Study ansehen</span>
+                      <div className="h-[2px] w-8 bg-emerald-500 rounded-full" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
 
-            <div className="relative z-10 h-full flex flex-col justify-between">
-              <div className="flex-1 relative">
-                <motion.div 
-                  initial={{ 
-                    right: '2rem',
-                    bottom: '2rem',
-                    y: '100%',
-                    opacity: 0 
+          {/* Row 3 */}
+          <div className="col-span-1 lg:col-span-6 h-[400px]">
+            <CaseCard 
+              client="Razer"
+              title="Live Broadcast Studio"
+              video="/videos/cases/case-4.mp4"
+              size="small"
+              category="Live Content"
+              delay={0.4}
+              className="h-full w-full"
+            />
+          </div>
+
+          <div className="col-span-1 lg:col-span-6 h-[400px]">
+            <motion.button
+              onClick={() => onScroll?.('contact')}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              className="relative group overflow-hidden rounded-[2.5rem] bg-emerald-500 cursor-pointer flex flex-col justify-between p-8 md:p-12 shadow-2xl shadow-emerald-500/20 text-left h-full w-full"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-emerald-400 to-emerald-600 group-hover:scale-105 transition-transform duration-700" />
+              
+              {/* Level Up Animation */}
+              <div className="absolute inset-0 flex items-center justify-center opacity-20 pointer-events-none overflow-hidden">
+                <motion.div
+                  animate={{ 
+                    y: [-100, 100],
+                    opacity: [0, 1, 0],
+                    scale: [0.8, 1.2, 0.8]
                   }}
-                  whileInView={{ 
-                    right: '2rem',
-                    bottom: 'auto',
-                    top: '2rem',
-                    y: '0%',
-                    opacity: 1 
-                  }}
-                  viewport={{ once: true }}
                   transition={{ 
-                    duration: 1.5, 
-                    ease: [0.16, 1, 0.3, 1],
-                    delay: 0.8
+                    duration: 2, 
+                    repeat: Infinity,
+                    ease: "easeInOut"
                   }}
-                  className="absolute w-16 h-16 rounded-full bg-white/20 backdrop-blur-xl border border-white/30 flex items-center justify-center text-white shadow-2xl"
+                  className="text-white font-black text-8xl italic"
                 >
-                  <ArrowUpRight className="w-8 h-8" />
+                  LEVEL UP
                 </motion.div>
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(16,185,129,0.4)_100%)]" />
               </div>
 
-              <div>
-                <h3 className="text-slate-950 text-[clamp(24px,2.2vw,32px)] font-black leading-[0.9] tracking-tighter uppercase max-w-[240px] drop-shadow-sm mb-6">
-                  Euer Event auf das <br /> 
-                  <span className="text-white italic">nächste Level</span> <br /> 
-                  heben
-                </h3>
-
-                <div className="flex items-center gap-3 text-slate-900/60 text-[10px] font-black uppercase tracking-[0.2em]">
-                  <span>Jetzt anfragen</span>
+              <div className="relative z-10 h-full flex flex-col justify-between">
+                <div className="flex-1 relative">
                   <motion.div 
-                    animate={{ width: [32, 64, 32] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                    className="h-[2px] bg-slate-900/40 rounded-full" 
-                  />
+                    initial={{ 
+                      right: '2rem',
+                      bottom: '2rem',
+                      y: '100%',
+                      opacity: 0 
+                    }}
+                    whileInView={{ 
+                      right: '2rem',
+                      bottom: 'auto',
+                      top: '2rem',
+                      y: '0%',
+                      opacity: 1 
+                    }}
+                    viewport={{ once: true }}
+                    transition={{ 
+                      duration: 1.5, 
+                      ease: [0.16, 1, 0.3, 1],
+                      delay: 0.8
+                    }}
+                    className="absolute w-16 h-16 rounded-full bg-white/20 backdrop-blur-xl border border-white/30 flex items-center justify-center text-white shadow-2xl"
+                  >
+                    <ArrowUpRight className="w-8 h-8" />
+                  </motion.div>
+                </div>
+
+                <div>
+                  <h3 className="text-slate-950 text-[clamp(24px,2.2vw,32px)] font-black leading-[0.9] tracking-tighter uppercase max-w-[240px] drop-shadow-sm mb-6">
+                    Euer Event auf das <br /> 
+                    <span className="text-white italic">nächste Level</span> <br /> 
+                    heben
+                  </h3>
+
+                  <div className="flex items-center gap-3 text-slate-900/60 text-[10px] font-black uppercase tracking-[0.2em]">
+                    <span>Jetzt anfragen</span>
+                    <motion.div 
+                      animate={{ width: [32, 64, 32] }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                      className="h-[2px] bg-slate-900/40 rounded-full" 
+                    />
+                  </div>
                 </div>
               </div>
-            </div>
-          </motion.button>
+            </motion.button>
+          </div>
         </div>
       </div>
     </section>
