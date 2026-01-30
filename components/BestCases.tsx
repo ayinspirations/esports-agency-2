@@ -137,7 +137,7 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
           <CaseCard 
             client="AMD"
             title="Gaming Arena @Gamescom"
-            video="/videos/gaming-arena.mp4"
+            video="/videos/copy_C23D97A5-2B74-44A6-A5E0-66CEB8290725.mov"
             size="large"
             category="Event Production"
             delay={0.1}
