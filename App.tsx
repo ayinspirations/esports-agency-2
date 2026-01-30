@@ -89,30 +89,36 @@ export default function App() {
         {activePage === 'home' && (
           <div className="flex flex-col">
             <Hero onNavigate={navigateTo} scrollToSection={scrollToSection} onOpenBooking={() => setIsBookingOpen(true)} />
-            <div className={baseTransition}>
+            
+            <div className="pt-16 md:pt-24">
               <SocialProof />
             </div>
-            <div className={baseTransition}>
+
+            <div className="pt-16 md:pt-24">
               <ScrollToCasesCTA onScroll={scrollToSection} />
             </div>
-            <div className={baseTransition}>
-              <div className={standardSectionPadding}>
-                <ProblemSolution onNavigate={navigateTo} scrollToSection={scrollToSection} />
-              </div>
+
+            <div className="pt-16 md:pt-24">
+              <ProblemSolution onNavigate={navigateTo} scrollToSection={scrollToSection} />
             </div>
-            <div className="py-16 md:py-24">
+
+            <div className="pt-16 md:pt-24">
               <ScrollTextSection />
             </div>
-            <div className={standardSectionPadding}>
+
+            <div className="pt-16 md:pt-24">
               <Competencies onNavigate={navigateTo} />
             </div>
-            <div className={`${standardSectionPadding} px-6 md:px-14`}>
+
+            <div className="pt-16 md:pt-24 px-6 md:px-14">
               <WhyUs />
             </div>
-            <div className={standardSectionPadding} id="best-cases-container">
+
+            <div className="pt-16 md:pt-24" id="best-cases-container">
               <BestCases onScroll={scrollToSection} onNavigate={navigateTo} />
             </div>
-            <div className={standardSectionPadding} id="contact-section">
+
+            <div className="pt-16 md:pt-24" id="contact-section">
               <ContactForm />
             </div>
           </div>
