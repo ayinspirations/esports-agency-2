@@ -136,8 +136,7 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
           {/* Row 1 - Gaming Arena (Full Width) */}
           <div className="col-span-1 lg:col-span-12">
             <CaseCard 
-              client="AMD"
-              title="Gaming Arena @Gamescom"
+              title="GAMING IN BAYERN"
               video="/videos/copy_C23D97A5-2B74-44A6-A5E0-66CEB8290725.mov"
               size="large"
               category="Event Production"
