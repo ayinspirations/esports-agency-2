@@ -141,7 +141,7 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
               size="large"
               category="Event Production"
               delay={0.1}
-              className="aspect-video lg:aspect-[21/9] min-h-0 md:min-h-[600px] !rounded-none -mx-6 md:mx-0 md:!rounded-[2.5rem]"
+              className="aspect-video lg:aspect-[21/9] min-h-0 md:min-h-[600px] w-full rounded-[2.5rem]"
             />
           </div>
           
