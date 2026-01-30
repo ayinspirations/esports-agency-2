@@ -77,7 +77,7 @@ export const BayernZocktDetail: React.FC<BayernZocktDetailProps> = ({ onBack }) 
                 transition={{ delay: 0.1 }}
                 className="text-[clamp(36px,9vw,120px)] font-black leading-[0.85] tracking-tighter uppercase text-white drop-shadow-2xl"
               >
-                Bayern <br /> <span className="text-white/40 italic">Zockt.</span>
+                GAMING IN <br /> <span className="text-white italic">BAYERN</span>
               </motion.h1>
             </div>
             
