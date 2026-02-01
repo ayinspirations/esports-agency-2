@@ -32,7 +32,7 @@ export const ProblemSolution: React.FC<ProblemSolutionProps> = ({ onNavigate }) 
               <motion.p 
                 className="text-slate-600/80 text-base sm:text-lg xl:text-xl font-medium tracking-tight max-w-[280px] xl:max-w-xs leading-snug"
               >
-                Klassische Marketingmaßnahmen erzeugen Sichtbarkeit – aber keine echte Interaktion.
+                Klassische Marketingmaßnahmen sorgen für Sichtbarkeit, erzeugen aber kaum echte Interaktion.
               </motion.p>
             </div>
           </motion.div>
