@@ -160,7 +160,7 @@ export const Competencies: React.FC<CompetenciesProps> = ({ onNavigate }) => {
           <div className="lg:hidden relative">
             <div 
               ref={scrollContainerRef}
-              className="flex gap-5 overflow-x-auto snap-x snap-mandatory no-scrollbar px-2 -mx-2 touch-pan-y"
+              className="flex gap-5 overflow-x-auto snap-x snap-mandatory no-scrollbar px-2 -mx-2 touch-pan-x"
               style={{ scrollPaddingLeft: '8px', scrollPaddingRight: '8px' }}
             >
               {data.map((item, i) => (

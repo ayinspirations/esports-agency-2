@@ -120,7 +120,7 @@ export const ScrollTextSection: React.FC = () => {
         <div className="w-full px-0 md:px-0 mt-auto">
           <div 
             ref={scrollContainerRef}
-            className="flex lg:grid lg:grid-cols-3 gap-6 md:gap-10 items-stretch overflow-x-auto lg:overflow-x-hidden pb-12 md:pb-0 no-scrollbar snap-x snap-mandatory px-6 md:px-0 touch-pan-y"
+            className="flex lg:grid lg:grid-cols-3 gap-6 md:gap-10 items-stretch overflow-x-auto lg:overflow-x-hidden pb-12 md:pb-0 no-scrollbar snap-x snap-mandatory px-6 md:px-0 touch-pan-x"
           >
             {[
               { color: 'bg-slate-950', text: 'white', title: 'Strategie.', sub: 'Design', height: 'min-h-[450px] lg:h-[600px]', content: 'Markenidentität klar definiert.' },
