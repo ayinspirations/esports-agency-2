@@ -1,20 +1,39 @@
 
 import React from 'react';
+import { motion } from 'framer-motion';
 import { HubSpotForm } from './HubSpotForm';
 
 export const ContactForm: React.FC = () => {
   return (
     <div className="w-full flex items-center justify-center px-4 sm:px-6 md:px-14 scroll-mt-32" id="contact">
-      <section className="w-full max-w-5xl mx-auto py-12 md:py-20 relative">
+      <motion.section 
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+        className="w-full max-w-5xl mx-auto py-12 md:py-20 relative"
+      >
         <div className="relative z-10">
           {/* Headline and Subtext stay on the light canvas */}
           <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-5xl md:text-8xl font-black mb-6 tracking-tighter text-slate-900 uppercase">
+            <motion.h2 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, delay: 0.2 }}
+              className="text-5xl md:text-8xl font-black mb-6 tracking-tighter text-slate-900 uppercase"
+            >
               Lass uns sprechen.
-            </h2>
-            <p className="text-slate-600 text-lg md:text-2xl font-bold max-w-2xl mx-auto tracking-tight leading-tight">
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, delay: 0.3 }}
+              className="text-slate-600 text-lg md:text-2xl font-bold max-w-2xl mx-auto tracking-tight leading-tight"
+            >
               Wir helfen Ihnen, Zielgruppen zu aktivieren und Ihre Marke erlebbar zu machen.
-            </p>
+            </motion.p>
           </div>
           
           {/* The Contact Form Container with Hero Background */}
@@ -56,7 +75,7 @@ export const ContactForm: React.FC = () => {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
     </div>
   );
 };

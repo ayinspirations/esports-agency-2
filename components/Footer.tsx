@@ -24,7 +24,13 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, scrollToSection }) =
     <div className="w-full bg-[#d1dbd2]">
       <div className="max-w-[1440px] mx-auto w-full px-6 md:px-14">
         <footer className="py-24 md:py-32 relative">
-          <div className="max-w-[1100px] mx-auto">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            className="max-w-[1100px] mx-auto"
+          >
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12 lg:gap-16 mb-24">
               <div className="col-span-2">
                 <a 
@@ -77,7 +83,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, scrollToSection }) =
                 Webseite umgesetzt durch <a href="https://www.akiistudio.de" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-500 transition-colors">Akii Studio</a>
               </p>
             </div>
-          </div>
+          </motion.div>
         </footer>
       </div>
     </div>

@@ -118,7 +118,13 @@ const CaseCard: React.FC<CaseProps> = ({ title, client, video, image, size, cate
 export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?: (page: any) => void }> = ({ onScroll, onNavigate }) => {
   return (
     <section id="best-cases" className="w-full bg-[#d1dbd2] px-6 md:px-14 scroll-mt-24">
-      <div className="max-w-[1440px] mx-auto">
+      <motion.div 
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+        className="max-w-[1440px] mx-auto"
+      >
         <div className="flex flex-col lg:flex-row items-end justify-between mb-16 md:mb-24 gap-8">
           <div className="max-w-3xl">
             <h2 className="text-[clamp(40px,7vw,100px)] font-black text-slate-900 leading-[0.85] tracking-tighter uppercase">
@@ -365,7 +371,7 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
             </motion.button>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };
