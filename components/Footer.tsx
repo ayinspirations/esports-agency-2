@@ -21,11 +21,11 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, scrollToSection }) =
   ];
 
   return (
-    <div className="max-w-[1440px] mx-auto w-full px-6 md:px-14">
-      <footer className="py-24 md:py-32 relative">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12 lg:gap-16 mb-24">
-            <div className="col-span-2">
+    <div className="w-full bg-[#d1dbd2]">
+      <div className="max-w-[1440px] mx-auto w-full px-6 md:px-14">
+        <footer className="py-24 md:py-32 relative">
+          <div className="max-w-7xl mx-auto flex flex-col items-center">
+            <div className="flex flex-col items-center text-center mb-16 md:mb-24">
               <a 
                 href="#home" 
                 onClick={(e) => handleNav(e, 'home')}
@@ -33,10 +33,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, scrollToSection }) =
               >
                 eSport Manufaktur
               </a>
-              <p className="text-slate-600 max-w-sm leading-relaxed mb-10 text-lg font-medium tracking-tight">
+              <p className="text-slate-600 max-w-xl leading-relaxed mb-10 text-lg md:text-xl font-medium tracking-tight">
                 Wir schaffen Erlebnisse, die Marken aktivieren und Zielgruppen begeistern – durch Gamification, Technik und Software.
               </p>
-              <div className="flex gap-4">
+              <div className="flex gap-4 justify-center">
                 {socialLinks.map(({ Icon, href }, i) => (
                   <motion.a 
                     key={i} 
@@ -53,31 +53,33 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, scrollToSection }) =
               </div>
             </div>
 
-            <div>
-              <h4 className="font-black text-slate-900 mb-8 uppercase text-[10px] tracking-[0.3em]">Links</h4>
-              <ul className="space-y-4 text-slate-600 text-base font-bold tracking-tight">
-                <li><a href="#home" onClick={(e) => handleNav(e, 'home')} className="hover:text-emerald-700 transition-colors">Startseite</a></li>
-                <li><a href="#contact" onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }} className="hover:text-emerald-700 transition-colors">Kontakt</a></li>
-              </ul>
+            <div className="flex flex-col md:flex-row items-center gap-12 md:gap-24 mb-24 text-center">
+              <div>
+                <h4 className="font-black text-slate-900 mb-6 uppercase text-[10px] tracking-[0.3em]">Links</h4>
+                <ul className="flex flex-wrap justify-center gap-x-8 gap-y-4 text-slate-600 text-base font-bold tracking-tight">
+                  <li><a href="#home" onClick={(e) => handleNav(e, 'home')} className="hover:text-emerald-700 transition-colors">Startseite</a></li>
+                  <li><a href="#contact" onClick={(e) => { e.preventDefault(); scrollToSection('contact'); }} className="hover:text-emerald-700 transition-colors">Kontakt</a></li>
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="font-black text-slate-900 mb-6 uppercase text-[10px] tracking-[0.3em]">Rechtliches</h4>
+                <ul className="flex flex-wrap justify-center gap-x-8 gap-y-4 text-slate-600 text-base font-bold tracking-tight">
+                  <li><a href="#impressum" onClick={(e) => handleNav(e, 'impressum')} className="hover:text-emerald-700 transition-colors">Impressum</a></li>
+                  <li><a href="#privacy" onClick={(e) => handleNav(e, 'privacy')} className="hover:text-emerald-700 transition-colors">Datenschutz</a></li>
+                </ul>
+              </div>
             </div>
 
-            <div>
-              <h4 className="font-black text-slate-900 mb-8 uppercase text-[10px] tracking-[0.3em]">Rechtliches</h4>
-              <ul className="space-y-4 text-slate-600 text-base font-bold tracking-tight">
-                <li><a href="#impressum" onClick={(e) => handleNav(e, 'impressum')} className="hover:text-emerald-700 transition-colors">Impressum</a></li>
-                <li><a href="#privacy" onClick={(e) => handleNav(e, 'privacy')} className="hover:text-emerald-700 transition-colors">Datenschutz</a></li>
-              </ul>
+            <div className="w-full flex flex-col items-center pt-10 border-t border-slate-900/10 text-[11px] md:text-xs text-slate-500 font-bold gap-4 text-center">
+              <p>© 2025 eSport Manufaktur GmbH</p>
+              <p>
+                Webseite wurde durch <a href="https://www.akiistudio.de" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-500 transition-colors">Akii Studio</a> erstellt
+              </p>
             </div>
           </div>
-
-          <div className="flex flex-col md:flex-row justify-between items-center pt-10 border-t border-slate-900/10 text-[11px] md:text-xs text-slate-500 font-bold text-center md:text-left gap-6">
-            <p>© 2025 eSport Manufaktur GmbH</p>
-            <p className="md:text-right">
-              Webseite wurde durch <a href="https://www.akiistudio.de" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-500 transition-colors">Akii Studio</a> erstellt
-            </p>
-          </div>
-        </div>
-      </footer>
+        </footer>
+      </div>
     </div>
   );
 };
