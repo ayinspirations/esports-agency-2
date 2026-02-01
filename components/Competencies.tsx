@@ -142,7 +142,7 @@ export const Competencies: React.FC<CompetenciesProps> = ({ onNavigate }) => {
 
   return (
     <div className="w-full flex items-center justify-center" ref={sectionRef} id="competencies">
-      <section className="w-full py-24 md:py-32 lg:py-40 bg-white relative overflow-hidden">
+      <section className="w-full py-24 md:py-32 lg:py-40 bg-transparent relative overflow-hidden">
         <div className="max-w-[1440px] mx-auto px-6 md:px-14">
           <div className="flex flex-col items-center text-center mb-16 md:mb-24 lg:mb-32">
             <div className="max-w-3xl">
