@@ -1,0 +1,196 @@
+You are a senior design engineer and editorial art director.
+
+Your task is to create a premium notary website blueprint called “AkiiNotar™”.
+
+IMPORTANT:
+This is NOT a creative exploration.
+This is a controlled, high-end editorial layout inspired by modern SaaS leaders
+(e.g. Lattice-style restraint, spacing, hierarchy — NOT branding).
+
+You must NOT invent your own layout logic.
+You must follow the structural and visual constraints below exactly.
+
+=====================================
+CORE DESIGN INTENT (NON-NEGOTIABLE)
+=====================================
+
+The website must feel:
+- Calm
+- Authoritative
+- Restrained
+- Editorial
+- Trust-first
+- High-end but understated
+
+Think:
+“Quiet confidence. Nothing screams. Everything is intentional.”
+
+Avoid:
+- Marketing-heavy visuals
+- Startup / growth hacks aesthetics
+- Dense UI
+- Decorative animations
+- Feature overload
+- Loud colors
+- Overuse of icons
+
+=====================================
+GLOBAL LAYOUT CONSTRAINTS
+=====================================
+
+1. WHITE SPACE IS THE MAIN DESIGN ELEMENT  
+   - Large vertical spacing between sections
+   - Each section breathes
+   - Never stack multiple visual ideas tightly
+
+2. ONE IDEA PER VIEWPORT  
+   - Each viewport communicates exactly ONE message
+   - No competing CTAs
+   - No clutter
+
+3. TYPOGRAPHY HIERARCHY (VERY IMPORTANT)
+   - Oversized headline (max 6 words)
+   - Small, quiet subtext
+   - Body text is secondary, never dominant
+   - No long paragraphs above the fold
+
+4. GRID DISCIPLINE
+   - Strong vertical rhythm
+   - Symmetry where possible
+   - Cards aligned cleanly
+   - No visual chaos
+
+5. ROUNDED LANGUAGE
+   - Soft rounded corners (24–32px)
+   - No sharp edges
+   - No aggressive shadows
+
+=====================================
+COLOR & MATERIAL RULES
+=====================================
+
+- Background: off-white / warm light gray
+- Text: near-black (never pure black)
+- Accent color: ONE muted tone only (deep blue OR dark slate)
+- No gradients
+- No neon
+- No high-contrast color blocks
+
+=====================================
+ANIMATION RULES
+=====================================
+
+- Animations must feel almost invisible
+- Only use:
+  - subtle fade-ins
+  - gentle translateY (6–12px max)
+- No parallax
+- No bouncing
+- No flashy transitions
+- Respect prefers-reduced-motion
+
+=====================================
+PAGE STRUCTURE (MANDATORY)
+=====================================
+
+1) HEADER
+- Minimal top navigation
+- Left: AkiiNotar™ (text logo)
+- Center: Leistungen, Ablauf, Dokumente, Kontakt
+- Right: “Termin anfragen” (quiet primary button)
+- Optional menu icon
+- Header remains calm and unobtrusive
+
+2) HERO SECTION
+- Centered layout
+- Large editorial headline:
+  “Rechtssicherheit mit Verantwortung.”
+- Subline (1 sentence):
+  “Notarielle Leistungen für klare Entscheidungen.”
+- One quiet primary CTA: “Termin anfragen”
+- No background video
+- No illustrations
+- Background stays neutral
+
+3) POSITIONING SECTION
+- Eyebrow: “AkiiNotar™”
+- Headline:
+  “Neutral. Unabhängig. Gesetzlich verpflichtet.”
+- Short explanatory text (max 3 lines)
+- Layout: text-focused, no visuals
+
+4) STATEMENT SECTION
+- Single large uppercase sentence:
+  “VERTRAUEN ENTSTEHT DURCH KLARHEIT.”
+- Surrounded by white space
+- This section exists only to pause the reader
+
+5) LEISTUNGEN
+- Title: “Notarielle Tätigkeiten.”
+- Vertical list, no cards
+- Each item separated by generous spacing
+- Simple arrow indicator
+- No icons
+- Items:
+  - Immobilien & Grundbesitz
+  - Gesellschaftsrecht
+  - Erben & Schenken
+  - Ehe & Familie
+  - Vorsorge
+  - Beglaubigungen
+  - Handelsregister
+  - Beratung & Entwurf
+
+6) PROCESS SECTION
+- Title: “So läuft es ab.”
+- Four clean steps, horizontally aligned
+- No illustrations
+- Just text and structure
+
+7) DOCUMENTS SECTION
+- Title: “Unterlagen vorbereiten.”
+- Calm explanation
+- One primary button: “Dokumente übermitteln”
+- No upload logic required (UI only)
+
+8) CONTACT / FOOTER
+- Calm multi-column footer
+- Address placeholder
+- Opening hours placeholder
+- Email placeholder
+- Legal links
+- Contact form with minimal fields
+- Success message after submit (frontend only)
+
+=====================================
+TECHNICAL OUTPUT
+=====================================
+
+Deliver:
+- index.html
+- styles.css
+- script.js
+
+Use:
+- Vanilla HTML, CSS, JS
+- CSS variables
+- Flexbox / Grid
+- IntersectionObserver for reveal animations
+
+Do NOT:
+- Use frameworks
+- Use component libraries
+- Overengineer
+
+=====================================
+FINAL QUALITY CHECK
+=====================================
+
+Before finishing, verify:
+- The page looks calm even without images
+- Squint test passes (no visual noise)
+- Nothing feels like marketing
+- Everything feels deliberate and trustworthy
+
+If unsure:
+REMOVE elements rather than adding more.
