@@ -117,10 +117,10 @@ export const ScrollTextSection: React.FC = () => {
         </div>
 
         {/* Bottom Cards: High-impact bento-style layout */}
-        <div className="w-full px-6 md:px-0 mt-auto">
+        <div className="w-full px-0 md:px-0 mt-auto overflow-hidden">
           <div 
             ref={scrollContainerRef}
-            className="flex lg:grid lg:grid-cols-3 gap-6 md:gap-10 items-stretch overflow-x-auto lg:overflow-visible pb-12 md:pb-0 no-scrollbar snap-x snap-mandatory"
+            className="flex lg:grid lg:grid-cols-3 gap-6 md:gap-10 items-stretch overflow-x-auto lg:overflow-visible pb-12 md:pb-0 no-scrollbar snap-x snap-mandatory px-6 md:px-0 touch-pan-x"
           >
             {[
               { color: 'bg-slate-950', text: 'white', title: 'Strategie.', sub: 'Design', height: 'min-h-[450px] lg:h-[600px]', content: 'Markenidentität klar definiert.' },
@@ -152,11 +152,14 @@ export const ScrollTextSection: React.FC = () => {
           </div>
 
           {/* Custom Horizontal Scroll Indicator for Mobile */}
-          <div className="lg:hidden absolute bottom-4 left-0 right-0 flex justify-center px-10">
+          <div className="lg:hidden flex justify-center mt-8 mb-4 px-10">
             <div className="h-[2px] w-32 bg-slate-200 rounded-full overflow-hidden">
               <motion.div 
-                className="h-full bg-emerald-500 w-1/4"
-                style={{ scaleX: useTransform(scrollXProgress, [0, 1], [1, 4]), transformOrigin: "0% 50%" }}
+                className="h-full bg-emerald-500 w-1/3"
+                style={{ 
+                  scaleX: useTransform(scrollXProgress, [0, 1], [1, 3]), 
+                  transformOrigin: "0% 50%" 
+                }}
               />
             </div>
           </div>
