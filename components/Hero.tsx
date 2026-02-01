@@ -145,7 +145,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, scrollToSection, onOpenB
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                    className="relative aspect-video w-full rounded-[2rem] overflow-hidden group shadow-2xl"
+                    className="relative aspect-video w-full rounded-[2rem] overflow-hidden group shadow-2xl touch-pan-y"
                   >
                     <AnimatePresence initial={false} custom={direction}>
                       <motion.img
@@ -160,15 +160,20 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, scrollToSection, onOpenB
                           x: { type: "spring", stiffness: 300, damping: 30 },
                           opacity: { duration: 0.5 }
                         }}
-                        className="absolute inset-0 w-full h-full object-cover"
+                        drag="x"
+                        dragConstraints={{ left: 0, right: 0 }}
+                        dragElastic={0.2}
+                        onDragEnd={(e, { offset, velocity }) => {
+                          const swipe = Math.abs(offset.x) > 50 || Math.abs(velocity.x) > 500;
+                          if (swipe && offset.x > 0) {
+                            prevSlide();
+                          } else if (swipe && offset.x < 0) {
+                            nextSlide();
+                          }
+                        }}
+                        className="absolute inset-0 w-full h-full object-cover cursor-grab active:cursor-grabbing"
                       />
                     </AnimatePresence>
-                    
-                    {/* Slider Controls (Mobile) */}
-                    <div className="absolute inset-0 flex items-center justify-between p-2 z-20">
-                      <button onClick={(e) => { e.stopPropagation(); prevSlide(); }} className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white"><svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg></button>
-                      <button onClick={(e) => { e.stopPropagation(); nextSlide(); }} className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white"><svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg></button>
-                    </div>
                   </motion.div>
                 </div>
 
