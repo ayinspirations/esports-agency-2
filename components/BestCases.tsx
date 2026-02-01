@@ -349,7 +349,7 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
                   <h3 className="text-slate-950 text-[clamp(24px,2.2vw,32px)] font-black leading-[0.9] tracking-tighter uppercase max-w-[240px] drop-shadow-sm mb-6">
                     Euer Event auf das <br /> 
                     <span className="text-white italic">nächste Level</span> <br /> 
-                    heben
+                    bringen
                   </h3>
 
                   <div className="flex items-center gap-3 text-slate-900/60 text-[10px] font-black uppercase tracking-[0.2em]">
