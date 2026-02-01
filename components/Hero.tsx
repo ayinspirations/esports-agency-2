@@ -113,24 +113,57 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, scrollToSection, onOpenB
         </div>
 
         <div className="relative z-10 flex-1 w-full px-6 sm:px-10 md:px-20 lg:px-28 py-16 lg:py-24 flex flex-col justify-center overflow-hidden">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div className="flex flex-col lg:grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Left Column: Text Content */}
-            <div className="flex flex-col space-y-8 md:space-y-12">
-              <motion.h1
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                className="text-[10vw] sm:text-[7vw] md:text-[6vw] lg:text-[64px] xl:text-[80px] font-bold text-white leading-[0.95] tracking-tighter text-left"
-              >
-                Events und <br />
-                Aktivierungen, <br />
-                <span className="bg-gradient-to-r from-[#2dd4bf] to-[#84cc16] bg-clip-text text-transparent font-bold">
-                  <span className="whitespace-nowrap">die in Erinnerung</span> <br /> 
-                  bleiben.
-                </span>
-              </motion.h1>
+            <div className="flex flex-col space-y-8 md:space-y-12 h-full justify-between">
+              <div className="space-y-8">
+                <motion.h1
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                  className="text-[10vw] sm:text-[7vw] md:text-[6vw] lg:text-[64px] xl:text-[80px] font-bold text-white leading-[0.95] tracking-tighter text-left"
+                >
+                  Events und <br />
+                  Aktivierungen, <br />
+                  <span className="bg-gradient-to-r from-[#2dd4bf] to-[#84cc16] bg-clip-text text-transparent font-bold">
+                    <span className="whitespace-nowrap">die in Erinnerung</span> <br /> 
+                    bleiben.
+                  </span>
+                </motion.h1>
 
-              <div className="flex flex-col items-start space-y-8 md:space-y-10">
+                {/* Mobile-only slider position */}
+                <div className="lg:hidden w-full">
+                  <motion.div 
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                    className="relative aspect-video w-full rounded-[2rem] overflow-hidden group shadow-2xl"
+                  >
+                    <AnimatePresence initial={false} custom={direction}>
+                      <motion.img
+                        key={currentImgIndex}
+                        src={heroImages[currentImgIndex]}
+                        custom={direction}
+                        variants={variants}
+                        initial="enter"
+                        animate="center"
+                        exit="exit"
+                        transition={{
+                          x: { type: "spring", stiffness: 300, damping: 30 },
+                          opacity: { duration: 0.5 }
+                        }}
+                        className="absolute inset-0 w-full h-full object-cover"
+                      />
+                    </AnimatePresence>
+                    
+                    {/* Slider Controls (Mobile) */}
+                    <div className="absolute inset-0 flex items-center justify-between p-2 z-20">
+                      <button onClick={(e) => { e.stopPropagation(); prevSlide(); }} className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white"><svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg></button>
+                      <button onClick={(e) => { e.stopPropagation(); nextSlide(); }} className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white"><svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg></button>
+                    </div>
+                  </motion.div>
+                </div>
+
                 <motion.p
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -139,92 +172,92 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, scrollToSection, onOpenB
                 >
                   Wir schaffen Erlebnisse, die Marken aktivieren, Zielgruppen begeistern und datenbasierte Ergebnisse liefern.
                 </motion.p>
-
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.8, delay: 0.6 }}
-                  className="flex items-center gap-6 sm:gap-8 w-full"
-                >
-                  <button 
-                    onClick={() => onOpenBooking?.()}
-                    className="bg-emerald-400 hover:bg-emerald-300 text-slate-900 px-6 py-3.5 sm:px-8 sm:py-4 rounded-full font-black text-base sm:text-lg transition-all shadow-[0_0_50px_rgba(52,211,153,0.3)] hover:scale-105 active:scale-95 tracking-tighter"
-                  >
-                    Termin vereinbaren
-                  </button>
-                  <button 
-                    onClick={() => scrollToSection?.('competencies')}
-                    className="group inline-flex items-center gap-2 text-white/90 hover:text-white font-bold text-sm sm:text-lg transition-all hover:translate-x-1 tracking-tighter"
-                  >
-                    Mehr erfahren
-                    <ArrowRight className="w-3.5 h-3.5 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
-                  </button>
-                </motion.div>
               </div>
+
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+                className="flex items-center gap-6 sm:gap-8 w-full pt-4"
+              >
+                <button 
+                  onClick={() => onOpenBooking?.()}
+                  className="bg-emerald-400 hover:bg-emerald-300 text-slate-900 px-6 py-3.5 sm:px-8 sm:py-4 rounded-full font-black text-base sm:text-lg transition-all shadow-[0_0_50px_rgba(52,211,153,0.3)] hover:scale-105 active:scale-95 tracking-tighter"
+                >
+                  Termin vereinbaren
+                </button>
+                <button 
+                  onClick={() => scrollToSection?.('competencies')}
+                  className="group inline-flex items-center gap-2 text-white/90 hover:text-white font-bold text-sm sm:text-lg transition-all hover:translate-x-1 tracking-tighter"
+                >
+                  Mehr erfahren
+                  <ArrowRight className="w-3.5 h-3.5 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
+                </button>
+              </motion.div>
             </div>
 
-            {/* Right Column: Image Slider */}
-            <motion.div 
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="relative aspect-[4/3] lg:aspect-[4/5] xl:aspect-square w-full rounded-[2.5rem] md:rounded-[3.5rem] overflow-hidden group shadow-2xl"
-            >
-              <AnimatePresence initial={false} custom={direction}>
-                <motion.img
-                  key={currentImgIndex}
-                  src={heroImages[currentImgIndex]}
-                  custom={direction}
-                  variants={variants}
-                  initial="enter"
-                  animate="center"
-                  exit="exit"
-                  transition={{
-                    x: { type: "spring", stiffness: 300, damping: 30 },
-                    opacity: { duration: 0.5 }
-                  }}
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-              </AnimatePresence>
-
-              {/* Slider Controls */}
-              <div className="absolute inset-0 flex items-center justify-between p-4 opacity-0 group-hover:opacity-100 transition-opacity z-20">
-                <button
-                  onClick={(e) => { e.stopPropagation(); prevSlide(); }}
-                  className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all"
-                >
-                  <span className="sr-only">Previous</span>
-                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                  </svg>
-                </button>
-                <button
-                  onClick={(e) => { e.stopPropagation(); nextSlide(); }}
-                  className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all"
-                >
-                  <span className="sr-only">Next</span>
-                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </button>
-              </div>
-
-              {/* Slider Indicators */}
-              <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-20">
-                {heroImages.map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => {
-                      setDirection(i > currentImgIndex ? 1 : -1);
-                      setCurrentImgIndex(i);
+            {/* Right Column: Image Slider (Desktop Only) */}
+            <div className="hidden lg:block w-full">
+              <motion.div 
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                className="relative aspect-[4/3] lg:aspect-[4/5] xl:aspect-[1.1/1] w-[85%] ml-auto rounded-[3.5rem] overflow-hidden group shadow-2xl"
+              >
+                <AnimatePresence initial={false} custom={direction}>
+                  <motion.img
+                    key={currentImgIndex}
+                    src={heroImages[currentImgIndex]}
+                    custom={direction}
+                    variants={variants}
+                    initial="enter"
+                    animate="center"
+                    exit="exit"
+                    transition={{
+                      x: { type: "spring", stiffness: 300, damping: 30 },
+                      opacity: { duration: 0.5 }
                     }}
-                    className={`h-1.5 rounded-full transition-all duration-300 ${
-                      i === currentImgIndex ? 'w-8 bg-white' : 'w-2 bg-white/30'
-                    }`}
+                    className="absolute inset-0 w-full h-full object-cover"
                   />
-                ))}
-              </div>
-            </motion.div>
+                </AnimatePresence>
+
+                {/* Slider Controls */}
+                <div className="absolute inset-0 flex items-center justify-between p-6 opacity-0 group-hover:opacity-100 transition-opacity z-20">
+                  <button
+                    onClick={(e) => { e.stopPropagation(); prevSlide(); }}
+                    className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all"
+                  >
+                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                    </svg>
+                  </button>
+                  <button
+                    onClick={(e) => { e.stopPropagation(); nextSlide(); }}
+                    className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all"
+                  >
+                    <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                </div>
+
+                {/* Slider Indicators */}
+                <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+                  {heroImages.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => {
+                        setDirection(i > currentImgIndex ? 1 : -1);
+                        setCurrentImgIndex(i);
+                      }}
+                      className={`h-1.5 rounded-full transition-all duration-300 ${
+                        i === currentImgIndex ? 'w-8 bg-white' : 'w-2 bg-white/30'
+                      }`}
+                    />
+                  ))}
+                </div>
+              </motion.div>
+            </div>
           </div>
         </div>
       </div>
