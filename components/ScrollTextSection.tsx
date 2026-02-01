@@ -45,7 +45,7 @@ export const ScrollTextSection: React.FC = () => {
   
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start end", "start center"]
+    offset: ["start end", "end start"]
   });
 
   const { scrollXProgress } = useScroll({
@@ -65,28 +65,25 @@ export const ScrollTextSection: React.FC = () => {
     <div className="w-full flex items-center justify-center p-0 md:p-4">
       <section 
         ref={sectionRef}
-        className="w-full h-screen bg-white rounded-none md:rounded-[3.2rem] border-y md:border border-[#d1dbd2] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.1)] overflow-hidden relative flex flex-col justify-between py-12 md:py-16 lg:py-20 px-0 md:px-16 lg:px-24"
+        className="w-full min-h-[140vh] md:min-h-[160vh] bg-white rounded-none md:rounded-[3.2rem] border-y md:border border-[#d1dbd2] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.1)] overflow-hidden relative flex flex-col py-24 md:py-32 lg:py-40 px-0 md:px-16 lg:px-24"
       >
         
-        {/* Top Content: Centered on mobile, Right-aligned on Desktop */}
-        <div className="flex flex-col items-center md:items-end text-center md:text-right w-full shrink-0 px-6 md:px-0">
-          <BeautifulAppear className="flex flex-col items-center md:items-end">
-            <div className="flex flex-col md:flex-row-reverse items-center gap-4 mb-6 md:mb-10">
-              <div className="w-12 h-12 md:w-14 md:h-14 bg-[#10b981] rounded-2xl flex items-center justify-center rotate-12 shadow-2xl shadow-emerald-500/20 shrink-0">
+        {/* Top Content: Apple-style centered focus */}
+        <div className="flex flex-col items-center text-center w-full mb-24 md:mb-32 lg:mb-40 px-6 md:px-0">
+          <BeautifulAppear className="flex flex-col items-center mb-12">
+            <div className="flex flex-col items-center gap-4">
+              <div className="w-12 h-12 md:w-14 md:h-14 bg-[#10b981] rounded-2xl flex items-center justify-center rotate-12 shadow-2xl shadow-emerald-500/20 mb-4">
                 <span className="text-white text-lg md:text-lg font-black italic">!</span>
               </div>
-              <div className="flex flex-col items-center md:items-end mt-2 md:mt-0">
-                <span className="text-emerald-600 text-[10px] md:text-[11px] font-black tracking-[0.4em] uppercase">Status Quo</span>
-                <div className="h-0.5 w-10 md:w-12 bg-emerald-500/20 mt-1.5" />
-              </div>
+              <span className="text-emerald-600 text-[10px] md:text-[11px] font-black tracking-[0.4em] uppercase">Status Quo</span>
             </div>
           </BeautifulAppear>
           
-          <div className="max-w-4xl">
-            <h2 className="text-[clamp(28px,4.8vh,72px)] font-black leading-[0.95] tracking-tighter mb-6 md:mb-10 flex flex-wrap justify-center md:justify-end">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-[clamp(32px,5vw,84px)] font-black leading-[1.05] tracking-tighter mb-12 flex flex-wrap justify-center">
               {words.map((word, i) => {
-                const start = i / words.length;
-                const end = (i + 1) / words.length;
+                const start = i / words.length * 0.5;
+                const end = (i + 1) / words.length * 0.5;
                 return (
                   <Word key={i} progress={smoothProgress} range={[start, end]}>
                     {word}
@@ -96,47 +93,47 @@ export const ScrollTextSection: React.FC = () => {
             </h2>
             
             <BeautifulAppear delay={0.4}>
-              <div className="flex flex-col md:flex-row items-center justify-center md:justify-end gap-3 md:gap-8 mt-4">
-                <div className="flex flex-col items-center md:items-end">
+              <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12 mt-8">
+                <div className="flex flex-col items-center">
                   <span className="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-emerald-500 mb-1">Marken</span>
                   <span className="text-lg md:text-2xl font-bold text-slate-900 tracking-tight">Erlebbar machen</span>
                 </div>
-                <div className="hidden md:block w-px h-8 bg-slate-200" />
-                <div className="flex flex-col items-center md:items-end">
+                <div className="hidden md:block w-px h-10 bg-slate-200" />
+                <div className="flex flex-col items-center">
                   <span className="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-emerald-500 mb-1">Zielgruppen</span>
                   <span className="text-lg md:text-2xl font-bold text-slate-900 tracking-tight">Aktivieren</span>
                 </div>
-                <div className="hidden md:block w-px h-8 bg-slate-200" />
-                <div className="flex flex-col items-center md:items-end">
+                <div className="hidden md:block w-px h-10 bg-slate-200" />
+                <div className="flex flex-col items-center">
                   <span className="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-emerald-500 mb-1">Ergebnisse</span>
                   <span className="text-lg md:text-2xl font-bold text-slate-900 tracking-tight">Messbar gestalten</span>
                 </div>
               </div>
-              <p className="text-xs md:text-sm text-slate-400 font-medium mt-6 md:mt-8 tracking-wide uppercase">
+              <p className="text-xs md:text-sm text-slate-400 font-medium mt-12 tracking-wide uppercase">
                 Durch Gamification, Technik und Software.
               </p>
             </BeautifulAppear>
           </div>
         </div>
 
-        {/* Bottom Cards: Horizontal Snap Carousel */}
-        <div className="relative mt-auto">
+        {/* Bottom Cards: High-impact bento-style layout */}
+        <div className="w-full px-6 md:px-0 mt-auto">
           <div 
             ref={scrollContainerRef}
-            className="flex lg:grid lg:grid-cols-3 gap-4 md:gap-8 items-end overflow-x-auto lg:overflow-visible pb-12 md:pb-0 no-scrollbar h-auto max-h-[48vh] snap-x snap-mandatory px-6 md:px-0"
+            className="flex lg:grid lg:grid-cols-3 gap-6 md:gap-10 items-stretch overflow-x-auto lg:overflow-visible pb-12 md:pb-0 no-scrollbar snap-x snap-mandatory"
           >
             {[
-              { color: 'bg-slate-950', text: 'white', title: 'Strategie.', sub: 'Design', height: 'h-[36vh] lg:h-[48vh]', content: 'Markenidentität klar definiert.' },
-              { color: 'bg-slate-900', text: 'white', title: 'Wachstum.', sub: 'Growth', height: 'h-[30vh] lg:h-[38vh]', img: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=1200' },
-              { color: 'bg-slate-100', text: 'white', title: 'Event.', sub: 'Live', height: 'h-[39vh] lg:h-[52vh]', img: '/images/status-quo/rewe-event.jpg' },
+              { color: 'bg-slate-950', text: 'white', title: 'Strategie.', sub: 'Design', height: 'min-h-[450px] lg:h-[600px]', content: 'Markenidentität klar definiert.' },
+              { color: 'bg-slate-900', text: 'white', title: 'Wachstum.', sub: 'Growth', height: 'min-h-[450px] lg:h-[600px]', img: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=1200' },
+              { color: 'bg-slate-100', text: 'white', title: 'Event.', sub: 'Live', height: 'min-h-[450px] lg:h-[600px]', img: '/images/status-quo/rewe-event.jpg' },
             ].map((card, i) => (
               <motion.div 
                 key={i}
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 100 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                className={`flex-shrink-0 w-[82vw] md:w-[300px] lg:w-full ${card.height} ${card.color} rounded-[2.5rem] p-8 md:p-10 flex flex-col justify-between relative overflow-hidden border border-black/5 shadow-2xl group snap-center`}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 1, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                className={`flex-shrink-0 w-[85vw] md:w-[400px] lg:w-full ${card.height} ${card.color} rounded-[3rem] p-10 md:p-12 flex flex-col justify-between relative overflow-hidden border border-black/5 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.15)] group snap-center`}
               >
                 {card.img && <img src={card.img} className="absolute inset-0 w-full h-full object-cover brightness-75 transition-transform duration-1000 group-hover:scale-105" />}
                 {card.img && <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />}
