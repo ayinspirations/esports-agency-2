@@ -35,7 +35,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, scrollToSection }) =
                   eSport Manufaktur
                 </a>
                 <p className="text-slate-600 max-w-sm leading-relaxed mb-10 text-lg font-medium tracking-tight">
-                  Wir schaffen Erlebnisse, die Marken aktivieren und Zielgruppen begeistern – durch Gamification, Technik und Software.
+                  Wir entwickeln Erlebnisse, die Marken aktivieren und Zielgruppen einbinden – durch Gamification, Technik und Software.
                 </p>
                 <div className="flex gap-4">
                   {socialLinks.map(({ Icon, href }, i) => (
@@ -74,7 +74,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, scrollToSection }) =
             <div className="flex flex-col md:flex-row justify-between items-center pt-10 border-t border-slate-900/10 text-[11px] md:text-xs text-slate-500 font-bold text-center md:text-left gap-6">
               <p>© 2025 eSport Manufaktur GmbH</p>
               <p className="md:text-right">
-                Webseite wurde durch <a href="https://www.akiistudio.de" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-500 transition-colors">Akii Studio</a> erstellt
+                Webseite umgesetzt durch <a href="https://www.akiistudio.de" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-500 transition-colors">Akii Studio</a>
               </p>
             </div>
           </div>
