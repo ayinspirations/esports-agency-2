@@ -157,11 +157,16 @@ export const Competencies: React.FC<CompetenciesProps> = ({ onNavigate }) => {
           </div>
           
           {/* MOBILE SLIDER: Native Snap Scrolling */}
-          <div className="lg:hidden relative">
+          <div className="lg:hidden relative overflow-visible">
             <div 
               ref={scrollContainerRef}
-              className="flex gap-5 overflow-x-auto snap-x snap-mandatory no-scrollbar px-2 -mx-2 touch-pan-x"
-              style={{ scrollPaddingLeft: '8px', scrollPaddingRight: '8px' }}
+              className="flex gap-5 overflow-x-auto snap-x snap-mandatory no-scrollbar px-2 -mx-2 touch-pan-x overscroll-x-contain"
+              style={{ 
+                scrollPaddingLeft: '8px', 
+                scrollPaddingRight: '8px',
+                WebkitOverflowScrolling: 'touch',
+                scrollSnapType: 'x mandatory'
+              }}
             >
               {data.map((item, i) => (
                 <div key={i} className="min-w-[85vw] aspect-[4/5.5] sm:aspect-[4/5] snap-center">
