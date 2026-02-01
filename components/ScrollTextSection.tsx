@@ -133,13 +133,6 @@ export const ScrollTextSection: React.FC = () => {
                   <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full mb-4 shadow-lg shadow-emerald-500/50" />
                   <h3 className={`text-${card.text} text-[clamp(22px,2.8vh,32px)] font-black tracking-tighter mb-2 md:mb-4 leading-[1]`}>{card.title}</h3>
                   {card.content && <p className={`text-${card.text}/50 text-[10px] md:text-sm font-medium tracking-tight line-clamp-2`}>{card.content}</p>}
-                  {card.team && (
-                    <div className="flex -space-x-3 mt-4">
-                      {[1, 2, 3].map((j) => (
-                        <div key={j} className="w-8 h-8 md:w-12 md:h-12 rounded-full border-2 border-[#f2f6f3] overflow-hidden shadow-xl"><img src={`https://i.pravatar.cc/150?u=${j+10}`} className="w-full h-full object-cover" /></div>
-                      ))}
-                    </div>
-                  )}
                 </div>
               </motion.div>
             ))}
