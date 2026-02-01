@@ -30,7 +30,7 @@ export const WhyUs: React.FC = () => {
 
             {/* Column 2 */}
             <div className="flex flex-col gap-6">
-              <div className="h-1 w-12 bg-slate-200 rounded-full" />
+              <div className="h-1 w-12 bg-emerald-500 rounded-full" />
               <p className="text-lg md:text-xl text-slate-600 font-medium leading-relaxed tracking-tight">
                 Unsere Erfahrung reicht von Marken- und Unternehmenskommunikation über Events und Aktivierungen bis hin zu digitalen Formaten. Ein tiefes Zielgruppenverständnis sorgt für Relevanz.
               </p>
@@ -38,7 +38,7 @@ export const WhyUs: React.FC = () => {
 
             {/* Column 3 */}
             <div className="flex flex-col gap-6">
-              <div className="h-1 w-12 bg-slate-200 rounded-full" />
+              <div className="h-1 w-12 bg-emerald-500 rounded-full" />
               <p className="text-lg md:text-xl text-slate-600 font-medium leading-relaxed tracking-tight">
                 Unsere Lösungen sind skalierbar – vom kompakten Aktivierungsformat bis zur groß angelegten Inszenierung. Entscheidungen basieren auf Daten, nicht auf Bauchgefühl.
               </p>
