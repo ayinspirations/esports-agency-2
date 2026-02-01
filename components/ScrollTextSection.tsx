@@ -58,7 +58,7 @@ export const ScrollTextSection: React.FC = () => {
     restDelta: 0.001
   });
 
-  const headline = "Wir entwickeln Markenaktivierungen für Unternehmen, die mehr wollen als Aufmerksamkeit.";
+  const headline = "Wir entwickeln Markenaktivierungen für Unternehmen, die mehr wollen als bloße Aufmerksamkeit.";
   const words = headline.split(" ");
 
   return (
@@ -97,7 +97,7 @@ export const ScrollTextSection: React.FC = () => {
             
             <BeautifulAppear delay={0.4}>
               <p className="text-[clamp(15px,1.8vh,24px)] text-slate-500 font-medium leading-tight tracking-tight max-w-xl mx-auto md:ml-auto">
-                Marken aktivieren, Zielgruppen begeistern und datenbasierte Ergebnisse liefern – durch Gamification, Technik und Software.
+                Marken erlebbar machen, Zielgruppen aktivieren und Ergebnisse messbar gestalten – durch Gamification, Technik und Software.
               </p>
             </BeautifulAppear>
           </div>
