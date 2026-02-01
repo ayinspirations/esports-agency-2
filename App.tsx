@@ -110,9 +110,7 @@ export default function App() {
               <Competencies onNavigate={navigateTo} />
             </div>
 
-            <div className="pt-16 md:pt-24 px-6 md:px-14">
-              <WhyUs />
-            </div>
+            <WhyUs />
 
             <div className="pt-16 md:pt-24" id="best-cases-container">
               <BestCases onScroll={scrollToSection} onNavigate={navigateTo} />
