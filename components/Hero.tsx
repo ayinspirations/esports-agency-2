@@ -67,21 +67,18 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, scrollToSection, onOpenB
 
   const variants = {
     enter: (direction: number) => ({
-      x: direction > 0 ? '20%' : '-20%',
-      opacity: 0,
-      scale: 1.05
+      x: direction > 0 ? '100%' : '-100%',
+      opacity: 0
     }),
     center: {
       zIndex: 1,
       x: 0,
-      opacity: 1,
-      scale: 1
+      opacity: 1
     },
     exit: (direction: number) => ({
       zIndex: 0,
-      x: direction < 0 ? '20%' : '-20%',
-      opacity: 0,
-      scale: 0.95
+      x: direction < 0 ? '100%' : '-100%',
+      opacity: 0
     })
   };
 
@@ -150,7 +147,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, scrollToSection, onOpenB
                     transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
                     className="relative aspect-video w-full rounded-[2rem] overflow-hidden group shadow-2xl touch-pan-y"
                   >
-                    <AnimatePresence initial={false} custom={direction} mode="wait">
+                    <AnimatePresence initial={false} custom={direction}>
                       <motion.img
                         key={currentImgIndex}
                         src={heroImages[currentImgIndex]}
@@ -160,9 +157,8 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, scrollToSection, onOpenB
                         animate="center"
                         exit="exit"
                         transition={{
-                          x: { type: "spring", stiffness: 200, damping: 30 },
-                          opacity: { duration: 0.6 },
-                          scale: { duration: 0.6 }
+                          x: { type: "spring", stiffness: 300, damping: 30 },
+                          opacity: { duration: 0.5 }
                         }}
                         drag="x"
                         dragConstraints={{ left: 0, right: 0 }}
@@ -221,7 +217,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, scrollToSection, onOpenB
                 transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
                 className="relative aspect-square w-full rounded-[4rem] overflow-hidden group shadow-2xl"
               >
-                <AnimatePresence initial={false} custom={direction} mode="wait">
+                <AnimatePresence initial={false} custom={direction}>
                   <motion.img
                     key={currentImgIndex}
                     src={heroImages[currentImgIndex]}
@@ -231,9 +227,8 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, scrollToSection, onOpenB
                     animate="center"
                     exit="exit"
                     transition={{
-                      x: { type: "spring", stiffness: 200, damping: 30 },
-                      opacity: { duration: 0.6 },
-                      scale: { duration: 0.6 }
+                      x: { type: "spring", stiffness: 300, damping: 30 },
+                      opacity: { duration: 0.5 }
                     }}
                     className="absolute inset-0 w-full h-full object-cover"
                   />
