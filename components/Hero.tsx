@@ -112,10 +112,10 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, scrollToSection, onOpenB
           </video>
         </div>
 
-        <div className="relative z-10 flex-1 w-full px-6 sm:px-10 md:px-20 lg:px-28 py-16 lg:py-24 flex flex-col justify-center overflow-hidden">
+        <div className="relative z-10 flex-1 w-full px-6 sm:px-10 md:px-20 lg:px-28 py-20 lg:py-24 flex flex-col justify-center overflow-hidden">
           <div className="flex flex-col lg:grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Left Column: Text Content */}
-            <div className="flex flex-col space-y-8 md:space-y-12 h-full justify-between">
+            <div className="flex flex-col space-y-8 md:space-y-12 h-full justify-between mt-8 lg:mt-0">
               <div className="space-y-8">
                 <motion.h1
                   initial={{ opacity: 0, y: 30 }}
