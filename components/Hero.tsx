@@ -183,7 +183,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, scrollToSection, onOpenB
                   transition={{ duration: 1, delay: 0.4 }}
                   className="text-white text-lg sm:text-xl xl:text-2xl font-bold max-w-lg leading-[1.3] tracking-tight text-left opacity-90"
                 >
-                  Wir schaffen Erlebnisse, die Marken aktivieren, Zielgruppen begeistern und datenbasierte Ergebnisse liefern.
+                  Wir entwickeln Erlebnisse, die Marken erlebbar machen, Zielgruppen einbinden und messbare Ergebnisse liefern.
                 </motion.p>
 
                 <motion.div
