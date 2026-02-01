@@ -96,8 +96,24 @@ export const ScrollTextSection: React.FC = () => {
             </h2>
             
             <BeautifulAppear delay={0.4}>
-              <p className="text-[clamp(15px,1.8vh,24px)] text-slate-500 font-medium leading-tight tracking-tight max-w-xl mx-auto md:ml-auto">
-                Marken erlebbar machen, Zielgruppen aktivieren und Ergebnisse messbar gestalten – durch Gamification, Technik und Software.
+              <div className="flex flex-col md:flex-row items-center justify-center md:justify-end gap-3 md:gap-8 mt-4">
+                <div className="flex flex-col items-center md:items-end">
+                  <span className="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-emerald-500 mb-1">Marken</span>
+                  <span className="text-lg md:text-2xl font-bold text-slate-900 tracking-tight">Erlebbar machen</span>
+                </div>
+                <div className="hidden md:block w-px h-8 bg-slate-200" />
+                <div className="flex flex-col items-center md:items-end">
+                  <span className="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-emerald-500 mb-1">Zielgruppen</span>
+                  <span className="text-lg md:text-2xl font-bold text-slate-900 tracking-tight">Aktivieren</span>
+                </div>
+                <div className="hidden md:block w-px h-8 bg-slate-200" />
+                <div className="flex flex-col items-center md:items-end">
+                  <span className="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-emerald-500 mb-1">Ergebnisse</span>
+                  <span className="text-lg md:text-2xl font-bold text-slate-900 tracking-tight">Messbar gestalten</span>
+                </div>
+              </div>
+              <p className="text-xs md:text-sm text-slate-400 font-medium mt-6 md:mt-8 tracking-wide uppercase">
+                Durch Gamification, Technik und Software.
               </p>
             </BeautifulAppear>
           </div>
