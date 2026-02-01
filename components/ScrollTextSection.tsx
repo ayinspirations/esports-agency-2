@@ -117,10 +117,10 @@ export const ScrollTextSection: React.FC = () => {
         </div>
 
         {/* Bottom Cards: High-impact bento-style layout */}
-        <div className="w-full px-0 md:px-0 mt-auto overflow-hidden">
+        <div className="w-full px-0 md:px-0 mt-auto">
           <div 
             ref={scrollContainerRef}
-            className="flex lg:grid lg:grid-cols-3 gap-6 md:gap-10 items-stretch overflow-x-auto lg:overflow-visible pb-12 md:pb-0 no-scrollbar snap-x snap-mandatory px-6 md:px-0 touch-pan-x"
+            className="flex lg:grid lg:grid-cols-3 gap-6 md:gap-10 items-stretch overflow-x-auto lg:overflow-x-hidden pb-12 md:pb-0 no-scrollbar snap-x snap-mandatory px-6 md:px-0 touch-pan-y"
           >
             {[
               { color: 'bg-slate-950', text: 'white', title: 'Strategie.', sub: 'Design', height: 'min-h-[450px] lg:h-[600px]', content: 'Markenidentität klar definiert.' },
@@ -129,10 +129,10 @@ export const ScrollTextSection: React.FC = () => {
             ].map((card, i) => (
               <motion.div 
                 key={i}
-                initial={{ opacity: 0, y: 100 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 1, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.8, delay: i * 0.15, ease: [0.16, 1, 0.3, 1] }}
                 className={`flex-shrink-0 w-[85vw] md:w-[400px] lg:w-full ${card.height} ${card.color} rounded-[3rem] p-10 md:p-12 flex flex-col justify-between relative overflow-hidden border border-black/5 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.15)] group snap-center`}
               >
                 {card.img && <img src={card.img} className="absolute inset-0 w-full h-full object-cover brightness-75 transition-transform duration-1000 group-hover:scale-105" />}
