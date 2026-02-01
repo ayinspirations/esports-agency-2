@@ -47,6 +47,14 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, scrollToSection, onOpenB
   const [currentImgIndex, setCurrentImgIndex] = useState(0);
   const [direction, setDirection] = useState(0);
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setDirection(1);
+      setCurrentImgIndex((prev) => (prev + 1) % heroImages.length);
+    }, 2000);
+    return () => clearInterval(timer);
+  }, []);
+
   const nextSlide = () => {
     setDirection(1);
     setCurrentImgIndex((prev) => (prev + 1) % heroImages.length);
