@@ -124,10 +124,8 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
             <h2 className="text-[clamp(40px,7vw,100px)] font-black text-slate-900 leading-[0.85] tracking-tighter uppercase">
               Best <br /> <span className="text-slate-900/40 italic">Cases.</span>
             </h2>
-          </div>
-          <div className="lg:mb-4">
-            <p className="text-slate-600 font-bold text-lg md:text-xl max-w-sm leading-tight tracking-tight text-right lg:text-left">
-              Bewegtbilder für bewegende Momente. Unsere Highlight-Projekte in voller Action erleben.
+            <p className="text-slate-600 font-bold text-base md:text-lg mt-6 max-w-xl leading-tight tracking-tight">
+              Bewegtbilder für echte Erlebnisse. Ausgewählte Projekte in voller Dynamik.
             </p>
           </div>
         </div>
