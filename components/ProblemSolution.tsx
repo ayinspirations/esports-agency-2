@@ -49,10 +49,10 @@ export const ProblemSolution: React.FC<ProblemSolutionProps> = ({ onNavigate }) 
               <div className="space-y-6 xl:space-y-10 relative z-10">
                 <div className="w-12 h-1.5 bg-emerald-500 rounded-full mb-8" />
                 <p className="text-xl xl:text-[36px] font-bold text-[#0f172a] leading-[1.15] tracking-tight">
-                  Klassische Werbung sorgt für <span className="text-emerald-500">Sichtbarkeit</span>, schafft aber selten echte Bindung.
+                  Werbung erreicht Menschen, bindet sie jedoch <span className="text-emerald-500">selten nachhaltig</span>.
                 </p>
                 <p className="text-base xl:text-xl font-bold text-slate-500/80 leading-[1.4] tracking-tight max-w-2xl">
-                  Wirkung entsteht dort, wo Menschen <span className="text-[#0f172a]">aktiv teilnehmen</span>, sich mit einer Marke auseinandersetzen und <span className="text-emerald-600/80 italic font-medium">Erlebnisse</span> im Gedächtnis verankern.
+                  Wirkung entsteht dort, wo Zielgruppen <span className="text-[#0f172a]">aktiv eingebunden</span> werden, Marken erlebt werden und <span className="text-emerald-600/80 italic font-medium">Erinnerungen</span> entstehen.
                 </p>
               </div>
 
