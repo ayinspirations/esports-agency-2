@@ -202,7 +202,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, scrollToSection, onOpenB
                 initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                className="relative aspect-[4/3] lg:aspect-[4/5] xl:aspect-[1.1/1] w-[85%] ml-auto rounded-[3.5rem] overflow-hidden group shadow-2xl"
+                className="relative aspect-[4/3] lg:aspect-[4/5] xl:aspect-[1.1/1] w-[95%] -ml-[5%] lg:ml-auto rounded-[3.5rem] overflow-hidden group shadow-2xl"
               >
                 <AnimatePresence initial={false} custom={direction}>
                   <motion.img
