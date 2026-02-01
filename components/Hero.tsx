@@ -36,20 +36,43 @@ interface HeroProps {
   onOpenBooking?: () => void;
 }
 
+const heroImages = [
+  '/images/bayern-zockt/hero.jpg',
+  '/images/t-systems/hero.jpg',
+  '/images/hagebau/hero-hagebau.jpg',
+  '/images/bayern-zockt/Bayern-zockt-Finale-FOKUS-Robi-080823.jpg'
+];
+
 export const Hero: React.FC<HeroProps> = ({ onNavigate, scrollToSection, onOpenBooking }) => {
-  const [index, setIndex] = useState(0);
+  const [currentImgIndex, setCurrentImgIndex] = useState(0);
+  const [direction, setDirection] = useState(0);
 
-  useEffect(() => {
-    if (!notifications || notifications.length === 0) return;
-    const timer = setInterval(() => {
-      setIndex((prev) => (prev + 1) % notifications.length);
-    }, 3500); 
-    return () => clearInterval(timer);
-  }, []);
+  const nextSlide = () => {
+    setDirection(1);
+    setCurrentImgIndex((prev) => (prev + 1) % heroImages.length);
+  };
 
-  if (!notifications || notifications.length === 0) {
-    return null;
-  }
+  const prevSlide = () => {
+    setDirection(-1);
+    setCurrentImgIndex((prev) => (prev - 1 + heroImages.length) % heroImages.length);
+  };
+
+  const variants = {
+    enter: (direction: number) => ({
+      x: direction > 0 ? '100%' : '-100%',
+      opacity: 0
+    }),
+    center: {
+      zIndex: 1,
+      x: 0,
+      opacity: 1
+    },
+    exit: (direction: number) => ({
+      zIndex: 0,
+      x: direction < 0 ? '100%' : '-100%',
+      opacity: 0
+    })
+  };
 
   const springConfig = {
     type: "spring" as const,
@@ -57,12 +80,6 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, scrollToSection, onOpenB
     damping: 22,
     mass: 1.2
   };
-
-  const visibleCards = [
-    notifications[index % notifications.length],
-    notifications[(index + 1) % notifications.length],
-    notifications[(index + 2) % notifications.length],
-  ].filter(Boolean);
 
   return (
     <section className="relative w-full flex items-center justify-center p-3 md:p-5 lg:p-6 pb-0">
@@ -95,60 +112,119 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, scrollToSection, onOpenB
           </video>
         </div>
 
-        <div className="relative z-10 flex-1 w-full px-6 sm:px-10 md:px-20 lg:px-28 py-16 lg:py-24 flex flex-col justify-between overflow-hidden">
-          <div className="h-12 md:h-16" />
-          <div className="w-full">
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-              className="text-[10vw] sm:text-[7vw] md:text-[6vw] lg:text-[84px] xl:text-[96px] font-bold text-white leading-[0.95] tracking-tighter max-w-5xl text-left"
-            >
-              Events und <br />
-              Aktivierungen, <br />
-              <span className="bg-gradient-to-r from-[#2dd4bf] to-[#84cc16] bg-clip-text text-transparent font-bold">
-                <span className="whitespace-nowrap">die in Erinnerung</span> <br /> 
-                bleiben.
-              </span>
-            </motion.h1>
-          </div>
-
-          <div className="flex flex-col lg:grid lg:grid-cols-2 gap-16 lg:gap-0 items-end w-full">
-            <div className="relative w-full max-w-[340px] md:max-w-[420px] h-32 md:h-48 flex items-end">
-              {/* Notifications removed */}
-            </div>
-
-            <div className="flex flex-col items-center lg:items-end text-center lg:text-right space-y-8 md:space-y-10 w-full">
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
+        <div className="relative z-10 flex-1 w-full px-6 sm:px-10 md:px-20 lg:px-28 py-16 lg:py-24 flex flex-col justify-center overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            {/* Left Column: Text Content */}
+            <div className="flex flex-col space-y-8 md:space-y-12">
+              <motion.h1
+                initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1, delay: 0.4 }}
-                className="text-white text-xl sm:text-2xl md:text-2xl xl:text-[28px] font-bold max-w-lg leading-[1.2] tracking-tight"
+                transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                className="text-[10vw] sm:text-[7vw] md:text-[6vw] lg:text-[64px] xl:text-[80px] font-bold text-white leading-[0.95] tracking-tighter text-left"
               >
-                Wir schaffen Erlebnisse, die Marken aktivieren, Zielgruppen begeistern und datenbasierte Ergebnisse liefern.
-              </motion.p>
+                Events und <br />
+                Aktivierungen, <br />
+                <span className="bg-gradient-to-r from-[#2dd4bf] to-[#84cc16] bg-clip-text text-transparent font-bold">
+                  <span className="whitespace-nowrap">die in Erinnerung</span> <br /> 
+                  bleiben.
+                </span>
+              </motion.h1>
 
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
-                className="flex items-center justify-center lg:justify-end gap-6 sm:gap-8 w-full"
-              >
-                <button 
-                  onClick={() => onOpenBooking?.()}
-                  className="bg-emerald-400 hover:bg-emerald-300 text-slate-900 px-6 py-3.5 sm:px-10 sm:py-5 rounded-full font-black text-base sm:text-xl transition-all shadow-[0_0_50px_rgba(52,211,153,0.3)] hover:scale-105 active:scale-95 tracking-tighter"
+              <div className="flex flex-col items-start space-y-8 md:space-y-10">
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1, delay: 0.4 }}
+                  className="text-white text-xl sm:text-2xl md:text-2xl xl:text-[24px] font-bold max-w-lg leading-[1.2] tracking-tight text-left"
                 >
-                  Termin vereinbaren
-                </button>
-                <button 
-                  onClick={() => scrollToSection?.('competencies')}
-                  className="group inline-flex items-center gap-2 text-white/90 hover:text-white font-bold text-sm sm:text-lg transition-all hover:translate-x-1 tracking-tighter"
+                  Wir schaffen Erlebnisse, die Marken aktivieren, Zielgruppen begeistern und datenbasierte Ergebnisse liefern.
+                </motion.p>
+
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.8, delay: 0.6 }}
+                  className="flex items-center gap-6 sm:gap-8 w-full"
                 >
-                  Mehr erfahren
-                  <ArrowRight className="w-3.5 h-3.5 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
-                </button>
-              </motion.div>
+                  <button 
+                    onClick={() => onOpenBooking?.()}
+                    className="bg-emerald-400 hover:bg-emerald-300 text-slate-900 px-6 py-3.5 sm:px-8 sm:py-4 rounded-full font-black text-base sm:text-lg transition-all shadow-[0_0_50px_rgba(52,211,153,0.3)] hover:scale-105 active:scale-95 tracking-tighter"
+                  >
+                    Termin vereinbaren
+                  </button>
+                  <button 
+                    onClick={() => scrollToSection?.('competencies')}
+                    className="group inline-flex items-center gap-2 text-white/90 hover:text-white font-bold text-sm sm:text-lg transition-all hover:translate-x-1 tracking-tighter"
+                  >
+                    Mehr erfahren
+                    <ArrowRight className="w-3.5 h-3.5 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
+                  </button>
+                </motion.div>
+              </div>
             </div>
+
+            {/* Right Column: Image Slider */}
+            <motion.div 
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="relative aspect-[4/3] lg:aspect-[4/5] xl:aspect-square w-full rounded-[2.5rem] md:rounded-[3.5rem] overflow-hidden group shadow-2xl"
+            >
+              <AnimatePresence initial={false} custom={direction}>
+                <motion.img
+                  key={currentImgIndex}
+                  src={heroImages[currentImgIndex]}
+                  custom={direction}
+                  variants={variants}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  transition={{
+                    x: { type: "spring", stiffness: 300, damping: 30 },
+                    opacity: { duration: 0.5 }
+                  }}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              </AnimatePresence>
+
+              {/* Slider Controls */}
+              <div className="absolute inset-0 flex items-center justify-between p-4 opacity-0 group-hover:opacity-100 transition-opacity z-20">
+                <button
+                  onClick={(e) => { e.stopPropagation(); prevSlide(); }}
+                  className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all"
+                >
+                  <span className="sr-only">Previous</span>
+                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+                <button
+                  onClick={(e) => { e.stopPropagation(); nextSlide(); }}
+                  className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-all"
+                >
+                  <span className="sr-only">Next</span>
+                  <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
+
+              {/* Slider Indicators */}
+              <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+                {heroImages.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => {
+                      setDirection(i > currentImgIndex ? 1 : -1);
+                      setCurrentImgIndex(i);
+                    }}
+                    className={`h-1.5 rounded-full transition-all duration-300 ${
+                      i === currentImgIndex ? 'w-8 bg-white' : 'w-2 bg-white/30'
+                    }`}
+                  />
+                ))}
+              </div>
+            </motion.div>
           </div>
         </div>
       </div>
