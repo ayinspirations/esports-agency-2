@@ -104,7 +104,7 @@ export const Competencies: React.FC<CompetenciesProps> = ({ onNavigate }) => {
   const data = [
     { title: "Gamification", icon: <Gamepad2 />, image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=800", description: "Interaktive Erlebnisse, die Markenbindung durch spielerische Elemente vertiefen." },
     { title: "Esports Events", icon: <Trophy />, image: "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&q=80&w=800", description: "Von Turnieren bis zu professionellen Wettbewerben – wir planen Events." },
-    { title: "Eventtechnik", icon: <Monitor />, image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=800", description: "Modernste Technik-Setups für Messen und Großveranstaltungen weltweit." },
+    { title: "Eventtechnik", icon: <Monitor />, image: "/images/competencies/eventtechnik.jpg", description: "Modernste Technik-Setups für Messen und Großveranstaltungen weltweit." },
     { title: "Plattformen", icon: <Cpu />, image: "https://images.unsplash.com/photo-1551288049-bbbda5366391?auto=format&fit=crop&q=80&w=1200", description: "Skalierbare Softwarelösungen und Turnierplattformen für Ihre Community." },
     { title: "Streaming", icon: <PlayCircle />, image: "https://images.unsplash.com/photo-1598550874175-4d0fe4a2c90b?auto=format&fit=crop&q=80&w=800", description: "Professionelle Broadcast-Produktion für maximale digitale Reichweite." }
   ];
