@@ -115,66 +115,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, scrollToSection, onOpenB
 
           <div className="flex flex-col lg:grid lg:grid-cols-2 gap-16 lg:gap-0 items-end w-full">
             <div className="relative w-full max-w-[340px] md:max-w-[420px] h-32 md:h-48 flex items-end">
-              <div className="relative w-full h-24 md:h-36">
-                <AnimatePresence initial={false}>
-                  {visibleCards.map((notif, i) => (
-                    <motion.div
-                      key={notif.id}
-                      initial={{ opacity: 0, y: -20, scale: 0.85, x: 20, filter: "blur(10px)" }}
-                      animate={{
-                        zIndex: 10 - i,
-                        scale: 1 - i * 0.06,
-                        y: -i * 24,
-                        x: i * 14,
-                        opacity: i === 0 ? 1 : i === 1 ? 0.3 : 0.05,
-                        filter: `blur(${i * 2}px)`,
-                      }}
-                      exit={{ 
-                        opacity: 0, 
-                        y: 80, 
-                        scale: 0.9,
-                        filter: "blur(15px)",
-                        transition: { duration: 1, ease: [0.32, 0, 0.67, 0] } 
-                      }}
-                      transition={springConfig}
-                      className="absolute bottom-0 left-0 w-full glass bg-white/5 border-white/10 p-4 sm:p-6 rounded-[2rem] sm:rounded-[2.5rem] shadow-2xl backdrop-blur-2xl"
-                    >
-                      <div className="flex items-center gap-4 md:gap-5">
-                        <div className="w-10 h-10 md:w-16 md:h-16 rounded-full overflow-hidden border-2 border-emerald-400/50 shrink-0 shadow-lg relative bg-slate-800">
-                          <img 
-                            src={notif.img} 
-                            alt="Avatar" 
-                            className="w-full h-full object-cover" 
-                            onError={(e) => { e.currentTarget.style.display = 'none'; }}
-                          />
-                        </div>
-                        <div className="flex-1">
-                          <div className="flex items-center gap-2 mb-1">
-                            <div className="w-3.5 h-3.5 md:w-4 md:h-4 bg-emerald-500 rounded flex items-center justify-center">
-                              {notif.icon}
-                            </div>
-                            <span className="text-[7px] md:text-[9px] font-black text-white uppercase tracking-[0.2em] opacity-60">{notif.type}</span>
-                          </div>
-                          <div className="text-white text-[11px] md:text-sm font-bold tracking-tight">
-                            Event: <span className="text-emerald-400">{notif.title}</span>
-                          </div>
-                          <div className="flex items-center gap-3 mt-2 md:mt-3">
-                            <div className="flex-1 h-1 bg-white/10 rounded-full overflow-hidden">
-                              <motion.div 
-                                initial={false} 
-                                animate={{ width: `${notif.progress}%` }} 
-                                transition={{ duration: 2, ease: "circOut" }} 
-                                className="h-full bg-emerald-400" 
-                              />
-                            </div>
-                            <span className="text-emerald-400 font-black text-[8px] md:text-[10px]">{notif.progress}%</span>
-                          </div>
-                        </div>
-                      </div>
-                    </motion.div>
-                  ))}
-                </AnimatePresence>
-              </div>
+              {/* Notifications removed */}
             </div>
 
             <div className="flex flex-col items-center lg:items-end text-center lg:text-right space-y-8 md:space-y-10 w-full">
