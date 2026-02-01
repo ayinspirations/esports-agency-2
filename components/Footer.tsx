@@ -24,7 +24,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, scrollToSection }) =
     <div className="w-full bg-[#d1dbd2]">
       <div className="max-w-[1440px] mx-auto w-full px-6 md:px-14">
         <footer className="py-24 md:py-32 relative">
-          <div className="max-w-[1440px] mx-auto">
+          <div className="max-w-[1100px] mx-auto">
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12 lg:gap-16 mb-24">
               <div className="col-span-2">
                 <a 
