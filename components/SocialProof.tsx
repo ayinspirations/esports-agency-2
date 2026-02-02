@@ -79,13 +79,13 @@ export const SocialProof: React.FC = () => {
               href={logo.link || '#'}
               target={logo.link ? "_blank" : undefined}
               rel={logo.link ? "noopener noreferrer" : undefined}
-              className={`flex items-center justify-center grayscale opacity-20 hover:grayscale-0 hover:opacity-100 transition-all duration-500 shrink-0 ${logo.link ? 'cursor-pointer' : 'cursor-default'}`}
+              className={`flex items-center justify-center transition-all duration-500 shrink-0 ${logo.link ? 'cursor-pointer' : 'cursor-default'}`}
               onClick={(e) => !logo.link && e.preventDefault()}
             >
               <img 
                 src={logo.url} 
                 alt={logo.name} 
-                className={`w-auto object-contain transition-all duration-700 ${logo.blend ? 'mix-blend-multiply' : ''} ${
+                className={`w-auto object-contain transition-all duration-700 ${
                   logo.name === 'Indeed' || logo.name === 'Mercedes Benz' 
                     ? 'h-16 md:h-20 lg:h-24 max-w-[180px] md:max-w-[260px]' 
                     : 'h-12 md:h-16 lg:h-20 max-w-[140px] md:max-w-[220px]'
