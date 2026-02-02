@@ -282,28 +282,126 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
           {/* Row 3 */}
           <div className="col-span-1 lg:col-span-6 h-[400px]">
             <CaseCard 
-              client="Razer"
-              title="Live Broadcast Studio"
-              video="/videos/cases/case-4.mp4"
+              client="RBLZ"
+              title="RBLZ GAMING"
+              image="/images/cases/rblz.jpg"
               size="small"
-              category="Live Content"
+              category="Esports Team"
               delay={0.4}
               className="h-full w-full"
             />
           </div>
 
           <div className="col-span-1 lg:col-span-6 h-[400px]">
+            <CaseCard 
+              client="REWE"
+              title="REWE x 1. FC Köln"
+              image="/images/cases/rewe-koeln.jpg"
+              size="small"
+              category="Brand Activation"
+              delay={0.5}
+              className="h-full w-full"
+            />
+          </div>
+
+          {/* Row 4 */}
+          <div className="col-span-1 lg:col-span-4 h-[400px]">
+            <CaseCard 
+              client="Heilbronn"
+              title="Techday HHN"
+              image="/images/cases/techday.jpg"
+              size="small"
+              category="University Event"
+              delay={0.6}
+              className="h-full w-full"
+            />
+          </div>
+
+          <div className="col-span-1 lg:col-span-4 h-[400px]">
+            <CaseCard 
+              client="Heilbronn"
+              title="MeetIT Heilbronn"
+              image="/images/cases/meetit.jpg"
+              size="small"
+              category="IT Career Fair"
+              delay={0.7}
+              className="h-full w-full"
+            />
+          </div>
+
+          <div className="col-span-1 lg:col-span-4 h-[400px]">
+            <CaseCard 
+              client="Stuttgart"
+              title="0711 SHOWDOWN"
+              image="/images/cases/0711.jpg"
+              size="small"
+              category="Esports Tournament"
+              delay={0.8}
+              className="h-full w-full"
+            />
+          </div>
+
+          {/* Row 5 */}
+          <div className="col-span-1 lg:col-span-6 h-[400px]">
+            <CaseCard 
+              client="BFV"
+              title="BFV eFOOTBALL"
+              image="/images/cases/bfv.jpg"
+              size="small"
+              category="Association"
+              delay={0.9}
+              className="h-full w-full"
+            />
+          </div>
+
+          <div className="col-span-1 lg:col-span-6 h-[400px]">
+            <CaseCard 
+              client="Akademie"
+              title="Developer Akademie"
+              image="/images/cases/dev-akademie.jpg"
+              size="small"
+              category="Education"
+              delay={1.0}
+              className="h-full w-full"
+            />
+          </div>
+
+          {/* Row 6 */}
+          <div className="col-span-1 lg:col-span-4 h-[400px]">
+            <CaseCard 
+              client="NASPA"
+              title="SVWW eSport Cup"
+              image="/images/cases/svww.jpg"
+              size="small"
+              category="Esports Cup"
+              delay={1.1}
+              className="h-full w-full"
+            />
+          </div>
+
+          <div className="col-span-1 lg:col-span-4 h-[400px]">
+            <CaseCard 
+              client="München"
+              title="Stadt München"
+              image="/images/cases/muenchen.jpg"
+              size="small"
+              category="Public Sector"
+              delay={1.2}
+              className="h-full w-full"
+            />
+          </div>
+
+          <div className="col-span-1 lg:col-span-4 h-[400px]">
             <motion.button
               onClick={() => onScroll?.('contact')}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 1, delay: 1.3, ease: [0.16, 1, 0.3, 1] }}
               className="relative group overflow-hidden rounded-[2.5rem] bg-emerald-500 cursor-pointer flex flex-col justify-between p-8 md:p-12 shadow-2xl shadow-emerald-500/20 text-left h-full w-full"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-emerald-400 to-emerald-600 group-hover:scale-105 transition-transform duration-700" />
               
-              {/* Level Up Animation */}
               <div className="absolute inset-0 flex items-center justify-center opacity-20 pointer-events-none overflow-hidden">
                 <motion.div
                   animate={{ 
