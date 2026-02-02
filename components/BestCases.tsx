@@ -329,7 +329,7 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
             />
           </div>
 
-          <div className="col-span-1 lg:col-span-4 h-[400px] lg:h-[500px]">
+          <div className="col-span-1 lg:col-span-4 h-[400px]">
             <motion.div 
               onClick={() => onNavigate?.('showdown-0711')}
               className="h-full w-full cursor-pointer"
