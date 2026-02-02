@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, Award, Zap, Users, ShieldCheck, Trophy, Target, ChevronLeft, ChevronRight, Globe, Share2, Smartphone, Layout, HeartHandshake, Youtube } from 'lucide-react';
+import { ArrowLeft, Award, Zap, Users, ShieldCheck, Trophy, Target, ChevronLeft, ChevronRight, Globe, Share2, Smartphone, Layout, HeartHandshake, Youtube, Play } from 'lucide-react';
 
 interface CaseDetailProps {
   onBack: () => void;
@@ -16,13 +16,13 @@ const images = [
 const videos = [
   {
     id: 'rbLU0nKoO-Y',
-    title: 'BFV eFootball Highlight 1',
+    title: 'BFV EFOOTBALL HIGHLIGHT 1',
     thumbnail: 'https://img.youtube.com/vi/rbLU0nKoO-Y/maxresdefault.jpg',
     url: 'https://youtu.be/rbLU0nKoO-Y'
   },
   {
     id: 'UdnMraIQ3UY',
-    title: 'BFV eFootball Highlight 2',
+    title: 'SCHULTAG DER SUPERLATIVE',
     thumbnail: 'https://img.youtube.com/vi/UdnMraIQ3UY/maxresdefault.jpg',
     url: 'https://youtu.be/UdnMraIQ3UY'
   }
@@ -199,14 +199,14 @@ export const BFVDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
             {/* YouTube Videos Section */}
             <section className="space-y-8 mt-16">
               <h3 className="text-2xl font-black uppercase tracking-tighter">Highlights & Eindrücke</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                 {videos.map((video) => (
                   <a 
                     key={video.id}
                     href={video.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="relative group rounded-[2rem] overflow-hidden aspect-video shadow-xl block"
+                    className="relative group rounded-[2.5rem] overflow-hidden aspect-video shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)] block border-4 border-slate-950/10 hover:border-red-600/20 transition-all duration-500"
                   >
                     <img 
                       src={video.thumbnail} 
@@ -214,23 +214,18 @@ export const BFVDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     
-                    {/* YouTube Play Button Layer */}
-                    <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-300 group-hover:opacity-0">
-                      <div className="w-16 h-16 rounded-full bg-red-600 flex items-center justify-center text-white shadow-2xl">
-                        <Youtube className="w-8 h-8 fill-current" />
+                    {/* Authentic YouTube Play Button */}
+                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                      <div className="w-20 h-14 bg-red-600 rounded-[1.2rem] flex items-center justify-center text-white shadow-2xl transition-all duration-300 group-hover:bg-red-700 group-hover:scale-110">
+                        <Play className="w-8 h-8 fill-current translate-x-0.5" />
                       </div>
                     </div>
 
-                    {/* Hover Overlay with Title */}
-                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-6">
-                      <div className="text-center">
-                        <div className="w-12 h-12 rounded-full bg-red-600 flex items-center justify-center text-white mx-auto mb-4">
-                          <Youtube className="w-6 h-6 fill-current" />
-                        </div>
-                        <h4 className="text-white font-black text-lg md:text-xl uppercase tracking-tighter leading-tight">
-                          {video.title}
-                        </h4>
-                      </div>
+                    {/* Authentic YouTube Title Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-8">
+                      <h4 className="text-white font-black text-xl md:text-2xl uppercase tracking-tighter leading-none mb-2">
+                        {video.title}
+                      </h4>
                     </div>
                   </a>
                 ))}
