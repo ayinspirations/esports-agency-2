@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, CheckCircle2, Award, Zap, Users, ShieldCheck } from 'lucide-react';
+import { ArrowLeft, Award, Zap, Users, ShieldCheck } from 'lucide-react';
 
 interface CaseDetailProps {
   onBack: () => void;
@@ -145,7 +145,7 @@ export const Showdown0711Detail: React.FC<CaseDetailProps> = ({ onBack }) => {
                     Projekt anfragen
                   </button>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>
