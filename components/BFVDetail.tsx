@@ -213,9 +213,23 @@ export const BFVDetail: React.FC<CaseDetailProps> = ({ onBack }) => {
                       alt={video.title}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
-                      <div className="w-16 h-16 rounded-full bg-red-600 flex items-center justify-center text-white shadow-2xl transition-transform duration-300 group-hover:scale-110">
+                    
+                    {/* YouTube Play Button Layer */}
+                    <div className="absolute inset-0 flex items-center justify-center transition-opacity duration-300 group-hover:opacity-0">
+                      <div className="w-16 h-16 rounded-full bg-red-600 flex items-center justify-center text-white shadow-2xl">
                         <Youtube className="w-8 h-8 fill-current" />
+                      </div>
+                    </div>
+
+                    {/* Hover Overlay with Title */}
+                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-6">
+                      <div className="text-center">
+                        <div className="w-12 h-12 rounded-full bg-red-600 flex items-center justify-center text-white mx-auto mb-4">
+                          <Youtube className="w-6 h-6 fill-current" />
+                        </div>
+                        <h4 className="text-white font-black text-lg md:text-xl uppercase tracking-tighter leading-tight">
+                          {video.title}
+                        </h4>
                       </div>
                     </div>
                   </a>
