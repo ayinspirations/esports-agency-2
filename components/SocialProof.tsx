@@ -72,28 +72,53 @@ export const SocialProof: React.FC = () => {
 
       {/* Infinite Logo Band */}
       <div className="relative flex overflow-hidden group py-0 z-20">
-        <div className="animate-marquee-scroll flex items-center gap-16 md:gap-32 lg:gap-40 whitespace-nowrap px-10 md:px-20 py-4">
-          {marqueeLogos.map((logo: any, i) => (
-            <a 
-              key={`${logo.name}-${i}`} 
-              href={logo.link || '#'}
-              target={logo.link ? "_blank" : undefined}
-              rel={logo.link ? "noopener noreferrer" : undefined}
-              className={`flex items-center justify-center transition-all duration-500 shrink-0 pointer-events-auto ${logo.link ? 'cursor-pointer' : 'cursor-default'}`}
-              onClick={(e) => !logo.link && e.preventDefault()}
-            >
-              <img 
-                src={logo.url} 
-                alt={logo.name} 
-                className={`w-auto object-contain transition-all duration-700 ${
-                  logo.name === 'Indeed' || logo.name === 'Mercedes Benz' 
-                    ? 'h-16 md:h-20 lg:h-24 max-w-[180px] md:max-w-[260px]' 
-                    : 'h-12 md:h-16 lg:h-20 max-w-[140px] md:max-w-[220px]'
-                }`}
-                loading="lazy"
-              />
-            </a>
-          ))}
+        <div className="animate-marquee-scroll flex items-center whitespace-nowrap px-0 py-4">
+          <div className="flex items-center gap-16 md:gap-32 lg:gap-40 px-8 md:px-16 lg:px-20 shrink-0">
+            {logos.map((logo: any, i) => (
+              <a 
+                key={`${logo.name}-1-${i}`} 
+                href={logo.link || '#'}
+                target={logo.link ? "_blank" : undefined}
+                rel={logo.link ? "noopener noreferrer" : undefined}
+                className={`flex items-center justify-center transition-all duration-500 shrink-0 pointer-events-auto ${logo.link ? 'cursor-pointer' : 'cursor-default'}`}
+                onClick={(e) => !logo.link && e.preventDefault()}
+              >
+                <img 
+                  src={logo.url} 
+                  alt={logo.name} 
+                  className={`w-auto object-contain transition-all duration-700 ${
+                    logo.name === 'Indeed' || logo.name === 'Mercedes Benz' 
+                      ? 'h-16 md:h-20 lg:h-24 max-w-[180px] md:max-w-[260px]' 
+                      : 'h-12 md:h-16 lg:h-20 max-w-[140px] md:max-w-[220px]'
+                  }`}
+                  loading="lazy"
+                />
+              </a>
+            ))}
+          </div>
+          <div className="flex items-center gap-16 md:gap-32 lg:gap-40 px-8 md:px-16 lg:px-20 shrink-0">
+            {logos.map((logo: any, i) => (
+              <a 
+                key={`${logo.name}-2-${i}`} 
+                href={logo.link || '#'}
+                target={logo.link ? "_blank" : undefined}
+                rel={logo.link ? "noopener noreferrer" : undefined}
+                className={`flex items-center justify-center transition-all duration-500 shrink-0 pointer-events-auto ${logo.link ? 'cursor-pointer' : 'cursor-default'}`}
+                onClick={(e) => !logo.link && e.preventDefault()}
+              >
+                <img 
+                  src={logo.url} 
+                  alt={logo.name} 
+                  className={`w-auto object-contain transition-all duration-700 ${
+                    logo.name === 'Indeed' || logo.name === 'Mercedes Benz' 
+                      ? 'h-16 md:h-20 lg:h-24 max-w-[180px] md:max-w-[260px]' 
+                      : 'h-12 md:h-16 lg:h-20 max-w-[140px] md:max-w-[220px]'
+                  }`}
+                  loading="lazy"
+                />
+              </a>
+            ))}
+          </div>
         </div>
 
         {/* Linear-inspired Gradient Fades */}
