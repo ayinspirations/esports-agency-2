@@ -17,10 +17,11 @@ import { CaseDetail } from './components/CaseDetail';
 import { TSystemsDetail } from './components/TSystemsDetail';
 import { BayernZocktDetail } from './components/BayernZocktDetail';
 import { Showdown0711Detail } from './components/Showdown0711Detail';
+import { BFVDetail } from './components/BFVDetail';
 import { CookiePopup } from './components/CookiePopup';
 import { BookingModal } from './components/BookingModal';
 
-type Page = 'home' | 'services' | 'impressum' | 'privacy' | 'hagebau' | 'tsystems' | 'bayern-zockt' | 'showdown-0711';
+type Page = 'home' | 'services' | 'impressum' | 'privacy' | 'hagebau' | 'tsystems' | 'bayern-zockt' | 'showdown-0711' | 'bfv';
 
 export default function App() {
   const [activePage, setActivePage] = useState<Page>('home');
@@ -32,7 +33,7 @@ export default function App() {
     
     const handleHashChange = () => {
       const currentHash = window.location.hash.replace('#', '');
-      const validPages: string[] = ['home', 'services', 'impressum', 'privacy', 'hagebau', 'tsystems', 'bayern-zockt', 'showdown-0711'];
+      const validPages: string[] = ['home', 'services', 'impressum', 'privacy', 'hagebau', 'tsystems', 'bayern-zockt', 'showdown-0711', 'bfv'];
       
       if (validPages.includes(currentHash)) {
         setActivePage(currentHash as Page);
@@ -128,6 +129,7 @@ export default function App() {
         {activePage === 'tsystems' && <TSystemsDetail onBack={() => navigateTo('home')} />}
         {activePage === 'bayern-zockt' && <BayernZocktDetail onBack={() => navigateTo('home')} />}
         {activePage === 'showdown-0711' && <Showdown0711Detail onBack={() => navigateTo('home')} />}
+        {activePage === 'bfv' && <BFVDetail onBack={() => navigateTo('home')} />}
         {activePage === 'impressum' && <LegalPage type="impressum" />}
         {activePage === 'privacy' && <LegalPage type="privacy" />}
       </main>
