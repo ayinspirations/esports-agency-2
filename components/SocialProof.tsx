@@ -48,8 +48,11 @@ export const SocialProof: React.FC = () => {
           width: fit-content;
           will-change: transform;
         }
+        .animate-marquee-scroll:hover {
+          animation-play-state: paused;
+        }
       `}</style>
-
+      
       {/* Apple-inspired Headline Section - Centered */}
       <div className="pb-16 md:pb-24 px-6 md:px-14">
         <div className="max-w-[1440px] mx-auto text-center">
@@ -68,7 +71,7 @@ export const SocialProof: React.FC = () => {
       </div>
 
       {/* Infinite Logo Band */}
-      <div className="relative flex overflow-hidden group py-0">
+      <div className="relative flex overflow-hidden group py-0 z-20">
         <div className="animate-marquee-scroll flex items-center gap-16 md:gap-32 lg:gap-40 whitespace-nowrap px-10 md:px-20 py-4">
           {marqueeLogos.map((logo: any, i) => (
             <a 
@@ -76,7 +79,7 @@ export const SocialProof: React.FC = () => {
               href={logo.link || '#'}
               target={logo.link ? "_blank" : undefined}
               rel={logo.link ? "noopener noreferrer" : undefined}
-              className={`flex items-center justify-center transition-all duration-500 shrink-0 ${logo.link ? 'cursor-pointer' : 'cursor-default'}`}
+              className={`flex items-center justify-center transition-all duration-500 shrink-0 pointer-events-auto ${logo.link ? 'cursor-pointer' : 'cursor-default'}`}
               onClick={(e) => !logo.link && e.preventDefault()}
             >
               <img 
