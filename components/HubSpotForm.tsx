@@ -44,11 +44,14 @@ export const HubSpotForm: React.FC = () => {
         formId: "1100960a-23d3-4104-9ba4-03dcd952f909",
         target: '#hs_form_target',
         css: '',
+        inlineMessage: "Vielen Dank!",
         onFormReady: () => {
           setStatus('ready');
           injectCustomStyles();
         },
-        onFormSubmitted: () => setStatus('submitted'),
+        onFormSubmitted: () => {
+          setStatus('submitted');
+        },
       });
     } catch (err) {
       console.warn('HubSpot could not be initialized (likely AdBlock)');
