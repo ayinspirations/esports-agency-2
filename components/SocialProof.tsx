@@ -72,7 +72,7 @@ export const SocialProof: React.FC = () => {
 
       {/* Infinite Logo Band */}
       <div className="relative flex overflow-hidden group py-0 z-20">
-        <div className="animate-marquee-scroll flex items-center whitespace-nowrap px-0 py-4" style={{ marginLeft: '-50%' }}>
+        <div className="animate-marquee-scroll flex items-center whitespace-nowrap px-0 py-4" style={{ transform: 'translateX(-41%)' }}>
           <div className="flex items-center gap-16 md:gap-32 lg:gap-40 px-8 md:px-16 lg:px-20 shrink-0">
             {logos.map((logo: any, i) => (
               <a 
