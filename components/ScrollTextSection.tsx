@@ -120,7 +120,7 @@ export const ScrollTextSection: React.FC = () => {
           >
             {[
               { color: 'bg-slate-950', text: 'white', title: 'Strategie.', sub: 'Design', height: 'min-h-[450px] lg:h-[600px]', content: 'Markenidentität klar definiert.', img: '/Strategie.jpg' },
-              { color: 'bg-slate-900', text: 'white', title: 'Wachstum.', sub: 'Growth', height: 'min-h-[450px] lg:h-[600px]', img: '/Wachstum.jpg' },
+              { color: 'bg-slate-900', text: 'white', title: 'Wachstum.', sub: 'Growth', height: 'min-h-[450px] lg:h-[600px]', video: '/videos/Wachstum.mov', img: '/Wachstum.jpg' },
               { color: 'bg-slate-100', text: 'white', title: 'Event.', sub: 'Live', height: 'min-h-[450px] lg:h-[600px]', img: '/images/status-quo/rewe-event.jpg' },
             ].map((card, i) => (
               <motion.div 
@@ -131,8 +131,22 @@ export const ScrollTextSection: React.FC = () => {
                 transition={{ duration: 1, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
                 className={`flex-shrink-0 w-[85vw] md:w-[400px] lg:w-full ${card.height} ${card.color} rounded-[3rem] p-10 md:p-12 flex flex-col justify-between relative overflow-hidden border border-black/5 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.15)] group snap-center`}
               >
-                {card.img && <img src={card.img} className="absolute inset-0 w-full h-full object-cover brightness-75 transition-transform duration-1000 group-hover:scale-105" />}
-                {card.img && <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />}
+                {card.video ? (
+                  <video
+                    src={card.video}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover brightness-75 transition-transform duration-1000 group-hover:scale-105"
+                  />
+                ) : card.img && (
+                  <img 
+                    src={card.img} 
+                    className="absolute inset-0 w-full h-full object-cover brightness-75 transition-transform duration-1000 group-hover:scale-105" 
+                  />
+                )}
+                {(card.img || card.video) && <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />}
                 
                 <div className="relative z-10">
                   <div className={`px-3 py-1.5 w-fit rounded-full border border-black/5 bg-white/10 backdrop-blur-md text-[8px] md:text-[10px] font-black uppercase tracking-[0.2em] text-${card.text}/70`}>{card.sub}</div>
