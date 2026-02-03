@@ -119,8 +119,8 @@ export const ScrollTextSection: React.FC = () => {
             }}
           >
             {[
-              { color: 'bg-slate-950', text: 'white', title: 'Strategie.', sub: 'Design', height: 'min-h-[450px] lg:h-[600px]', content: 'Markenidentität klar definiert.', img: '/Strategie.png' },
-              { color: 'bg-slate-900', text: 'white', title: 'Wachstum.', sub: 'Growth', height: 'min-h-[450px] lg:h-[600px]', img: '/Wachstum.png' },
+              { color: 'bg-slate-950', text: 'white', title: 'Strategie.', sub: 'Design', height: 'min-h-[450px] lg:h-[600px]', content: 'Markenidentität klar definiert.', img: '/Strategie.jpg' },
+              { color: 'bg-slate-900', text: 'white', title: 'Wachstum.', sub: 'Growth', height: 'min-h-[450px] lg:h-[600px]', img: '/Wachstum.jpg' },
               { color: 'bg-slate-100', text: 'white', title: 'Event.', sub: 'Live', height: 'min-h-[450px] lg:h-[600px]', img: '/images/status-quo/rewe-event.jpg' },
             ].map((card, i) => (
               <motion.div 
