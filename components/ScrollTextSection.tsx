@@ -65,19 +65,11 @@ export const ScrollTextSection: React.FC = () => {
     <div className="w-full flex items-center justify-center p-0 md:p-4">
       <section 
         ref={sectionRef}
-        className="w-full min-h-[140vh] md:min-h-[160vh] bg-white rounded-none md:rounded-[3.2rem] border-y md:border border-[#d1dbd2] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.1)] overflow-hidden relative flex flex-col py-24 md:py-32 lg:py-40 px-0 md:px-16 lg:px-24"
+        className="w-full min-h-[140vh] md:min-h-[160vh] bg-white rounded-none md:rounded-[3.2rem] border-y md:border border-[#d1dbd2] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.1)] overflow-hidden relative flex flex-col py-12 md:py-20 lg:py-24 px-0 md:px-16 lg:px-24"
       >
         
         {/* Top Content: Apple-style centered focus */}
-        <div className="flex flex-col items-center text-center w-full mb-24 md:mb-32 lg:mb-40 px-6 md:px-0">
-          <BeautifulAppear className="flex flex-col items-center mb-12">
-            <div className="flex flex-col items-center gap-4">
-              <div className="w-12 h-12 md:w-14 md:h-14 bg-[#10b981] rounded-2xl flex items-center justify-center rotate-12 shadow-2xl shadow-emerald-500/20 mb-4">
-                <span className="text-white text-lg md:text-lg font-black italic">!</span>
-              </div>
-              <span className="text-emerald-600 text-[10px] md:text-[11px] font-black tracking-[0.4em] uppercase">Status Quo</span>
-            </div>
-          </BeautifulAppear>
+        <div className="flex flex-col items-center text-center w-full mb-12 md:mb-20 lg:mb-24 px-6 md:px-0">
           
           <div className="max-w-5xl mx-auto">
             <h2 className="text-[clamp(32px,5vw,84px)] font-black leading-[1.05] tracking-tighter mb-12 flex flex-wrap justify-center">
@@ -127,8 +119,8 @@ export const ScrollTextSection: React.FC = () => {
             }}
           >
             {[
-              { color: 'bg-slate-950', text: 'white', title: 'Strategie.', sub: 'Design', height: 'min-h-[450px] lg:h-[600px]', content: 'Markenidentität klar definiert.' },
-              { color: 'bg-slate-900', text: 'white', title: 'Wachstum.', sub: 'Growth', height: 'min-h-[450px] lg:h-[600px]', img: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=1200' },
+              { color: 'bg-slate-950', text: 'white', title: 'Strategie.', sub: 'Design', height: 'min-h-[450px] lg:h-[600px]', content: 'Markenidentität klar definiert.', img: '/Strategie.png' },
+              { color: 'bg-slate-900', text: 'white', title: 'Wachstum.', sub: 'Growth', height: 'min-h-[450px] lg:h-[600px]', img: '/Wachstum.png' },
               { color: 'bg-slate-100', text: 'white', title: 'Event.', sub: 'Live', height: 'min-h-[450px] lg:h-[600px]', img: '/images/status-quo/rewe-event.jpg' },
             ].map((card, i) => (
               <motion.div 
