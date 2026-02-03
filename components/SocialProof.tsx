@@ -39,14 +39,16 @@ export const SocialProof: React.FC = () => {
     <div className="w-full overflow-hidden select-none bg-[#d1dbd2]">
       <style>{`
         @keyframes marquee-scroll {
-          0% { transform: translate3d(0, 0, 0); }
-          100% { transform: translate3d(-50%, 0, 0); }
+          from { transform: translate3d(0, 0, 0); }
+          to { transform: translate3d(-50%, 0, 0); }
         }
         .animate-marquee-scroll {
-          animation: marquee-scroll 60s linear infinite;
+          animation: marquee-scroll 40s linear infinite;
           display: flex;
           width: fit-content;
           will-change: transform;
+          backface-visibility: hidden;
+          perspective: 1000px;
         }
         .animate-marquee-scroll:hover {
           animation-play-state: paused;
@@ -72,7 +74,7 @@ export const SocialProof: React.FC = () => {
 
       {/* Infinite Logo Band */}
       <div className="relative flex overflow-hidden group py-0 z-20">
-        <div className="animate-marquee-scroll flex items-center whitespace-nowrap px-0 py-4" style={{ transform: 'translateX(-41%)' }}>
+        <div className="animate-marquee-scroll flex items-center whitespace-nowrap px-0 py-4">
           <div className="flex items-center gap-16 md:gap-32 lg:gap-40 px-8 md:px-16 lg:px-20 shrink-0">
             {logos.map((logo: any, i) => (
               <a 
@@ -86,12 +88,13 @@ export const SocialProof: React.FC = () => {
                 <img 
                   src={logo.url} 
                   alt={logo.name} 
-                  className={`w-auto object-contain transition-all duration-700 ${
+                  className={`w-auto object-contain ${
                     logo.name === 'Indeed' || logo.name === 'Mercedes Benz' 
                       ? 'h-16 md:h-20 lg:h-24 max-w-[180px] md:max-w-[260px]' 
                       : 'h-12 md:h-16 lg:h-20 max-w-[140px] md:max-w-[220px]'
                   }`}
-                  loading="lazy"
+                  loading="eager"
+                  decoding="async"
                 />
               </a>
             ))}
@@ -109,12 +112,13 @@ export const SocialProof: React.FC = () => {
                 <img 
                   src={logo.url} 
                   alt={logo.name} 
-                  className={`w-auto object-contain transition-all duration-700 ${
+                  className={`w-auto object-contain ${
                     logo.name === 'Indeed' || logo.name === 'Mercedes Benz' 
                       ? 'h-16 md:h-20 lg:h-24 max-w-[180px] md:max-w-[260px]' 
                       : 'h-12 md:h-16 lg:h-20 max-w-[140px] md:max-w-[220px]'
                   }`}
-                  loading="lazy"
+                  loading="eager"
+                  decoding="async"
                 />
               </a>
             ))}
