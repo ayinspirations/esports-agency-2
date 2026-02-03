@@ -202,7 +202,7 @@ export const Competencies: React.FC<CompetenciesProps> = ({ onNavigate }) => {
           </div>
 
           {/* DESKTOP GRID */}
-          <div className="hidden lg:grid lg:grid-cols-5 gap-6 xl:gap-8">
+          <div className="hidden lg:grid lg:grid-cols-3 gap-8 xl:gap-10">
             {data.map((item, i) => (
               <motion.div
                 key={i}
@@ -210,7 +210,7 @@ export const Competencies: React.FC<CompetenciesProps> = ({ onNavigate }) => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 1, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                className="w-full aspect-[1/1.55] min-h-[460px]"
+                className="w-full aspect-[16/10] min-h-[400px]"
               >
                 <CompetencyCard 
                   {...item} 
