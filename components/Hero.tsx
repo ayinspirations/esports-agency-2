@@ -37,11 +37,10 @@ interface HeroProps {
 }
 
 const heroImages = [
-  '/images/bayern-zockt/hero.jpg',
-  '/images/t-systems/hero.jpg',
-  '/Bayern-zockt-Mehring-Kern-150724_-_Copy_1770161937011.jpg',
-  '/REWExfckoln_1770162125933.jpg',
-  '/images/hagebau/slide-1.jpg'
+  '/hero-rewe.jpg',
+  '/hero-gamechanger.jpg',
+  '/hero-hagebau.jpg',
+  '/hero-bayernzockt.png'
 ];
 
 export const Hero: React.FC<HeroProps> = ({ onNavigate, scrollToSection, onOpenBooking }) => {
