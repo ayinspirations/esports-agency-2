@@ -16,9 +16,6 @@ interface CardProps {
 const CompetencyCard: React.FC<CardProps> = ({ title, icon, description, image, video, isAutoFlipped, onNavigate }) => {
   const [isHovered, setIsHovered] = useState(false);
   
-  // Flip-Logik für Desktop: Auto-Sequenz oder Hover
-  const isFlipped = (isHovered || isAutoFlipped) && window.innerWidth >= 1024;
-
   const titleFontSize = "text-[clamp(18px,4.5vw,26px)] lg:text-[clamp(13px,1.1vw,18px)]";
 
   const handleInteraction = (e: React.MouseEvent) => {
@@ -29,18 +26,14 @@ const CompetencyCard: React.FC<CardProps> = ({ title, icon, description, image, 
 
   return (
     <div 
-      className="relative w-full h-full perspective-1000 cursor-pointer select-none"
+      className="relative w-full h-full cursor-pointer select-none"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={handleInteraction}
     >
-      <motion.div
-        className="relative w-full h-full preserve-3d"
-        animate={{ rotateY: isFlipped ? 180 : 0 }}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      >
-        {/* FRONT SIDE */}
-        <div className="absolute inset-0 backface-hidden rounded-[2.5rem] overflow-hidden shadow-xl border border-black/5">
+      <div className="relative w-full h-full">
+        {/* FRONT SIDE ONLY */}
+        <div className="absolute inset-0 rounded-[2.5rem] overflow-hidden shadow-xl border border-black/5">
           {video ? (
             <video
               src={video}
@@ -56,45 +49,20 @@ const CompetencyCard: React.FC<CardProps> = ({ title, icon, description, image, 
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-900/10 to-transparent" />
           
           <div className="absolute bottom-8 left-7 right-7 lg:bottom-10 lg:left-8 lg:right-8">
-            <div className="flex items-center gap-3 mb-5 lg:mb-6">
-              <div className="w-10 h-10 lg:w-14 lg:h-14 bg-emerald-500 rounded-xl flex items-center justify-center text-white shadow-lg shrink-0">
+            <div className="flex items-center gap-3 mb-2">
+              <div className="w-8 h-8 lg:w-10 lg:h-10 bg-emerald-500 rounded-lg flex items-center justify-center text-white shadow-lg shrink-0">
                 {React.cloneElement(icon as React.ReactElement<any>, { className: 'w-1/2 h-1/2' })}
               </div>
-              <div className="h-px flex-1 bg-white/20" />
+              <div className="h-[1px] w-8 bg-white/20" />
             </div>
-            <div className="min-h-[2.5rem] flex items-end">
+            <div className="flex items-end">
               <h3 className={`${titleFontSize} font-black text-white tracking-tight uppercase leading-[1.1] whitespace-normal break-words`}>
                 {title}
               </h3>
             </div>
           </div>
         </div>
-
-        {/* BACK SIDE (Desktop Only) */}
-        <div className="absolute inset-0 backface-hidden rounded-[2.5rem] bg-white p-8 lg:p-10 flex flex-col shadow-2xl border border-black/5 rotateY-180">
-          <div className="w-10 h-10 lg:w-14 lg:h-14 bg-emerald-500 rounded-xl flex items-center justify-center text-white mb-6 lg:mb-8 shrink-0">
-            {React.cloneElement(icon as React.ReactElement<any>, { className: 'w-1/2 h-1/2' })}
-          </div>
-          
-          <div className="flex-1 flex flex-col overflow-hidden">
-            <div className="min-h-[2.5rem] mb-4 flex items-start">
-              <h3 className={`${titleFontSize} font-black text-slate-900 tracking-[0.05em] uppercase leading-[1.1] whitespace-normal break-words`}>
-                {title}
-              </h3>
-            </div>
-            <p className="text-slate-500 text-[clamp(14px,1.2vw,16px)] lg:text-[clamp(11px,0.85vw,14px)] font-bold leading-relaxed tracking-tight">
-              {description}
-            </p>
-          </div>
-
-          <div className="mt-4 pt-4 lg:mt-6 lg:pt-6 border-t border-slate-100 flex items-center justify-between shrink-0">
-            <span className="text-[10px] lg:text-[11px] font-black uppercase tracking-[0.2em] text-emerald-500">Mehr erfahren</span>
-            <div className="w-8 h-8 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-500">
-              <ArrowRight className="w-4 h-4" />
-            </div>
-          </div>
-        </div>
-      </motion.div>
+      </div>
     </div>
   );
 };
@@ -214,7 +182,7 @@ export const Competencies: React.FC<CompetenciesProps> = ({ onNavigate }) => {
               >
                 <CompetencyCard 
                   {...item} 
-                  isAutoFlipped={activeIndex === i} 
+                  isAutoFlipped={false} 
                   onNavigate={onNavigate}
                 />
               </motion.div>
