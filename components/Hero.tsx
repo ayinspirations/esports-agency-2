@@ -95,6 +95,14 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, scrollToSection, onOpenB
         
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
           <div className="absolute inset-0 bg-[#020617]" />
+          
+          {/* Preload images */}
+          <div className="hidden">
+            {heroImages.map((src) => (
+              <img key={src} src={src} alt="" />
+            ))}
+          </div>
+
           <div 
             className="absolute -top-[10%] -left-[5%] w-[60%] h-[70%] opacity-60"
             style={{
@@ -157,8 +165,8 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, scrollToSection, onOpenB
                         animate="center"
                         exit="exit"
                         transition={{
-                          x: { type: "spring", stiffness: 300, damping: 30 },
-                          opacity: { duration: 0.5 }
+                          x: { type: "tween", duration: 0.4, ease: "easeInOut" },
+                          opacity: { duration: 0.3 }
                         }}
                         drag="x"
                         dragConstraints={{ left: 0, right: 0 }}
@@ -227,8 +235,8 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate, scrollToSection, onOpenB
                     animate="center"
                     exit="exit"
                     transition={{
-                      x: { type: "spring", stiffness: 300, damping: 30 },
-                      opacity: { duration: 0.5 }
+                      x: { type: "tween", duration: 0.4, ease: "easeInOut" },
+                      opacity: { duration: 0.3 }
                     }}
                     className="absolute inset-0 w-full h-full object-cover"
                   />
