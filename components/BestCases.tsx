@@ -149,8 +149,8 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
             />
           </div>
           
-          {/* Row 2 - Small Cards */}
-          <div className="col-span-1 lg:col-span-4 h-[400px] lg:h-[500px]">
+          {/* Row 2 - Bayern Zockt (Double Width) */}
+          <div className="col-span-1 lg:col-span-8 h-[400px] lg:h-[500px]">
             <motion.div 
               onClick={() => onNavigate?.('bayern-zockt')}
               className="h-full w-full cursor-pointer"
@@ -160,11 +160,15 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
               transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             >
               <div className="relative group overflow-hidden rounded-[2.5rem] bg-slate-900 h-full w-full">
-                <img 
-                  src="/images/bayern-zockt/hero.jpg" 
-                  alt="Bayern Zockt"
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-                />
+                >
+                  <source src="/bayern-zockt-new.mov" type="video/mp4" />
+                </video>
                 
                 <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent opacity-80 transition-opacity group-hover:opacity-90" />
                 <div className="absolute inset-0 bg-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
@@ -236,7 +240,7 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
             </motion.div>
           </div>
 
-          <div className="col-span-1 lg:col-span-4 h-[400px] lg:h-[500px]">
+          <div className="col-span-1 lg:col-span-12 h-[400px] lg:h-[500px]">
             <motion.div 
               onClick={() => onNavigate?.('hagebau')}
               className="h-full w-full cursor-pointer"
