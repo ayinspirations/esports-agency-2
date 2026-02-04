@@ -22,6 +22,10 @@ export const TSystemsDetail: React.FC<TSystemsDetailProps> = ({ onBack }) => {
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
   }, []);
 
   const nextSlide = useCallback(() => {
