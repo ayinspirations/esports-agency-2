@@ -37,8 +37,8 @@ export const SocialProof: React.FC = () => {
     <div className="w-full overflow-hidden select-none bg-[#d1dbd2]">
       <style>{`
         @keyframes marquee-scroll {
-          from { transform: translate3d(0, 0, 0); }
-          to { transform: translate3d(-50%, 0, 0); }
+          from { transform: translate3d(-300px, 0, 0); }
+          to { transform: translate3d(calc(-300px - 50%), 0, 0); }
         }
         .animate-marquee-scroll {
           animation: marquee-scroll 40s linear infinite;
