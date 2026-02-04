@@ -36,11 +36,15 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
               transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             >
               <div className="relative group overflow-hidden rounded-[2.5rem] bg-slate-900 h-full w-full">
-                <img 
-                  src="/images/t-systems/hero.jpg" 
-                  alt="T-Systems"
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-                />
+                >
+                  <source src="/videos/copy_F69586CF-8AA3-4705-94FD-D75DC73A64F7.mov" type="video/mp4" />
+                </video>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent opacity-80 transition-opacity group-hover:opacity-90" />
                 <div className="absolute inset-0 bg-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                 <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-between z-10">
@@ -159,15 +163,11 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
               transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
             >
               <div className="relative group overflow-hidden rounded-[2.5rem] bg-slate-900 h-full w-full">
-                <video
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
+                <img 
+                  src="/images/bayern-zockt/hero.jpg" 
+                  alt="Bayern Zockt"
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-                >
-                  <source src="/videos/copy_F69586CF-8AA3-4705-94FD-D75DC73A64F7.mov" type="video/mp4" />
-                </video>
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent opacity-80 transition-opacity group-hover:opacity-90" />
                 <div className="absolute inset-0 bg-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                 <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-between z-10">
