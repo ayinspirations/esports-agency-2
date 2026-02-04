@@ -10,7 +10,6 @@ const logos = [
   { name: 'Indeed', url: '/logos/indeed-logo.png', link: 'https://www.indeed.com' },
   { name: 'Mercedes Benz', url: '/logos/mercedes-benz-logo-png_seeklogo-91081.png' },
   { name: 'Bayerischer Fussballverband', url: '/logos/Bayerischer_Fussballverband.svg.png', link: 'https://www.bfv.de' },
-  { name: 'Porsche', url: '/logos/818338.png' },
   { name: 'Rewe', url: '/logos/a2dec73e456eae1312e702710b3cb5c5.jpg' },
   { name: 'Schalke 04', url: '/logos/sc3377fe86-schalke-04-logo-fc-schalke-04-liblogo.png', blend: true },
   { name: 'RB Leipzig', url: '/logos/RB-Leipzig-Logo-500x281.png' },
