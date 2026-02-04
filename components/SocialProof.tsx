@@ -18,7 +18,6 @@ const logos = [
   { name: 'Techniker Krankenkasse', url: '/logos/Techniker_Krankenkasse_2016_logo.svg.png' },
   { name: '1. FC Köln', url: '/logos/1-fc-koln-logo-png_seeklogo-505047.png' },
   { name: 'Holstein Kiel', url: '/logos/kieler-sv-holstein-logo-png_seeklogo-295846.png' },
-  { name: 'Hamburger SV', url: '/logos/Hamburger_SV_logo.svg.png' },
   { name: 'VfB Stuttgart', url: '/logos/VfB-Stuttgart-logo-2014-500x281.png' },
   { name: 'VfL Bochum', url: '/logos/VfL_Bochum_logo.svg.png' },
   { name: 'OneFootball', url: '/logos/onefootball-logo-png_seeklogo-458889.png' },
