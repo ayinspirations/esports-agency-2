@@ -40,6 +40,7 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
                   muted
                   loop
                   playsInline
+                  preload="auto"
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                 >
                   <source src="/videos/copy_F69586CF-8AA3-4705-94FD-D75DC73A64F7.mov" type="video/mp4" />
@@ -76,6 +77,7 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
                   muted
                   loop
                   playsInline
+                  preload="auto"
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                 >
                   <source src="/videos/copy_5444A7DC-9BDF-4DF7-927D-C5A1C8DC7E39.mov" type="video/mp4" />
@@ -148,6 +150,7 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
                   muted
                   loop
                   playsInline
+                  preload="auto"
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                 >
                   <source src="/videos/copy_41103C48-CF53-4B8E-A316-5051B2CA42CD.mov" type="video/mp4" />

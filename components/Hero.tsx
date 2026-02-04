@@ -122,7 +122,7 @@ export const Hero: React.FC<HeroProps> = ({ scrollToSection, onOpenBooking }) =>
             }}
           />
 
-          <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover opacity-10 mix-blend-overlay">
+          <video autoPlay muted loop playsInline preload="auto" className="absolute inset-0 w-full h-full object-cover opacity-10 mix-blend-overlay">
             <source src="/videos/hero-bg.mp4" type="video/mp4" />
           </video>
         </div>
