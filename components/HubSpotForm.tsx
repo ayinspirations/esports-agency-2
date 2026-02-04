@@ -51,6 +51,8 @@ export const HubSpotForm: React.FC = () => {
         },
         onFormSubmitted: () => {
           setStatus('submitted');
+          // Smooth scroll to success message
+          window.scrollTo({ top: document.getElementById('contact')?.offsetTop || 0, behavior: 'smooth' });
         },
       });
     } catch (err) {

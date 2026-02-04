@@ -13,13 +13,15 @@ export const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) =
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
-      document.body.style.touchAction = 'none';
-      document.body.style.position = 'fixed';
-      document.body.style.width = '100%';
       // Listen for message from HubSpot iframe to detect successful booking
       const handleMessage = (event: MessageEvent) => {
-        if (event.data.meetingBooked) {
-          setIsSuccess(true);
+        // HubSpot postMessage events often contain form submission data
+        try {
+          if (event.data.meetingBooked || (event.data.type === 'hsFormCallback' && event.data.eventName === 'onFormSubmitted')) {
+            setIsSuccess(true);
+          }
+        } catch (e) {
+          // Ignore errors from other messages
         }
       };
       window.addEventListener('message', handleMessage);
