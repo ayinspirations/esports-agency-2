@@ -37,8 +37,8 @@ export const SocialProof: React.FC = () => {
     <div className="w-full overflow-hidden select-none bg-[#d1dbd2]">
       <style>{`
         @keyframes marquee-scroll {
-          from { transform: translate3d(-300px, 0, 0); }
-          to { transform: translate3d(calc(-300px - 50%), 0, 0); }
+          from { transform: translate3d(0, 0, 0); }
+          to { transform: translate3d(-50%, 0, 0); }
         }
         .animate-marquee-scroll {
           animation: marquee-scroll 40s linear infinite;
@@ -72,7 +72,13 @@ export const SocialProof: React.FC = () => {
 
       {/* Infinite Logo Band */}
       <div className="relative flex overflow-hidden group py-0 z-20">
-        <div className="animate-marquee-scroll flex items-center whitespace-nowrap px-0 py-4">
+        <motion.div 
+          initial={{ x: "20%" }}
+          whileInView={{ x: "0%" }}
+          viewport={{ once: true, margin: "0px" }}
+          transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+          className="animate-marquee-scroll flex items-center whitespace-nowrap px-0 py-4"
+        >
           <div className="flex items-center gap-16 md:gap-32 lg:gap-40 px-8 md:px-16 lg:px-20 shrink-0">
             {logos.map((logo: any, i) => (
               <a 
