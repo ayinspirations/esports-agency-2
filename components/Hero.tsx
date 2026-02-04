@@ -39,7 +39,10 @@ const heroImages = [
   '/hero-rewe.jpg',
   '/hero-gamechanger.jpg',
   '/hero-hagebau.jpg',
-  '/hero-bayernzockt.png',
+  '/hero-bayernzockt.png'
+];
+
+const avatarImages = [
   '/images/avatars/user-1.jpg',
   '/images/avatars/user-2.jpg',
   '/images/avatars/user-3.jpg'
@@ -47,7 +50,7 @@ const heroImages = [
 
 // Preload critical images immediately
 if (typeof window !== 'undefined') {
-  heroImages.forEach(src => {
+  [...heroImages, ...avatarImages].forEach(src => {
     const img = new Image();
     img.src = src;
   });
