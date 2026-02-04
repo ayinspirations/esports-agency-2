@@ -28,8 +28,7 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
           {/* Row 1 - T-Systems and Hagebau (Side by Side) */}
           <div className="col-span-1 lg:col-span-6 h-[400px] lg:h-[500px]">
             <motion.div 
-              onClick={() => onNavigate?.('tsystems')}
-              className="h-full w-full cursor-pointer"
+              className="h-full w-full"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -52,18 +51,11 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
                     <div className="px-4 py-1.5 bg-white/10 backdrop-blur-xl rounded-full text-[10px] font-black uppercase tracking-[0.2em] text-white">
                       Employer Branding
                     </div>
-                    <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-xl flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0 duration-500">
-                      <ArrowUpRight className="w-6 h-6" />
-                    </div>
                   </div>
                   <div>
                     <h3 className="text-white text-[clamp(24px,3.2vw,38px)] font-black leading-[0.9] tracking-tighter uppercase mb-4 drop-shadow-2xl">
                       T-Systems
                     </h3>
-                    <div className="flex items-center gap-3 text-white/60 text-[10px] font-black uppercase tracking-[0.2em] opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100 transform translate-y-2 group-hover:translate-y-0">
-                      <span>Case Study ansehen</span>
-                      <div className="h-[2px] w-8 bg-emerald-500 rounded-full" />
-                    </div>
                   </div>
                 </div>
               </div>
@@ -72,8 +64,7 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
 
           <div className="col-span-1 lg:col-span-6 h-[400px] lg:h-[500px]">
             <motion.div 
-              onClick={() => onNavigate?.('hagebau')}
-              className="h-full w-full cursor-pointer"
+              className="h-full w-full"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -96,18 +87,11 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
                     <div className="px-4 py-1.5 bg-white/10 backdrop-blur-xl rounded-full text-[10px] font-black uppercase tracking-[0.2em] text-white">
                       Recruiting
                     </div>
-                    <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-xl flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0 duration-500">
-                      <ArrowUpRight className="w-6 h-6" />
-                    </div>
                   </div>
                   <div>
                     <h3 className="text-white text-[clamp(24px,3.2vw,38px)] font-black leading-[0.9] tracking-tighter uppercase mb-4 drop-shadow-2xl">
                       Hagebau Bolay
                     </h3>
-                    <div className="flex items-center gap-3 text-white/60 text-[10px] font-black uppercase tracking-[0.2em] opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100 transform translate-y-2 group-hover:translate-y-0">
-                      <span>Case Study ansehen</span>
-                      <div className="h-[2px] w-8 bg-emerald-500 rounded-full" />
-                    </div>
                   </div>
                 </div>
               </div>
@@ -115,13 +99,13 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
           </div>
 
           {/* Row 2 - Full Width Gaming Arena */}
-          <div className="col-span-1 lg:col-span-12">
+          <div className="col-span-1 lg:col-span-12 h-[400px] md:h-[600px] lg:h-[500px]">
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="relative group overflow-hidden rounded-[2.5rem] bg-slate-900 aspect-video lg:aspect-[21/9] min-h-0 md:min-h-[600px] w-full"
+              className="relative group overflow-hidden rounded-[2.5rem] bg-slate-900 h-full w-full"
             >
               <video
                 autoPlay
@@ -139,18 +123,11 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
                   <div className="px-4 py-1.5 bg-white/10 backdrop-blur-xl rounded-full text-[10px] font-black uppercase tracking-[0.2em] text-white">
                     Event Production
                   </div>
-                  <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-xl flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0 duration-500">
-                    <ArrowUpRight className="w-6 h-6" />
-                  </div>
                 </div>
                 <div>
                   <h3 className="text-white text-[clamp(32px,5vw,64px)] font-black leading-[0.9] tracking-tighter uppercase mb-4 drop-shadow-2xl">
                     GAMING IN BAYERN
                   </h3>
-                  <div className="flex items-center gap-3 text-white/60 text-[10px] font-black uppercase tracking-[0.2em] opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100 transform translate-y-2 group-hover:translate-y-0">
-                    <span>Case Study ansehen</span>
-                    <div className="h-[2px] w-8 bg-emerald-500 rounded-full" />
-                  </div>
                 </div>
               </div>
             </motion.div>
@@ -159,8 +136,7 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
           {/* Row 3 - Bayern Zockt and CTA */}
           <div className="col-span-1 lg:col-span-8 h-[400px] lg:h-[500px]">
             <motion.div 
-              onClick={() => onNavigate?.('bayern-zockt')}
-              className="h-full w-full cursor-pointer"
+              className="h-full w-full"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -183,18 +159,11 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
                     <div className="px-4 py-1.5 bg-white/10 backdrop-blur-xl rounded-full text-[10px] font-black uppercase tracking-[0.2em] text-white">
                       eSport Projekt
                     </div>
-                    <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-xl flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0 duration-500">
-                      <ArrowUpRight className="w-6 h-6" />
-                    </div>
                   </div>
                   <div>
                     <h3 className="text-white text-[clamp(24px,3.2vw,38px)] font-black leading-[0.9] tracking-tighter uppercase mb-4 drop-shadow-2xl">
                       Bayern Zockt
                     </h3>
-                    <div className="flex items-center gap-3 text-white/60 text-[10px] font-black uppercase tracking-[0.2em] opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100 transform translate-y-2 group-hover:translate-y-0">
-                      <span>Case Study ansehen</span>
-                      <div className="h-[2px] w-8 bg-emerald-500 rounded-full" />
-                    </div>
                   </div>
                 </div>
               </div>

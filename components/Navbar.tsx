@@ -24,7 +24,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onNavigate, scrollToSection, act
   const handleLinkClick = (e: React.MouseEvent, target: string) => {
     e.preventDefault();
     setIsOpen(false);
-    if (target === 'home' || target === 'services') {
+    if (target === 'home') {
       onNavigate(target as any);
     } else {
       scrollToSection(target);

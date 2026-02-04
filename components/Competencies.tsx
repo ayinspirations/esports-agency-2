@@ -18,18 +18,11 @@ const CompetencyCard: React.FC<CardProps> = ({ title, icon, description, image, 
   
   const titleFontSize = "text-[clamp(18px,4.5vw,26px)] lg:text-[clamp(13px,1.1vw,18px)]";
 
-  const handleInteraction = (e: React.MouseEvent) => {
-    if (window.innerWidth < 1024) {
-      onNavigate('services');
-    }
-  };
-
   return (
     <div 
-      className="relative w-full h-full cursor-pointer select-none"
+      className="relative w-full h-full select-none"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      onClick={handleInteraction}
     >
       <div className="relative w-full h-full">
         {/* FRONT SIDE ONLY */}

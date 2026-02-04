@@ -31,7 +31,6 @@ const notifications = [
 ];
 
 interface HeroProps {
-  onNavigate: (page: 'home' | 'services') => void;
   scrollToSection?: (id: string) => void;
   onOpenBooking?: () => void;
 }
@@ -43,7 +42,7 @@ const heroImages = [
   '/hero-bayernzockt.png'
 ];
 
-export const Hero: React.FC<HeroProps> = ({ onNavigate, scrollToSection, onOpenBooking }) => {
+export const Hero: React.FC<HeroProps> = ({ scrollToSection, onOpenBooking }) => {
   const [currentImgIndex, setCurrentImgIndex] = useState(0);
   const [direction, setDirection] = useState(0);
 
