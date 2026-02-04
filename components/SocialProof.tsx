@@ -127,7 +127,7 @@ export const SocialProof: React.FC = () => {
               </a>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         {/* Linear-inspired Gradient Fades */}
         <div className="absolute inset-y-0 left-0 w-24 md:w-[200px] lg:w-[400px] bg-gradient-to-r from-[#d1dbd2] via-[#d1dbd2]/80 to-transparent z-10 pointer-events-none" />
