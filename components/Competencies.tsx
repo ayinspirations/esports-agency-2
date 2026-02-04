@@ -33,7 +33,7 @@ const CompetencyCard: React.FC<CardProps> = ({ title, icon, description, image, 
     >
       <div className="relative w-full h-full">
         {/* FRONT SIDE ONLY */}
-        <div className="absolute inset-0 rounded-[2.5rem] overflow-hidden shadow-xl border border-black/5">
+        <div className="absolute inset-0 rounded-[2.5rem] overflow-hidden shadow-xl">
           {video ? (
             <video
               src={video}

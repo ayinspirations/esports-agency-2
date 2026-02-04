@@ -49,10 +49,10 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
                 <div className="absolute inset-0 bg-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                 <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-between z-10">
                   <div className="flex justify-between items-start">
-                    <div className="px-4 py-1.5 bg-white/10 backdrop-blur-xl rounded-full border border-white/20 text-[10px] font-black uppercase tracking-[0.2em] text-white">
+                    <div className="px-4 py-1.5 bg-white/10 backdrop-blur-xl rounded-full text-[10px] font-black uppercase tracking-[0.2em] text-white">
                       Employer Branding
                     </div>
-                    <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0 duration-500">
+                    <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-xl flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0 duration-500">
                       <ArrowUpRight className="w-6 h-6" />
                     </div>
                   </div>
@@ -93,10 +93,10 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
                 <div className="absolute inset-0 bg-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                 <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-between z-10">
                   <div className="flex justify-between items-start">
-                    <div className="px-4 py-1.5 bg-white/10 backdrop-blur-xl rounded-full border border-white/20 text-[10px] font-black uppercase tracking-[0.2em] text-white">
+                    <div className="px-4 py-1.5 bg-white/10 backdrop-blur-xl rounded-full text-[10px] font-black uppercase tracking-[0.2em] text-white">
                       Recruiting
                     </div>
-                    <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0 duration-500">
+                    <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-xl flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0 duration-500">
                       <ArrowUpRight className="w-6 h-6" />
                     </div>
                   </div>
@@ -136,10 +136,10 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
               <div className="absolute inset-0 bg-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
               <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-between z-10">
                 <div className="flex justify-between items-start">
-                  <div className="px-4 py-1.5 bg-white/10 backdrop-blur-xl rounded-full border border-white/20 text-[10px] font-black uppercase tracking-[0.2em] text-white">
+                  <div className="px-4 py-1.5 bg-white/10 backdrop-blur-xl rounded-full text-[10px] font-black uppercase tracking-[0.2em] text-white">
                     Event Production
                   </div>
-                  <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0 duration-500">
+                  <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-xl flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0 duration-500">
                     <ArrowUpRight className="w-6 h-6" />
                   </div>
                 </div>
@@ -180,10 +180,10 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
                 <div className="absolute inset-0 bg-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                 <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-between z-10">
                   <div className="flex justify-between items-start">
-                    <div className="px-4 py-1.5 bg-white/10 backdrop-blur-xl rounded-full border border-white/20 text-[10px] font-black uppercase tracking-[0.2em] text-white">
+                    <div className="px-4 py-1.5 bg-white/10 backdrop-blur-xl rounded-full text-[10px] font-black uppercase tracking-[0.2em] text-white">
                       eSport Projekt
                     </div>
-                    <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0 duration-500">
+                    <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-xl flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0 duration-500">
                       <ArrowUpRight className="w-6 h-6" />
                     </div>
                   </div>
@@ -215,7 +215,7 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
                 <Sparkles className="w-32 h-32 text-white" />
               </div>
               <div className="relative z-10">
-                <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-xl border border-white/30 flex items-center justify-center text-white mb-6">
+                <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-xl flex items-center justify-center text-white mb-6">
                   <ArrowUpRight className="w-6 h-6" />
                 </div>
                 <h3 className="text-slate-950 text-[clamp(20px,1.8vw,28px)] font-black leading-[1] tracking-tighter uppercase max-w-[220px]">
