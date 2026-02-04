@@ -8,30 +8,10 @@ export const CookiePopup: React.FC = () => {
   useEffect(() => {
     const hasAccepted = localStorage.getItem('cookies-accepted');
     if (!hasAccepted) {
-      const timer = setTimeout(() => setIsVisible(true), 2000);
+      const timer = setTimeout(() => setIsVisible(true), 1500);
       return () => clearTimeout(timer);
     }
   }, []);
-
-  useEffect(() => {
-    if (isVisible) {
-      document.body.style.overflow = 'hidden';
-      document.body.style.touchAction = 'none';
-      document.body.style.position = 'fixed';
-      document.body.style.width = '100%';
-    } else {
-      document.body.style.overflow = 'unset';
-      document.body.style.touchAction = 'unset';
-      document.body.style.position = 'unset';
-      document.body.style.width = 'unset';
-    }
-    return () => {
-      document.body.style.overflow = 'unset';
-      document.body.style.touchAction = 'unset';
-      document.body.style.position = 'unset';
-      document.body.style.width = 'unset';
-    };
-  }, [isVisible]);
 
   const handleAccept = () => {
     localStorage.setItem('cookies-accepted', 'true');
