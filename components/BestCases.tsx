@@ -167,7 +167,7 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
                   playsInline
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                 >
-                  <source src="/bayern-zockt-correct.mov" type="video/mp4" />
+                  <source src="/videos/copy_F69586CF-8AA3-4705-94FD-D75DC73A64F7.mov" type="video/mp4" />
                 </video>
                 
                 <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent opacity-80 transition-opacity group-hover:opacity-90" />
