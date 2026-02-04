@@ -41,10 +41,8 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
                   alt="T-Systems"
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                 />
-                
                 <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent opacity-80 transition-opacity group-hover:opacity-90" />
                 <div className="absolute inset-0 bg-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-
                 <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-between z-10">
                   <div className="flex justify-between items-start">
                     <div className="px-4 py-1.5 bg-white/10 backdrop-blur-xl rounded-full border border-white/20 text-[10px] font-black uppercase tracking-[0.2em] text-white">
@@ -54,7 +52,6 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
                       <ArrowUpRight className="w-6 h-6" />
                     </div>
                   </div>
-
                   <div>
                     <h3 className="text-white text-[clamp(24px,3.2vw,38px)] font-black leading-[0.9] tracking-tighter uppercase mb-4 drop-shadow-2xl">
                       T-Systems
@@ -84,10 +81,8 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
                   alt="Hagebau Bolay"
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                 />
-                
                 <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent opacity-80 transition-opacity group-hover:opacity-90" />
                 <div className="absolute inset-0 bg-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-
                 <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-between z-10">
                   <div className="flex justify-between items-start">
                     <div className="px-4 py-1.5 bg-white/10 backdrop-blur-xl rounded-full border border-white/20 text-[10px] font-black uppercase tracking-[0.2em] text-white">
@@ -97,7 +92,6 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
                       <ArrowUpRight className="w-6 h-6" />
                     </div>
                   </div>
-
                   <div>
                     <h3 className="text-white text-[clamp(24px,3.2vw,38px)] font-black leading-[0.9] tracking-tighter uppercase mb-4 drop-shadow-2xl">
                       Hagebau Bolay
@@ -112,7 +106,49 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
             </motion.div>
           </div>
 
-          {/* Row 2 - Bayern Zockt and CTA */}
+          {/* Row 2 - Full Width Gaming Arena */}
+          <div className="col-span-1 lg:col-span-12">
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              className="relative group overflow-hidden rounded-[2.5rem] bg-slate-900 aspect-video lg:aspect-[21/9] min-h-0 md:min-h-[600px] w-full"
+            >
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+              >
+                <source src="/videos/copy_C23D97A5-2B74-44A6-A5E0-66CEB8290725.mov" type="video/mp4" />
+              </video>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent opacity-80 transition-opacity group-hover:opacity-90" />
+              <div className="absolute inset-0 bg-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-between z-10">
+                <div className="flex justify-between items-start">
+                  <div className="px-4 py-1.5 bg-white/10 backdrop-blur-xl rounded-full border border-white/20 text-[10px] font-black uppercase tracking-[0.2em] text-white">
+                    Event Production
+                  </div>
+                  <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-all transform translate-y-2 group-hover:translate-y-0 duration-500">
+                    <ArrowUpRight className="w-6 h-6" />
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-white text-[clamp(32px,5vw,64px)] font-black leading-[0.9] tracking-tighter uppercase mb-4 drop-shadow-2xl">
+                    GAMING IN BAYERN
+                  </h3>
+                  <div className="flex items-center gap-3 text-white/60 text-[10px] font-black uppercase tracking-[0.2em] opacity-0 group-hover:opacity-100 transition-all duration-500 delay-100 transform translate-y-2 group-hover:translate-y-0">
+                    <span>Case Study ansehen</span>
+                    <div className="h-[2px] w-8 bg-emerald-500 rounded-full" />
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Row 3 - Bayern Zockt and CTA */}
           <div className="col-span-1 lg:col-span-8 h-[400px] lg:h-[500px]">
             <motion.div 
               onClick={() => onNavigate?.('bayern-zockt')}
@@ -120,7 +156,7 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
             >
               <div className="relative group overflow-hidden rounded-[2.5rem] bg-slate-900 h-full w-full">
                 <video
@@ -132,10 +168,8 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
                 >
                   <source src="/videos/copy_F69586CF-8AA3-4705-94FD-D75DC73A64F7.mov" type="video/mp4" />
                 </video>
-                
                 <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent opacity-80 transition-opacity group-hover:opacity-90" />
                 <div className="absolute inset-0 bg-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-
                 <div className="absolute inset-0 p-8 md:p-12 flex flex-col justify-between z-10">
                   <div className="flex justify-between items-start">
                     <div className="px-4 py-1.5 bg-white/10 backdrop-blur-xl rounded-full border border-white/20 text-[10px] font-black uppercase tracking-[0.2em] text-white">
@@ -145,7 +179,6 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
                       <ArrowUpRight className="w-6 h-6" />
                     </div>
                   </div>
-
                   <div>
                     <h3 className="text-white text-[clamp(24px,3.2vw,38px)] font-black leading-[0.9] tracking-tighter uppercase mb-4 drop-shadow-2xl">
                       Bayern Zockt
@@ -166,14 +199,13 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
               className="relative group overflow-hidden rounded-[2.5rem] bg-emerald-400 cursor-pointer flex flex-col justify-between p-8 md:p-12 shadow-2xl shadow-emerald-500/20 text-left h-full w-full"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-emerald-300 to-emerald-500 group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute top-0 right-0 p-12 opacity-10 group-hover:opacity-20 transition-opacity">
                 <Sparkles className="w-32 h-32 text-white" />
               </div>
-              
               <div className="relative z-10">
                 <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-xl border border-white/30 flex items-center justify-center text-white mb-6">
                   <ArrowUpRight className="w-6 h-6" />
@@ -182,7 +214,6 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
                   Bereit für Ihr eigenes Projekt?
                 </h3>
               </div>
-
               <div className="relative z-10 flex items-center gap-3 text-slate-900/60 text-[10px] font-black uppercase tracking-[0.2em]">
                 <span>Projekt anfragen</span>
                 <div className="h-[2px] w-8 bg-slate-900/40 rounded-full" />
