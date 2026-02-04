@@ -175,28 +175,38 @@ export const BestCases: React.FC<{ onScroll?: (id: string) => void; onNavigate?:
 
           <div className="col-span-1 lg:col-span-4 h-[400px] lg:h-[500px]">
             <motion.button
-              onClick={() => onScroll?.('contact')}
+              onClick={() => onScroll?.('contact-section')}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              className="relative group overflow-hidden rounded-[2.5rem] bg-emerald-400 cursor-pointer flex flex-col justify-between p-8 md:p-12 shadow-2xl shadow-emerald-500/20 text-left h-full w-full"
+              className="relative group overflow-hidden rounded-[2.5rem] bg-[#020617] cursor-pointer flex flex-col justify-center items-center p-8 md:p-12 shadow-2xl text-center h-full w-full border border-white/5"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-emerald-300 to-emerald-500 group-hover:scale-105 transition-transform duration-700" />
-              <div className="absolute top-0 right-0 p-12 opacity-10 group-hover:opacity-20 transition-opacity">
-                <Sparkles className="w-32 h-32 text-white" />
-              </div>
-              <div className="relative z-10">
-                <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-xl flex items-center justify-center text-white mb-6">
-                  <ArrowUpRight className="w-6 h-6" />
-                </div>
-                <h3 className="text-slate-950 text-[clamp(20px,1.8vw,28px)] font-black leading-[1] tracking-tighter uppercase max-w-[220px]">
-                  Bereit für Ihr eigenes Projekt?
+              <div 
+                className="absolute inset-0 opacity-40 group-hover:opacity-60 transition-opacity duration-700"
+                style={{
+                  background: 'radial-gradient(circle at 50% 50%, #1e40af 0%, transparent 70%)',
+                }}
+              />
+              
+              <div className="relative z-10 flex flex-col items-center">
+                <h3 className="text-white text-[clamp(28px,3.5vw,44px)] font-black leading-[1.1] tracking-tighter uppercase">
+                  TAKE YOUR <br />
+                  PROJECT <br />
+                  TO THE <br />
+                  <span className="bg-gradient-to-r from-cyan-400 via-emerald-400 to-blue-500 bg-clip-text text-transparent animate-gradient-x">
+                    NEXT LEVEL.
+                  </span>
                 </h3>
-              </div>
-              <div className="relative z-10 flex items-center gap-3 text-slate-900/60 text-[10px] font-black uppercase tracking-[0.2em]">
-                <span>Projekt anfragen</span>
-                <div className="h-[2px] w-8 bg-slate-900/40 rounded-full" />
+                
+                <motion.div 
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="mt-8 px-6 py-3 bg-white text-black rounded-full font-black text-sm uppercase tracking-widest flex items-center gap-2 group-hover:bg-emerald-400 transition-colors duration-300"
+                >
+                  Get Started
+                  <ArrowUpRight className="w-4 h-4" />
+                </motion.div>
               </div>
             </motion.button>
           </div>
