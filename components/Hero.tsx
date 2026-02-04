@@ -39,14 +39,19 @@ const heroImages = [
   '/hero-rewe.jpg',
   '/hero-gamechanger.jpg',
   '/hero-hagebau.jpg',
-  '/hero-bayernzockt.png'
+  '/hero-bayernzockt.png',
+  '/images/avatars/user-1.jpg',
+  '/images/avatars/user-2.jpg',
+  '/images/avatars/user-3.jpg'
 ];
 
 // Preload critical images immediately
-heroImages.forEach(src => {
-  const img = new Image();
-  img.src = src;
-});
+if (typeof window !== 'undefined') {
+  heroImages.forEach(src => {
+    const img = new Image();
+    img.src = src;
+  });
+}
 
 export const Hero: React.FC<HeroProps> = ({ scrollToSection, onOpenBooking }) => {
   const [currentImgIndex, setCurrentImgIndex] = useState(0);
